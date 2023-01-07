@@ -32,7 +32,11 @@ const Comment = ({ comment }) => {
 
 	const handleLike = async () => {
 		dispatch(likeComment(comment.id));
-		setCommentLike(comment?.like.length + 1);
+		if (commentLike === comment?.like.length) {
+			setCommentLike(comment?.like.length + 1);
+		} else {
+			setCommentLike(comment?.like.length);
+		}
 		setCommentLikeIcon("d-none");
 		setCommentLikeIcon2("d-none");
 		setCommentUnlikeIcon2("d-block");
@@ -40,7 +44,11 @@ const Comment = ({ comment }) => {
 
 	const handleUnlike = async () => {
 		dispatch(unlikeComment(comment.id));
-		setCommentLike(comment?.like.length);
+		if (commentLike === comment?.like.length) {
+			setCommentLike(comment?.like.length - 1);
+		} else {
+			setCommentLike(comment?.like.length);
+		}
 		setCommentUnlikeIcon("d-none");
 		setCommentUnlikeIcon2("d-none");
 		setCommentLikeIcon2("d-block");

@@ -127,11 +127,11 @@ const SinglePost = () => {
 									</div>
 									{user ? (
 										<div className="post-option">
-											{posts.like?.length}
 											<div className="like-post">
 												{posts.like?.includes(user?.userId.toString()) ? (
 													<button className="like" onClick={handleUnlike}>
 														<AiFillHeart size="1.4em" />
+														{posts.like?.length}
 													</button>
 												) : (
 													<button className="like" onClick={handleLike}>
