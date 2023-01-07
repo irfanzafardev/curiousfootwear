@@ -1,0 +1,75 @@
+.comment {
+	padding-block: 10px;
+	display: flex;
+}
+
+.comment .user-profile img {
+	width: 55px;
+	height: 55px;
+	border-radius: 100%;
+	object-fit: cover;
+}
+
+.comment .comment-detail {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding-left: 12px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1;
+}
+
+.comment .comment-detail .date {
+	margin-top: 2px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+}
+
+.comment .comment-detail .date span {
+	margin-top: 2px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	height: auto;
+	line-height: 1.6;
+}
+
+.comment .comment-detail .comment-body {
+	margin-top: 8px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+}
+
+.comment .comment-detail .suggested-price {
+	display: inline-block;
+	margin-top: 2px;
+	padding-inline: 10px;
+	padding-block: 3px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+	border-radius: 50px;
+	color: #fff;
+	background-color: #000;
+}
+
+.comment .comment-detail .like {
+	background-color: transparent;
+	border: none;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	height: auto;
+	line-height: 1;
+}

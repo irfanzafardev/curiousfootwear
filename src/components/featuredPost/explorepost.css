@@ -1,0 +1,141 @@
+section.explore-post {
+	width: 100%;
+	margin-top: 60px;
+	background-color: transparent;
+}
+
+section.explore-post .container-fluid {
+	width: 100%;
+	padding: 30px 60px 0 60px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+	section.explore-post .container-fluid {
+		width: 100%;
+		padding: 30px 20px 0 20px;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+section.explore-post .container-fluid .heading {
+	margin-bottom: 6px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+section.explore-post .container-fluid .heading h1 {
+	display: inline;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 3.2rem;
+	line-height: 4rem;
+	letter-spacing: 0rem;
+}
+
+section.explore-post .container-fluid .heading .icon {
+	margin: -30px 0 0 0;
+	padding: 0;
+}
+
+/* Card */
+
+section.explore-post .container-fluid .card {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #fff;
+}
+
+section.explore-post .container-fluid .card:hover {
+	border: 1px solid #000;
+}
+
+section.explore-post .container-fluid .card img {
+	width: 100%;
+	height: 216px;
+	border-radius: 10px;
+	object-fit: cover;
+}
+
+section.explore-post .container-fluid .card .card-body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+section.explore-post .container-fluid .card .post-title {
+	padding-top: 5px;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0rem;
+}
+
+section.explore-post .container-fluid .card .post-category {
+	padding-top: 10px;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	letter-spacing: 0rem;
+	color: #767677;
+}
+
+section.explore-post .container-fluid .card .post-desc {
+	margin-bottom: 10px;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	letter-spacing: 0rem;
+}
+
+section.explore-post .container-fluid .card .price p {
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	letter-spacing: 0rem;
+}
+
+section.explore-post .container-fluid .card .price span {
+	display: flex;
+	float: right;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	letter-spacing: 0rem;
+}
+
+section.explore-post .container-fluid .explore {
+	margin-top: 60px;
+}
+
+section.explore-post .container-fluid .explore h2 {
+	padding-bottom: 20px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 2rem;
+	line-height: 1.2777777777778;
+	letter-spacing: 0rem;
+	background-color: #000;
+}
+
+section.explore-post .container-fluid .explore img {
+	width: 100%;
+	height: 500px;
+	border-radius: 0;
+	object-fit: cover;
+}

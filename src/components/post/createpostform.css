@@ -1,0 +1,149 @@
+section.upload {
+	width: 100%;
+	height: 200vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #000000a7;
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	z-index: 999;
+}
+
+section.upload .wrapper {
+	width: 700px;
+	background-color: #fff;
+	padding: 20px;
+	margin-top: 60px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	position: relative;
+	border-radius: 14px;
+}
+
+section.upload .wrapper .close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+section.upload .wrapper .heading h1 {
+	margin: 0 0 20px;
+	color: #000;
+	text-align: left;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 20px;
+	letter-spacing: 0rem;
+}
+
+section.upload .wrapper form .input-group {
+	position: relative;
+}
+
+section.upload .wrapper form .input-group label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 14px;
+	color: #000;
+	pointer-events: none;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+}
+
+section.upload .wrapper form .input-group input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 14px;
+	color: #000;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #eaeaea;
+	outline: none;
+	background: transparent;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+}
+
+section.upload .wrapper form .input-group input:focus {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 14px;
+	color: #000;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #1473e6;
+	outline: none;
+	background: transparent;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+}
+
+section.upload .wrapper form .input-group input:focus ~ label,
+section.upload .wrapper form .input-group input:valid ~ label {
+	top: -20px;
+	left: 0;
+	color: #000;
+	font-size: 12px;
+}
+
+section.upload .wrapper form .input-group input.upload-image {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 14px;
+	color: #000;
+	margin-bottom: 30px;
+	background: transparent;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+}
+
+section.upload .wrapper form .input-group textarea {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 14px;
+	color: #000;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #eaeaea;
+	outline: none;
+	background: transparent;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+}
+
+section.upload .wrapper form .input-group textarea:focus ~ label,
+section.upload .wrapper form .input-group textarea:valid ~ label {
+	top: -20px;
+	left: 0;
+	color: #000;
+	font-size: 12px;
+}
+
+section.upload .wrapper form .input-group select {
+	width: 100%;
+	font-size: 12px;
+	color: #000;
+	margin-bottom: 30px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+}
+
+section.upload .wrapper form button {
+	float: right;
+	font-family: "ESAllianz-Regular", sans-serif;
+	width: 100px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0%;
+	text-align: center;
+	font-size: 14px;
+}

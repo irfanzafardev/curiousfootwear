@@ -1,0 +1,216 @@
+nav {
+	display: flex;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 60px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	background-color: #fff;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+	z-index: 9999;
+}
+
+@media only screen and (max-width: 768px) {
+	nav {
+		display: flex;
+		position: fixed;
+		top: 0;
+		width: 100% !important;
+		height: 60px;
+		font-family: "ESAllianz-Regular", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		background-color: #fff;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+		z-index: 1;
+	}
+}
+
+nav .container-fluid {
+	width: 100vw;
+	padding: 0 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+	nav .container-fluid {
+		width: 100vw;
+		padding: 0 20px 0 30px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+nav .nav-brand p {
+	font-family: "Be Vietnam Pro", sans-serif;
+	font-size: 17px;
+	font-weight: 700;
+	height: auto;
+	letter-spacing: 0.38em;
+	line-height: 1.4;
+	text-align: center;
+	width: auto;
+	max-width: 100%;
+	justify-content: center;
+	text-transform: capitalize;
+}
+
+nav .nav-items {
+	display: none;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+nav .nav-items .item {
+	font-family: "Be Vietnam Pro", sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	height: auto;
+	line-height: 1.4;
+	text-align: center;
+	width: auto;
+	max-width: 100%;
+	justify-content: center;
+	text-transform: capitalize;
+}
+
+nav .search .search-box {
+	width: 300px;
+	display: flex;
+	align-items: center;
+	text-align: start;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+nav .search .search-box input {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 12px;
+	width: 100%;
+	padding-block: 5px;
+	padding-inline: 15px;
+	text-align: start;
+	border-radius: 4px;
+	border: none;
+}
+
+nav .search .search-box .search-icon {
+	margin-right: 5px;
+}
+
+nav .search .search-box input:focus {
+	outline: none;
+}
+
+nav .nav-items .item:first-child {
+	font-family: "ESAllianz-Regular", sans-serif;
+	padding: 5px 0;
+	text-align: center;
+	margin-inline: 0px;
+	cursor: pointer;
+}
+
+nav .nav-items .item-btn button {
+	font-family: "Be Vietnam Pro", sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-align: center;
+	width: auto;
+	max-width: 100%;
+	justify-content: center;
+	text-transform: capitalize;
+}
+
+nav .nav-items .divider {
+	margin-inline: 20px;
+}
+
+.link {
+	text-decoration: none;
+	color: #000;
+}
+
+.link:hover {
+	text-decoration: none;
+	color: #000;
+}
+
+/* Modal */
+
+.modal-dialog {
+	margin: 0;
+	width: 430px;
+	font-family: "ESAllianz-Regular", sans-serif;
+}
+
+@media (max-width: 450px) {
+	.modal-dialog {
+		width: 82%;
+	}
+}
+
+.modal-content {
+	border-radius: 0;
+	height: 100vh;
+	overflow-y: scroll;
+	background-color: #fff;
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 88%;
+	margin: 0 auto;
+	padding-bottom: 16px;
+}
+
+.modal .nav-brand {
+	width: 100%;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 39px;
+	letter-spacing: 0em;
+	text-align: start;
+}
+
+.modal-body {
+	width: 88%;
+	margin: 0 auto;
+	padding: 75px 0 0 0;
+	flex: unset;
+}
+
+.modal-body .modal-line {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 7px 0;
+	margin-bottom: 50px;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	color: #000;
+	border-bottom: 1px solid #274d8a;
+}
+
+.modal-line .modal-item {
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 2.5px;
+}
+
+.modal-btn button {
+	width: 150px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	text-align: left !important;
+	border-radius: 0%;
+}
