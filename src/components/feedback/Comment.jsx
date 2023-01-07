@@ -76,7 +76,7 @@ const Comment = ({ comment }) => {
 					) : (
 						""
 					)}
-					{comment?.like.includes(user?.userId.toString()) && comment?.dislike.includes(user?.userId.toString()) ? (
+					{!comment?.like.includes(user?.userId.toString()) && !comment?.dislike.includes(user?.userId.toString()) ? (
 						<button className={`like ${commentLikeIcon}`} onClick={handleLike}>
 							<AiOutlineHeart size="1.4em" />
 							{commentLike}
