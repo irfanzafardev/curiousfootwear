@@ -136,6 +136,7 @@ const SinglePost = () => {
 												) : (
 													<button className="like" onClick={handleLike}>
 														<AiOutlineHeart size="1.4em" />
+														{posts.like?.length}
 													</button>
 												)}
 
