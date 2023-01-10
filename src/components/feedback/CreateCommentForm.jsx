@@ -4,13 +4,12 @@ import { useDispatch } from "react-redux";
 import { AiOutlineSend } from "react-icons/ai";
 
 import { createComment } from "../../services/comment/commentSlice";
-import "./createcomment.css";
+import "./createcommentform.css";
 
-const CreateComment = ({ user, postId, setComments }) => {
+const CreateComment = ({ user, postId, setOpen }) => {
 	// Create new comment
 	const [inputs, setInputs] = useState(0);
 	const dispatch = useDispatch();
-	// const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -28,22 +27,24 @@ const CreateComment = ({ user, postId, setComments }) => {
 	return (
 		<>
 			{user ? (
-				<div className="comment-form">
-					<div className="user-profile">
-						<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />
+				<section className="create-comment">
+					<div className="comment-form">
+						<div className="user-profile">
+							<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />
+						</div>
+						<div className="form-input">
+							<p>
+								{user.first_name} {user.last_name}
+							</p>
+							<input type="text" placeholder="Add a feedback..." name="body" onChange={handleChange} />
+							<input type="number" className="currency" placeholder="Suggest a value..." name="suggestedPrice" onChange={handleChange} />
+							<button type="submit" className="btn btn-outline-dark" onClick={handleSubmit}>
+								<AiOutlineSend />
+								Send
+							</button>
+						</div>
 					</div>
-					<div className="form-input">
-						<p>
-							{user.first_name} {user.last_name}
-						</p>
-						<input type="text" placeholder="Add a feedback..." name="body" onChange={handleChange} />
-						<input type="number" className="currency" placeholder="Suggest a value..." name="suggestedPrice" onChange={handleChange} />
-						<button type="submit" className="btn btn-outline-dark" onClick={handleSubmit}>
-							<AiOutlineSend />
-							Send
-						</button>
-					</div>
-				</div>
+				</section>
 			) : (
 				<div className="message">
 					<h2>Please log in to give your feedback.</h2>

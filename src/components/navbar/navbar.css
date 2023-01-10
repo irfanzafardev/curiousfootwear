@@ -1,11 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Manrope:wght@500;600&display=swap");
+
 nav {
 	display: flex;
 	position: fixed;
 	top: 0;
 	width: 100vw;
 	height: 60px;
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-weight: 400;
 	font-style: normal;
 	background-color: #fff;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -47,7 +47,7 @@ nav .container-fluid {
 }
 
 nav .nav-brand p {
-	font-family: "Be Vietnam Pro", sans-serif;
+	font-family: "Josefin Sans", serif;
 	font-size: 17px;
 	font-weight: 700;
 	height: auto;
@@ -67,9 +67,9 @@ nav .nav-items {
 }
 
 nav .nav-items .item {
-	font-family: "Be Vietnam Pro", sans-serif;
+	font-family: "Manrope", sans-serif;
 	font-size: 13px;
-	font-weight: 500;
+	font-weight: 700;
 	height: auto;
 	line-height: 1.4;
 	text-align: center;
@@ -115,16 +115,34 @@ nav .nav-items .item:first-child {
 	cursor: pointer;
 }
 
-nav .nav-items .item-btn button {
-	font-family: "Be Vietnam Pro", sans-serif;
+nav .nav-items .item button {
+	width: auto;
+	padding: 8px 12px;
+	margin: 0 30px;
+	justify-content: center;
+	border: none;
+	border-radius: 6px;
+	background-color: #000;
+	color: #fff;
+	font-family: "Manrope", sans-serif;
 	font-size: 13px;
 	font-weight: 500;
 	line-height: 1.4;
 	text-align: center;
-	width: auto;
-	max-width: 100%;
-	justify-content: center;
 	text-transform: capitalize;
+}
+
+nav .nav-items .item .user {
+	display: flex;
+	align-items: center;
+}
+
+nav .nav-items .item .user .user-profile img {
+	width: 32px;
+	height: 32px;
+	margin-right: 10px;
+	border-radius: 100%;
+	object-fit: cover;
 }
 
 nav .nav-items .divider {

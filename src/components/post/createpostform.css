@@ -8,7 +8,7 @@ section.upload {
 	display: flex;
 	align-items: baseline;
 	justify-content: center;
-	z-index: 999;
+	z-index: 9999999;
 }
 
 section.upload .wrapper {

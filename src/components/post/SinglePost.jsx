@@ -2,10 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Comments from "../feedback/Comments";
+import CreateCommentForm from "../feedback/CreateCommentForm";
 import MiniSpinner from "../loading/MiniSpinner";
 import "./singlepost.css";
 
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineMessage, AiOutlinePlus } from "react-icons/ai";
+import { RiShareForwardLine } from "react-icons/ri";
+import { FaRegComment } from "react-icons/fa";
+import { BsThreeDots } from "react-icons/bs";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentPost, likePost, unlikePost } from "../../services/post/postSlice";
 
@@ -17,6 +22,9 @@ const SinglePost = () => {
 	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.auth);
 	const { posts } = useSelector((state) => state.post);
+	const { comments } = useSelector((state) => state.comment);
+
+	const [open, setOpen] = useState(false);
 
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
@@ -33,13 +41,15 @@ const SinglePost = () => {
 			}
 		};
 		fetchOwner();
-	}, [path, dispatch]);
+	}, [path, comments, dispatch]);
 
 	// Format date
 	const formatDate = (dateString) => {
 		const options = { year: "numeric", month: "long", day: "numeric" };
 		return new Date(dateString).toLocaleDateString(undefined, options);
 	};
+	var date = new Date(post.purchase_date);
+	const year = date.getFullYear();
 
 	// Like a post
 	const handleLike = async () => {
@@ -51,63 +61,44 @@ const SinglePost = () => {
 		dispatch(unlikePost(post._id));
 	};
 	return (
-		<section className="single-post">
-			<div className="sidebar d-none d-lg-block">
+		<>
+			<section className="single-post">
 				{post ? (
 					<>
-						<div className="product-wrapper">
-							<div className="product-category">
+						<div className="sidebar">
+							<div className="product-wrapper">
+								{/* <div className="product-category">
 								<p>{post.category}</p>
-							</div>
-							<div className="product-name">
-								<h1>{post.title}</h1>
-							</div>
-							<div className="product-brand">
-								<p>{post.brand}</p>
-							</div>
-							<div className="product-price">
-								<div className="row">
-									<div className="col-6 col-divider">
-										<div className="initial-price">
-											<p>IDR{post.price}</p>
+							</div> */}
+								<div className="product-price">
+									<div className="row">
+										<div className="col-6 col-divider">
+											<div className="initial-price">
+												<p>IDR{post.price}</p>
+											</div>
+											<span className="initial-price">Initial Price</span>
 										</div>
-										<span className="initial-price">Initial Price</span>
-									</div>
-									<div className="col-6">
-										<div className="suggested-price">
-											<p>IDR{post.suggested_price}</p>
+										<div className="col-6">
+											<div className="suggested-price">
+												<p>IDR{post.suggested_price}</p>
+											</div>
+											<span className="suggested-price">Most Suggested Price</span>
 										</div>
-										<span className="suggested-price">Most Suggested Price</span>
 									</div>
 								</div>
-							</div>
-							<div className="buttons">
-								<div className="btn btn-outline-dark">Give Feedback</div>
-								<div className="btn btn-outline-dark">Add to Favorite</div>
-							</div>
-						</div>
-					</>
-				) : (
-					<div className="spinner-container">
-						<MiniSpinner />
-					</div>
-				)}
-			</div>
-			<div className="main">
-				{post ? (
-					<>
-						<div className="heading">
-							<img src={post.image} alt="product" />
-						</div>
+								<div className="product-option">
+									<button className="btn btn-outline-dark">
+										<AiOutlineMessage />
+										Contact owner
+									</button>
+									<button className="btn btn-dark" onClick={() => setOpen(true)}>
+										Give Feedback
+									</button>
+								</div>
 
-						<div className="container-fluid">
-							<div className="body">
-								<div className="product-name">
-									<h1>{post.title}</h1>
-								</div>
-								<div className="post-detail">
-									<div className="user">
-										<div className="user-profile">{owner[0].image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+								<div className="product-owner">
+									<div className="user-profile">
+										<div className="user-image">{owner[0].image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
 										<div className="user-info">
 											<div>
 												<div className="username">
@@ -117,67 +108,85 @@ const SinglePost = () => {
 												<div className="created-at">{formatDate(`${post.createdAt}`)}</div>
 											</div>
 										</div>
+									</div>
+									<div className="user-option">
 										{user ? (
-											<div className="follow">
-												<div className="follow-user">Follow</div>
-											</div>
+											<button className="btn btn-dark">
+												<AiOutlinePlus />
+												Follow
+											</button>
 										) : (
 											""
 										)}
 									</div>
-									{user ? (
-										<div className="post-option">
-											<div className="like-post">
-												{posts.like?.includes(user?.userId.toString()) ? (
-													<button className="like" onClick={handleUnlike}>
-														<AiFillHeart size="1.4em" />
-														{posts.like?.length}
-													</button>
-												) : (
-													<button className="like" onClick={handleLike}>
-														<AiOutlineHeart size="1.4em" />
-														{posts.like?.length}
-													</button>
-												)}
-
-												{/* <button className="like" onClick={handleLike}>
-													{posts.like?.includes(user?.userId.toString()) ? (
-														<>
-															<AiFillLike size="1.4em" />
-															{posts.like?.length}
-														</>
-													) : (
-														<>
-															<AiOutlineLike size="1.4em" />
-															{posts.like?.length}
-														</>
-													)}
-												</button>
-												<button className="like" onClick={handleUnlike}>
-													{posts.dislike?.includes(user?.userId.toString()) ? (
-														<>
-															<AiFillDislike size="1.4em" />
-															{posts.dislike?.length}
-														</>
-													) : (
-														<>
-															<AiOutlineDislike size="1.4em" />
-															{posts.dislike?.length}
-														</>
-													)}
-												</button> */}
-											</div>
-											<div className="share-post">Share</div>
-										</div>
-									) : (
-										<p>Please log in</p>
-									)}
 								</div>
+								<div className="product-name">
+									<h1>{post.title}</h1>
+								</div>
+								<div className="product-original-price">
+									<p>
+										Original price:{" "}
+										<span>
+											IDR{post.original_price} ({year})
+										</span>
+									</p>
+								</div>
+								{/* <div className="product-brand">
+								<p>{post.brand}</p>
+							</div> */}
+
 								<div className="product-desc">
 									<h2>Description</h2>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 								</div>
 							</div>
+						</div>
+						<div className="main">
+							<div className="container-fluid">
+								<div className="heading">
+									<img src={post.image} alt="product" />
+								</div>
+								<div className="body">
+									<div className="post-detail">
+										<div className="like-comment">
+											{comments?.length} comments • {posts.like?.length} likes
+										</div>
+										{user ? (
+											<div className="post-option">
+												<button className="share-post">
+													<RiShareForwardLine size="1.6em" />
+													Share
+												</button>
+												<button className="comment-post">
+													<FaRegComment />
+													Comment
+												</button>
+
+												{posts.like?.includes(user?.userId.toString()) ? (
+													<button className="like-post" onClick={handleUnlike}>
+														<AiFillHeart size="1.4em" />
+														Like
+													</button>
+												) : (
+													<button className="like-post" onClick={handleLike}>
+														<AiOutlineHeart size="1.4em" />
+														Like
+													</button>
+												)}
+												<div className="other-option">
+													<BsThreeDots />
+												</div>
+											</div>
+										) : (
+											<p>
+												Please <span>sign in</span> to like or give feedback.
+											</p>
+										)}
+									</div>
+								</div>
+							</div>
+
+							<Comments postId={post._id} user={user} />
 						</div>
 					</>
 				) : (
@@ -185,22 +194,9 @@ const SinglePost = () => {
 						<MiniSpinner />
 					</div>
 				)}
-				<section className="comments">
-					<div className="container-fluid">
-						<div className="heading">
-							<h1>Feedback</h1>
-						</div>
-						{post ? (
-							<Comments postId={post._id} user={user} />
-						) : (
-							<div className="comment-spinner-container">
-								<MiniSpinner />
-							</div>
-						)}
-					</div>
-				</section>
-			</div>
-		</section>
+			</section>
+			{open && <CreateCommentForm setOpen={setOpen} user={user} />}
+		</>
 	);
 };
 

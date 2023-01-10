@@ -2,11 +2,30 @@ section.single-post {
 	box-sizing: border-box;
 	width: 100%;
 	margin: 0;
-	padding: 0;
+	margin-top: 60px;
+	padding: 0 180px;
+}
+
+@media only screen and (max-width: 992px) {
+	section.single-post {
+		box-sizing: border-box;
+		width: 100%;
+		margin: 0;
+		margin-top: 60px;
+		padding: 0 0;
+	}
 }
 
 section.single-post .main {
 	margin-right: 439px;
+	padding: 30px 30px 30px 30px;
+}
+
+@media only screen and (max-width: 992px) {
+	section.single-post .main {
+		margin-right: 0;
+		padding: 30px;
+	}
 }
 
 @media only screen and (max-width: 992px) {
@@ -15,166 +34,96 @@ section.single-post .main {
 	}
 }
 
-section.single-post .main .heading img {
-	width: 100%;
-	height: 100vh;
-	object-fit: cover;
-}
-
 section.single-post .main .container-fluid {
 	width: 100%;
-	margin-top: 20px;
-	padding-inline: 30px;
+	padding-inline: 0px;
 }
 
-section.single-post .main .container-fluid .product-name h1 {
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 44px;
-	font-weight: 500;
-	line-height: 1.6;
+section.single-post .main .container-fluid .heading img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 6px;
 }
 
 section.single-post .main .container-fluid .post-detail {
-	display: flex;
 	justify-content: space-between;
 	background-color: transparent;
 	margin-bottom: 20px;
 }
 
-section.single-post .main .container-fluid .post-detail .user {
+section.single-post .main .container-fluid .post-detail .like-comment {
 	display: flex;
 	align-items: center;
-}
-
-section.single-post .main .container-fluid .post-detail .user .user-profile img {
-	width: 48px;
-	height: 48px;
-	margin-right: 10px;
-	border-radius: 100%;
-	object-fit: cover;
-}
-
-section.single-post .main .container-fluid .post-detail .user .user-info {
-	display: flex;
-	align-items: center;
-}
-
-section.single-post .main .container-fluid .post-detail .user .user-info .username {
-	margin-bottom: 6px;
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 14px;
+	justify-content: flex-end;
+	padding-block: 10px;
+	border-bottom: 1px solid #eaeaea;
+	font-family: "Manrope", sans-serif;
+	font-size: 16px;
 	font-weight: 600;
-	height: auto;
-	line-height: 1;
-}
-
-section.single-post .main .container-fluid .post-detail .user .user-info .created-at {
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	height: auto;
-	line-height: 1;
-}
-
-section.single-post .main .container-fluid .post-detail .follow-user {
-	display: flex;
-	align-items: center;
-	height: 38px;
-	background-color: transparent;
-	padding-inline: 14px;
-	padding-block: 6px;
-	margin-left: 20px;
-	border: 1px solid #000;
-	border-radius: 50px;
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 14px;
-	font-weight: 600;
-	line-height: 1;
+	line-height: 22px;
+	letter-spacing: 0em;
+	text-align: left;
 }
 
 section.single-post .main .container-fluid .post-detail .post-option {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+	padding-block: 10px;
 }
 
-section.single-post .main .container-fluid .post-detail .post-option .like-post {
+section.single-post .main .container-fluid .post-detail .post-option button.share-post {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	height: 38px;
+	background-color: transparent;
+	padding-inline: 14px;
+	padding-block: 6px;
+	border: none;
+	font-family: "Manrope", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 22px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.single-post .main .container-fluid .post-detail .post-option button.comment-post {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	height: 38px;
+	background-color: transparent;
+	padding-inline: 14px;
+	padding-block: 6px;
+	border: none;
+	font-family: "Manrope", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 22px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.single-post .main .container-fluid .post-detail .post-option button.like-post {
+	display: flex;
+	align-items: center;
+	gap: 4px;
 	height: 38px;
 	background-color: transparent;
 	padding-inline: 12px;
 	padding-block: 6px;
 	margin-right: 10px;
-	border: 1px solid #000;
-	border-radius: 50px;
-}
-
-section.single-post .main .container-fluid .post-detail .post-option .like-post button {
 	background-color: transparent;
 	border: none;
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 14px;
-	font-weight: 600;
-	height: auto;
-	line-height: 1;
-}
-
-section.single-post .main .container-fluid .post-detail .post-option .like-post button.like {
-	/* border-right: 1px solid #000; */
-	border-right: none;
-}
-
-section.single-post .main .container-fluid .post-detail .post-option .share-post {
-	display: flex;
-	align-items: center;
-	height: 38px;
-	background-color: transparent;
-	padding-inline: 14px;
-	padding-block: 6px;
-	border: 1px solid #000;
-	border-radius: 50px;
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 14px;
-	font-weight: 600;
-	line-height: 1;
-}
-
-section.single-post .main .container-fluid .product-desc h2 {
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 28px;
-	font-weight: 600;
-	line-height: 1.6;
-}
-
-section.single-post .main .container-fluid .product-desc p {
-	font-family: "ESAllianz-Regular", sans-serif;
+	font-family: "Manrope", sans-serif;
 	font-size: 16px;
+	font-weight: 600;
 	line-height: 22px;
-	margin-bottom: 16px;
-	text-shadow: 1px 1px 1px rgb(0 0 0 / 0%);
-}
-
-section.single-post .main section.comments {
-	margin-bottom: 100px;
-}
-
-section.single-post .main section.comments .heading {
-	margin-bottom: 20px;
-	padding-bottom: 20px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-section.single-post .main section.comments .heading h1 {
-	display: inline;
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 28px;
-	font-weight: 600;
-	line-height: 1.6;
-}
-
-section.single-post .main section.comments .note h2 {
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 24px;
-	font-weight: 600;
-	line-height: 1.6;
+	letter-spacing: 0em;
+	text-align: left;
 }
 
 /* sidebar */
@@ -182,40 +131,57 @@ section.single-post .sidebar {
 	position: fixed;
 	width: 439px;
 	min-height: 100vh;
-	padding-top: 60px;
-	top: 0;
-	right: 0;
+	padding-top: 30px;
+	top: 60px;
+	right: 180px;
 	z-index: 0;
 	background-color: #fff;
 	border-left: 1px solid #ebedee;
+}
+
+@media only screen and (max-width: 992px) {
+	section.single-post .sidebar {
+		display: none;
+		position: fixed;
+		width: 439px;
+		min-height: 100vh;
+		padding-top: 60px;
+		top: 0;
+		right: 180px;
+		z-index: 0;
+		background-color: #fff;
+		border-left: 1px solid #ebedee;
+	}
 }
 
 section.single-post .sidebar .product-wrapper {
 	margin-inline: 36px;
 }
 
-section.single-post .sidebar .product-wrapper .product-category {
+section.single-post .sidebar .product-price {
+	margin-top: 0;
+}
+
+section.single-post .sidebar .product-price p {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 22px;
+	font-weight: 600;
+	height: auto;
+	line-height: 1.6;
+	text-transform: uppercase;
+}
+
+section.single-post .sidebar .product-category {
 	margin-top: 50px;
 }
 
-section.single-post .sidebar .product-wrapper .product-category p {
+section.single-post .sidebar .product-category p {
 	font-family: "ESAllianz-Regular", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	height: auto;
 	line-height: 1.6;
 	color: rgba(0, 0, 0, 0.6);
-}
-
-section.single-post .sidebar .product-wrapper .product-name {
-	margin-top: 50px;
-}
-
-section.single-post .sidebar .product-wrapper .product-name h1 {
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 44px;
-	font-weight: 500;
-	line-height: 1.6;
 }
 
 section.single-post .sidebar .product-brand {
@@ -229,23 +195,6 @@ section.single-post .sidebar .product-brand p {
 	height: auto;
 	line-height: 1.6;
 	color: rgba(0, 0, 0, 0.6);
-}
-
-section.single-post .sidebar .product-price {
-	margin-top: 50px;
-}
-
-section.single-post .sidebar .product-price {
-	margin-top: 50px;
-}
-
-section.single-post .sidebar .product-price p {
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 22px;
-	font-weight: 600;
-	height: auto;
-	line-height: 1.6;
-	text-transform: uppercase;
 }
 
 section.single-post .sidebar .product-price span.initial-price {
@@ -281,11 +230,13 @@ section.single-post .sidebar .product-price .col-divider {
 	border-right: 1px solid #c7c7c7;
 }
 
-section.single-post .sidebar .buttons {
-	margin-top: 60px;
+section.single-post .sidebar .product-option {
+	display: flex;
+	gap: 10px;
+	margin-top: 20px;
 }
 
-section.single-post .sidebar .buttons .btn {
+section.single-post .sidebar .product-option button {
 	width: 100%;
 	margin-bottom: 20px;
 	padding-inline: 20px;
@@ -296,6 +247,117 @@ section.single-post .sidebar .buttons .btn {
 	height: auto;
 	line-height: 1.6;
 	text-transform: capitalize;
+}
+
+section.single-post .sidebar .product-owner {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #eaeaea;
+}
+
+section.single-post .sidebar .product-owner .user-profile {
+	display: flex;
+	align-items: center;
+}
+
+section.single-post .sidebar .product-owner .user-profile .user-image img {
+	width: 48px;
+	height: 48px;
+	margin-right: 10px;
+	border-radius: 100%;
+	object-fit: cover;
+}
+
+section.single-post .sidebar .product-owner .user-profile .username {
+	font-family: "Poppins", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 30px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.single-post .sidebar .product-owner .user-profile .created-at {
+	font-family: "Manrope", sans-serif;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 19px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.single-post .sidebar .product-owner .user-option {
+	display: inline-block;
+	height: 100%;
+}
+
+section.single-post .sidebar .product-owner .user-option button {
+	width: 100%;
+	padding-inline: 20px;
+	padding-block: 4px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+	text-transform: capitalize;
+}
+
+section.single-post .sidebar .product-wrapper .product-name {
+	margin-top: 40px;
+}
+
+section.single-post .sidebar .product-wrapper .product-name h1 {
+	font-family: "Poppins", sans-serif;
+	font-size: 32px;
+	font-weight: 600;
+	line-height: 54px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.single-post .sidebar .product-wrapper .product-original-price p {
+	font-family: "Manrope", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 22px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.single-post .sidebar .product-wrapper .product-original-price p span {
+	font-family: "Manrope", sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 22px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.single-post .sidebar .product-desc {
+	margin-top: 20px;
+}
+
+section.single-post .sidebar .product-desc h2 {
+	font-family: "Poppins", sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 30px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.single-post .sidebar .product-desc p {
+	max-height: 180px;
+	overflow-y: scroll;
+	font-family: "Manrope", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 26px;
+	letter-spacing: 0em;
+	text-align: left;
+	text-shadow: 1px 1px 1px rgb(0 0 0 / 0%);
 }
 
 section.single-post .spinner-container {

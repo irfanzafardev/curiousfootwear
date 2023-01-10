@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BiSearch } from "react-icons/bi";
-import { GoThreeBars } from "react-icons/go";
-import "./navbar.css";
 import { useSelector } from "react-redux";
 import CreatePostForm from "../post/CreatePostForm";
+import { BiSearch } from "react-icons/bi";
+import { AiOutlinePlus } from "react-icons/ai";
+import { GoThreeBars } from "react-icons/go";
+import "./navbar.css";
 
 const Navbar = () => {
 	const { user } = useSelector((state) => state.auth);
@@ -42,21 +43,27 @@ const Navbar = () => {
 					<div className="nav-items d-lg-flex">
 						{user ? (
 							<>
-								<div className="item-btn">
+								<div className="item-btn d-none">
 									<Link to="/about" className="link">
 										<button type="button" className="btn">
 											About
 										</button>
 									</Link>
 								</div>
-								<div className="divider">|</div>
-								<div className="item" onClick={() => setOpen(true)}>
-									Share your footwear
+								<div className="divider d-none">|</div>
+								<div className="item">
+									<button className="upload-button" onClick={() => setOpen(true)}>
+										<AiOutlinePlus />
+										<span className="ms-2">Upload footwear</span>
+									</button>
 								</div>
-								<div className="divider">|</div>
+								<div className="divider d-none">|</div>
 								<div className="item">
 									<Link to={`/profile/me`} className="link">
-										Hi, {user.first_name}
+										<div className="user">
+											<div className="user-profile">{user.image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+											Hi, {user.first_name}
+										</div>
 									</Link>
 								</div>
 								{/* <div className="item-btn">
