@@ -27,7 +27,7 @@ const SignUpForm = () => {
 
 	useEffect(() => {
 		if (isError) {
-			alert(message);
+			console.log(message);
 		}
 
 		if (isSuccess || currentUser) {
@@ -59,6 +59,7 @@ const SignUpForm = () => {
 				about,
 				password,
 			};
+			console.log(userData);
 
 			dispatch(register(userData));
 		}

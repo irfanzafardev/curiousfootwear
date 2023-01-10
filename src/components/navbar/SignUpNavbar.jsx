@@ -11,7 +11,7 @@ const SignUpNavbar = () => {
 					</div>
 				</Link>
 				<div className="nav-items d-flex">
-					<div className="item-btn">
+					<div className="item">
 						<Link to="/signin" className="link">
 							<button type="button" className="btn">
 								Sign in

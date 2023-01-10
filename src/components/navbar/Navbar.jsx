@@ -57,7 +57,6 @@ const Navbar = () => {
 										<span className="ms-2">Upload footwear</span>
 									</button>
 								</div>
-								<div className="divider d-none">|</div>
 								<div className="item">
 									<Link to={`/profile/me`} className="link">
 										<div className="user">
@@ -74,15 +73,15 @@ const Navbar = () => {
 							</>
 						) : (
 							<>
-								<div className="item-btn">
+								<div className="item-btn d-none">
 									<Link to="/about" className="link">
 										<button type="button" className="btn">
 											About
 										</button>
 									</Link>
 								</div>
-								<div className="divider">|</div>
-								<div className="item-btn">
+								<div className="divider d-none">|</div>
+								<div className="item">
 									<Link to="/signin" className="link">
 										<button type="button" className="btn">
 											Sign in

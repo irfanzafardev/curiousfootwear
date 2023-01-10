@@ -363,3 +363,17 @@ section.single-post .sidebar .product-desc p {
 section.single-post .spinner-container {
 	margin-top: 160px;
 }
+
+section.single-post .message p {
+	font-family: "Poppins", sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 30px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.single-post .message p span {
+	color: blue;
+	cursor: pointer;
+}

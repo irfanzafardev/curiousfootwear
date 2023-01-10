@@ -1,8 +1,9 @@
 import React from "react";
+import "./null.css";
 
 const Null = () => {
 	return (
-		<div>
+		<div className="message">
 			<p>No results found</p>
 		</div>
 	);

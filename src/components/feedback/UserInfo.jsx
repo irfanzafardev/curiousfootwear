@@ -21,7 +21,7 @@ const UserInfo = ({ commentId }) => {
 					{user[0].first_name} {user[0].last_name}
 				</div>
 			) : (
-				<p>fetching user</p>
+				<p>Fetching user...</p>
 			)}
 		</div>
 	);

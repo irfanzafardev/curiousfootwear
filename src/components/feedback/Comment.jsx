@@ -5,6 +5,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import "./comment.css";
 import { getCommentById, likeComment, unlikeComment } from "../../services/comment/singleCommentSlice";
 import { useDispatch, useSelector } from "react-redux";
+// import moment from "moment/moment";
 
 const Comment = ({ comment }) => {
 	const [commentLike, setCommentLike] = useState(comment?.like.length);
@@ -61,9 +62,8 @@ const Comment = ({ comment }) => {
 			<div className="comment-detail">
 				<div>
 					<UserInfo commentId={comment.id} />
-					<div className="date">
-						{formatDate(`${comment.createdAt}`)} | <span>{commentLike} like</span>
-					</div>
+					<div className="date">{formatDate(`${comment.createdAt}`)}</div>
+					{/* {moment("Tue Jan 10 2023 22:17:00 GMT+0700").fromNow()} */}
 					<div className="comment-body">{comment.body}</div>
 					<div className="suggested-price">IDR{comment.price}</div>
 				</div>

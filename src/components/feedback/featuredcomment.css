@@ -136,3 +136,8 @@ section.featured-comment .container-fluid .card .card-body .card-link {
 	line-height: 20px;
 	letter-spacing: 0rem;
 }
+
+section.featured-comment .message p span {
+	color: blue;
+	cursor: pointer;
+}

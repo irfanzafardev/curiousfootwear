@@ -39,7 +39,7 @@ const FeaturedPost = () => {
 						<h1>What's new</h1>
 					</div>
 					<div className="mt-5">
-						<MiniSpinner />;
+						<MiniSpinner />
 					</div>
 				</div>
 			</section>

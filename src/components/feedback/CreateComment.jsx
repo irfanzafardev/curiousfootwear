@@ -45,9 +45,7 @@ const CreateComment = ({ user, postId, setComments }) => {
 					</div>
 				</div>
 			) : (
-				<div className="message">
-					<h2>Please log in to give your feedback.</h2>
-				</div>
+				""
 			)}
 		</>
 	);

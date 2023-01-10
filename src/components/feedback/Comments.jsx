@@ -24,7 +24,7 @@ const Comments = ({ user, postId }) => {
 	}, [postId, dispatch]);
 	return (
 		<>
-			<section className="comments">
+			<section className="comments mb-5">
 				<div className="container-fluid">
 					<div className="heading">
 						<h1>Feedback</h1>
