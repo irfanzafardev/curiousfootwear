@@ -1,16 +1,16 @@
 // import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { AiOutlineSend } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { AiOutlineSend, AiOutlineClose } from "react-icons/ai";
 
 import { createComment } from "../../services/comment/commentSlice";
 import "./createcomment.css";
 
-const CreateComment = ({ user, postId, setComments }) => {
+const CreateComment = ({ user, postId, setOpen }) => {
 	// Create new comment
 	const [inputs, setInputs] = useState(0);
 	const dispatch = useDispatch();
-	// const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -28,24 +28,56 @@ const CreateComment = ({ user, postId, setComments }) => {
 	return (
 		<>
 			{user ? (
-				<div className="comment-form">
-					<div className="user-profile">
-						<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />
+				<section className="create-comment">
+					<div className="comment-form">
+						<div className="heading">
+							<h1>Give feedback</h1>
+							<div className="close" onClick={() => setOpen(false)}>
+								<AiOutlineClose />
+							</div>
+						</div>
+						<div className="form-input">
+							<div className="set-price">
+								<div className="label">
+									<h2>Price</h2>
+									<span>Suggest a fair price for the shoes</span>
+								</div>
+								<input type="number" className="currency" placeholder="Suggest a value..." name="suggestedPrice" onChange={handleChange} />
+							</div>
+							<div className="set-feedback">
+								<div className="label">
+									<h2>Feedback</h2>
+									<span>Tell the author your reasons</span>
+								</div>
+								<textarea type="text" placeholder="Add a feedback..." name="body" onChange={handleChange} />
+							</div>
+							<button type="submit" className="btn btn-dark" onClick={handleSubmit}>
+								<AiOutlineSend />
+								Send
+							</button>
+						</div>
 					</div>
-					<div className="form-input">
-						<p>
-							{user.first_name} {user.last_name}
-						</p>
-						<input type="text" placeholder="Add a feedback..." name="body" onChange={handleChange} />
-						<input type="number" className="currency" placeholder="Suggest a value..." name="suggestedPrice" onChange={handleChange} />
-						<button type="submit" className="btn btn-outline-dark" onClick={handleSubmit}>
-							<AiOutlineSend />
-							Send
-						</button>
-					</div>
-				</div>
+				</section>
 			) : (
-				""
+				<section className="create-comment">
+					<div className="comment-form">
+						<div className="heading">
+							<h1>Give feedback</h1>
+							<div className="close" onClick={() => setOpen(false)}>
+								<AiOutlineClose />
+							</div>
+						</div>
+						<div className="message">
+							<p>
+								Please{" "}
+								<Link to="/signin" className="link">
+									<span>sign in</span>{" "}
+								</Link>
+								to like or give feedback.
+							</p>
+						</div>
+					</div>
+				</section>
 			)}
 		</>
 	);

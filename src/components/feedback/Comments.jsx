@@ -8,7 +8,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getAllCommentByPostId } from "../../services/comment/commentSlice";
 
-const Comments = ({ user, postId }) => {
+const Comments = ({ user, postId, setOpen, open }) => {
 	const [comments, setComments] = useState([]);
 	const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const Comments = ({ user, postId }) => {
 					</div>
 					{comments ? (
 						<>
-							<CreateComment user={user} postId={postId} setComments={setComments} />
+							{open && <CreateComment setOpen={setOpen} user={user} postId={postId} />}
 							<AllComment comments={comments} />
 						</>
 					) : (

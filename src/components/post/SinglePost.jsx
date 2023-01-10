@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Comments from "../feedback/Comments";
-import CreateCommentForm from "../feedback/CreateCommentForm";
 import MiniSpinner from "../loading/MiniSpinner";
 
 import { AiOutlineHeart, AiFillHeart, AiOutlineMessage, AiOutlinePlus } from "react-icons/ai";
@@ -19,13 +18,12 @@ const SinglePost = () => {
 	const path = useLocation().pathname.split("/")[2];
 	const [post, setPost] = useState("");
 	const [owner, setOwner] = useState("");
+	const [open, setOpen] = useState(false);
 
 	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.auth);
 	const { posts } = useSelector((state) => state.post);
 	const { comments } = useSelector((state) => state.comment);
-
-	const [open, setOpen] = useState(false);
 
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
@@ -43,7 +41,7 @@ const SinglePost = () => {
 		};
 
 		fetchOwner();
-	}, [path, comments, dispatch]);
+	}, [path, dispatch]);
 
 	// Format date
 	const formatDate = (dateString) => {
@@ -151,7 +149,7 @@ const SinglePost = () => {
 													<RiShareForwardLine size="1.6em" />
 													Share
 												</button>
-												<button className="comment-post">
+												<button className="comment-post" onClick={() => setOpen(true)}>
 													<FaRegComment />
 													Comment
 												</button>
@@ -188,7 +186,7 @@ const SinglePost = () => {
 								</div>
 							</div>
 
-							<Comments postId={post._id} user={user} />
+							<Comments postId={post._id} user={user} setOpen={setOpen} open={open} />
 						</div>
 					</>
 				) : (
@@ -197,7 +195,6 @@ const SinglePost = () => {
 					</div>
 				)}
 			</section>
-			{open && <CreateCommentForm setOpen={setOpen} user={user} />}
 		</>
 	);
 };

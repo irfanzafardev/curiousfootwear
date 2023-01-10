@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getMostLikedCommentsByPostId } from "../../services/comment/commentSlice";
 
 const SuggestedPrice = ({ post }) => {
 	const [mostLikedComments, setMostLikedComments] = useState([]);
@@ -11,9 +10,9 @@ const SuggestedPrice = ({ post }) => {
 	useEffect(() => {
 		const fetchMostLikedComments = async (postId) => {
 			const commentResp = await axios.get(rootAPI + `comment/getCommentsByMostLiked/${postId}`);
-			dispatch(getMostLikedCommentsByPostId(postId)).then(() => {
-				setMostLikedComments(commentResp.data);
-			});
+			// dispatch(getMostLikedCommentsByPostId(postId)).then(() => {
+			// });
+			setMostLikedComments(commentResp.data);
 		};
 		fetchMostLikedComments(post._id);
 	}, [post._id, dispatch]);

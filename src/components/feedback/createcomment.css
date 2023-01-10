@@ -1,31 +1,54 @@
-.comment-form {
+section.comments section.create-comment {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #000000a7;
 	display: flex;
-	padding: 20px 0;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999999;
 }
 
-.comment-form .user-profile img {
-	width: 55px;
-	height: 55px;
-	border-radius: 100%;
-	object-fit: cover;
+section.comments section.create-comment .comment-form {
+	width: 700px;
+	background-color: #fff;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	border-radius: 14px;
 }
 
-.comment-form .form-input {
-	padding: 0 12px;
-	width: 100%;
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	height: auto;
-	line-height: 1.6;
-}
-
-.comment-form .form-input input {
-	width: 100%;
-	height: 30px;
-	margin: 8px 0 0 0;
-	border: none;
+section.comments section.create-comment .comment-form .heading {
+	display: flex;
+	justify-content: space-between;
 	border-bottom: 1px solid #000;
+	padding: 0 0 10px 0;
+}
+
+section.comments section.create-comment .comment-form .heading h1 {
+	font-family: "Poppins", sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 32px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.comments section.create-comment .comment-form .heading .close {
+	cursor: pointer;
+}
+
+section.comments section.create-comment .comment-form .form-input .set-price {
+	display: flex;
+	justify-content: space-between;
+}
+
+section.comments section.create-comment .comment-form .form-input {
+	padding: 0;
+	width: 100%;
 	font-family: "ESAllianz-Regular", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
@@ -33,11 +56,24 @@
 	line-height: 1.6;
 }
 
-.comment-form .form-input input:focus {
+section.comments section.create-comment .comment-form .form-input textarea {
+	width: 100%;
+	min-height: 100px;
+	margin: 8px 0 0 0;
+	border: 1px solid #000;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+	border-radius: 12px;
+}
+
+section.comments section.create-comment .comment-form .form-input textarea:focus {
 	outline: none;
 }
 
-.comment-form .form-input input.currency {
+section.comments section.create-comment .comment-form .form-input input.currency {
 	width: 30%;
 	height: 34px;
 	padding: 4px 12px;
@@ -50,10 +86,24 @@
 	border-radius: 50px;
 }
 
-.comment-form .form-input button {
+section.comments section.create-comment .comment-form .form-input button {
 	float: right;
 	margin-top: 12px;
 	padding-block: 4px;
 	padding-inline: 16px;
 	border-radius: 50px;
+}
+
+section.comments section.create-comment .message p {
+	font-family: "Poppins", sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 30px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.comments section.create-comment .message p span {
+	color: blue;
+	cursor: pointer;
 }
