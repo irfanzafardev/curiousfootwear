@@ -51,18 +51,9 @@ section.signup .container-fluid .signup-row .signup-column {
 	justify-content: center;
 }
 
-section.signup .container-fluid .signup-row .signup-form {
-	width: 400px;
-	padding: 40px;
-	background: #fff;
-	box-sizing: border-box;
-	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-	border-radius: 10px;
-}
-
 section.signup .container-fluid .signup-row .signup-column .signup-form {
-	width: 400px;
-	padding: 40px;
+	width: 420px;
+	padding: 20px 40px;
 	background: #fff;
 	box-sizing: border-box;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -70,7 +61,7 @@ section.signup .container-fluid .signup-row .signup-column .signup-form {
 }
 
 section.signup .container-fluid .signup-row .signup-form .heading {
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 }
 
 section.signup .container-fluid .signup-row .signup-form .heading h2 {
@@ -108,7 +99,7 @@ section.signup .container-fluid .signup-row .signup-form .heading .link {
 	padding: 10px 0;
 	font-size: 14px;
 	color: #000;
-	margin-bottom: 30px;
+	margin-bottom: 26px;
 	border: none;
 	border-bottom: 1px solid #000;
 	outline: none;
@@ -122,7 +113,7 @@ section.signup .container-fluid .signup-row .signup-form .heading .link {
 	padding: 10px 0;
 	font-size: 14px;
 	color: #000;
-	margin-bottom: 30px;
+	margin-bottom: 26px;
 	border: none;
 	border-bottom: 1px solid #1473e6;
 	outline: none;
@@ -155,7 +146,7 @@ section.signup .container-fluid .signup-row .signup-form .heading .link {
 .signup-form button {
 	font-family: "ESAllianz-Regular", sans-serif;
 	width: 100px;
-	height: 40px;
+	height: 36px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

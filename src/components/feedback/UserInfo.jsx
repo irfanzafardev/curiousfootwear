@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const UserInfo = ({ commentId }) => {
+import "./userinfo.css";
+
+const UserInfo = ({ commentId, comment, commentLike }) => {
 	const [user, setUser] = useState([]);
-	// console.log(user);
-	// console.log(commentId);
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 	useEffect(() => {
 		const fetchComments = async () => {
@@ -14,12 +14,21 @@ const UserInfo = ({ commentId }) => {
 		};
 		fetchComments();
 	}, [commentId]);
+	const formatDate = (dateString) => {
+		const options = { year: "numeric", month: "long", day: "numeric" };
+		return new Date(dateString).toLocaleDateString(undefined, options);
+	};
 	return (
 		<div className="username">
 			{user.length > 0 ? (
-				<div>
-					{user[0].first_name} {user[0].last_name}
-				</div>
+				<>
+					<div>
+						{user[0].first_name} {user[0].last_name}
+					</div>
+					<div className="date">
+						{formatDate(`${comment.createdAt}`)} • <span>{commentLike} like</span>
+					</div>
+				</>
 			) : (
 				<p>Fetching user...</p>
 			)}

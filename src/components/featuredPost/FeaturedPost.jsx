@@ -3,23 +3,15 @@ import { Link } from "react-router-dom";
 import MiniSpinner from "../loading/MiniSpinner";
 import Null from "../loading/Null";
 import CategorySlider from "../category/CategorySlider";
-import "./explorepost.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPost, reset } from "../../services/post/postSlice";
+import { AiFillEye } from "react-icons/ai";
+import "./explorepost.css";
 
 const FeaturedPost = () => {
 	const dispatch = useDispatch();
 	const { posts, isLoading, isError, message } = useSelector((state) => state.post);
 
-	// Number formatter
-	function kFormatter(num) {
-		return Math.abs(num) > 999 ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "K" : Math.sign(num) * Math.abs(num);
-	}
-
-	// const fetchPostsById = async () => {
-	// 	const { data } = await axios.get(rootAPI + "/63b2eb39c2a98d0be03bd693");
-	// 	setName(data.title);
-	// };
 	useEffect(() => {
 		if (isError) {
 			console.log(message);
@@ -49,38 +41,48 @@ const FeaturedPost = () => {
 		<section className="explore-post mb-5">
 			<div className="container-fluid">
 				<div className="heading">
-					<h1>What's new</h1>
+					<h1>Featured Posts</h1>
 				</div>
 				<div className="category-slider">
 					<CategorySlider />
 				</div>
-				{/* <div className="d-none">
-					<input
-						type="text"
-						value={name}
-						onChange={(e) => {
-							setName(e.target.value);
-						}}
-					/>
-				</div> */}
 				<div className="row">
 					{posts.length > 0 ? (
 						posts.map((post) => (
 							<div className="col-12 col-lg-3" key={post.id}>
 								<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
 									<div className="card">
-										<img src={post.image} className="card-img-top" alt="product" />
+										<div
+											className="card-image"
+											style={{
+												width: "100%",
+												height: "216px",
+												background: `url(${post.image})`,
+												backgroundSize: "cover",
+												objectFit: "cover",
+												borderRadius: "10px",
+											}}
+										>
+											<div className="post-detail">
+												<p>Post description..</p>
+											</div>
+										</div>
+										{/* <img src={post.image} className="card-img-top" alt="product" /> */}
 										<div className="card-body">
-											{/* <p className="post-category">Category</p> */}
 											<h2 className="post-title">{post.title}</h2>
-											{/* <p className="post-desc">{post.description}</p> */}
 											<div className="price row">
 												<div className="col-8">
-													<p>Suggested Price</p>
+													<p className="post-category">{post.category}</p>
 												</div>
 												<div className="col-4">
-													<span>{kFormatter(post.suggested_price)}</span>
+													<div className="post-view">
+														<AiFillEye />
+														<span>{post?.view}</span>
+													</div>
 												</div>
+												{/* <div className="col-4">
+													<span>{kFormatter(post.suggested_price)}</span>
+												</div> */}
 											</div>
 										</div>
 									</div>

@@ -1,0 +1,9 @@
+.username {
+	display: flex;
+	align-items: baseline;
+}
+
+.username .date {
+	align-items: baseline;
+	margin-left: 10px;
+}

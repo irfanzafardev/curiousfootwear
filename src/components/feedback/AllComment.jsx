@@ -23,7 +23,7 @@ const AllComment = ({ comments }) => {
 				</div>
 			) : (
 				<div className="message">
-					<p>No feedbacks at the moment</p>
+					<p>Be the the first one to give feedback!</p>
 				</div>
 			)}
 		</>

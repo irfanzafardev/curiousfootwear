@@ -115,6 +115,10 @@ const SignUpForm = () => {
 										<label>Username</label>
 									</div>
 									<div className="input-group">
+										<input type="number" id="phone_number" name="phone_number" value={phone_number} onChange={handleChange}></input>
+										<label>Phone</label>
+									</div>
+									<div className="input-group">
 										<input type="password" id="password" name="password" value={password} onChange={handleChange}></input>
 										<label>Password</label>
 									</div>

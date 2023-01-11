@@ -3,10 +3,10 @@ import CreateComment from "./CreateComment";
 import AllComment from "./AllComment";
 import MiniSpinner from "../loading/MiniSpinner";
 
-import "./comments.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getAllCommentByPostId } from "../../services/comment/commentSlice";
+import "./comments.css";
 
 const Comments = ({ user, postId, setOpen, open }) => {
 	const [comments, setComments] = useState([]);

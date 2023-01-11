@@ -70,7 +70,8 @@ const CreatePostForm = ({ setOpen }) => {
 		e.preventDefault();
 		dispatch(createPost(inputs)).then(() => {
 			console.log(inputs);
-			window.location.reload();
+			setOpen(false);
+			// window.location.reload();
 		});
 	};
 
@@ -126,12 +127,6 @@ const CreatePostForm = ({ setOpen }) => {
 							<div className="input-group">
 								<input type="text" name="price" onChange={handleChange}></input>
 								<label>Initial price</label>
-							</div>
-						</div>
-						<div className="col-6">
-							<div className="input-group">
-								<input type="text" name="suggested_price" onChange={handleChange}></input>
-								<label>Suggested price</label>
 							</div>
 						</div>
 					</div>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Lato:wght@400;700&family=Manrope:wght@500;600&display=swap");
+
 section.explore-post {
 	width: 100%;
 	margin-top: 60px;
@@ -20,6 +22,10 @@ section.explore-post .container-fluid {
 	}
 }
 
+section.explore-post .container-fluid .row {
+	gap: 0px;
+}
+
 section.explore-post .container-fluid .heading {
 	margin-bottom: 6px;
 	padding-bottom: 20px;
@@ -28,12 +34,12 @@ section.explore-post .container-fluid .heading {
 
 section.explore-post .container-fluid .heading h1 {
 	display: inline;
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 3.2rem;
-	line-height: 4rem;
-	letter-spacing: 0rem;
+	font-family: "Lato", sans-serif;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: left;
 }
 
 section.explore-post .container-fluid .heading .icon {
@@ -45,13 +51,75 @@ section.explore-post .container-fluid .heading .icon {
 
 section.explore-post .container-fluid .card {
 	width: 100%;
-	padding: 10px;
+	padding: 0px;
 	margin-bottom: 10px;
 	border: 1px solid #fff;
 }
 
-section.explore-post .container-fluid .card:hover {
+/* section.explore-post .container-fluid .card:hover {
 	border: 1px solid #000;
+} */
+
+section.explore-post .container-fluid .card .card-image {
+	width: 100%;
+	height: 216px;
+	padding: 0;
+	background: url("https://images.pexels.com/photos/1456706/pexels-photo-1456706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+	background-size: cover;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+/* section.explore-post .container-fluid .card .card-image .dark-layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.7;
+	border-radius: 0;
+	z-index: 2;
+} */
+
+section.explore-post .container-fluid .card .card-image .post-detail {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 216px;
+	color: #fff;
+	background-color: #000;
+	opacity: 0;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 20px;
+	letter-spacing: 0rem;
+	border-radius: 10px;
+	z-index: 3;
+}
+
+section.explore-post .container-fluid .card .card-image .post-detail:hover {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 216px;
+	color: #fff;
+	background-color: #000;
+	opacity: 0.9;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 20px;
+	letter-spacing: 0rem;
+	border-radius: 10px;
+	z-index: 3;
 }
 
 section.explore-post .container-fluid .card img {
@@ -62,32 +130,50 @@ section.explore-post .container-fluid .card img {
 }
 
 section.explore-post .container-fluid .card .card-body {
-	margin: 0;
+	margin: 10px 0;
 	padding: 0;
 	color: #000;
 }
 
 section.explore-post .container-fluid .card .post-title {
 	padding-top: 5px;
-	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-style: normal;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 20px;
-	letter-spacing: 0rem;
+	font-family: "Lato", sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: left;
 }
 
 section.explore-post .container-fluid .card .post-category {
-	padding-top: 10px;
-	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-style: normal;
+	padding-top: 2px;
+	font-family: "Lato", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 20px;
-	letter-spacing: 0rem;
-	color: #767677;
+	line-height: 17px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: #101623;
 }
 
+section.explore-post .container-fluid .card .post-view {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-top: 2px;
+}
+
+section.explore-post .container-fluid .card .post-view span {
+	margin-left: 2px;
+	font-family: "Lato", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 17px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: #101623;
+}
+/* 
 section.explore-post .container-fluid .card .post-desc {
 	margin-bottom: 10px;
 	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -116,7 +202,7 @@ section.explore-post .container-fluid .card .price span {
 	font-weight: 400;
 	line-height: 20px;
 	letter-spacing: 0rem;
-}
+} */
 
 section.explore-post .container-fluid .explore {
 	margin-top: 60px;

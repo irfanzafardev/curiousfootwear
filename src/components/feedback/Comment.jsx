@@ -14,11 +14,6 @@ const Comment = ({ comment }) => {
 	const [commentUnlikeIcon, setCommentUnlikeIcon] = useState("");
 	const [commentUnlikeIcon2, setCommentUnlikeIcon2] = useState("d-none");
 
-	const formatDate = (dateString) => {
-		const options = { year: "numeric", month: "long", day: "numeric" };
-		return new Date(dateString).toLocaleDateString(undefined, options);
-	};
-
 	// console.log(comment);
 	// const { currentComment } = useSelector((state) => state.singlecomment);
 
@@ -61,8 +56,10 @@ const Comment = ({ comment }) => {
 			</div>
 			<div className="comment-detail">
 				<div>
-					<UserInfo commentId={comment.id} />
-					<div className="date">{formatDate(`${comment.createdAt}`)}</div>
+					<UserInfo commentId={comment.id} comment={comment} commentLike={commentLike} />
+					{/* <div className="date">
+						{formatDate(`${comment.createdAt}`)} | <span>{commentLike} like</span>
+					</div> */}
 					{/* {moment("Tue Jan 10 2023 22:17:00 GMT+0700").fromNow()} */}
 					<div className="comment-body">{comment.body}</div>
 					<div className="suggested-price">IDR{comment.price}</div>
@@ -71,7 +68,6 @@ const Comment = ({ comment }) => {
 					{comment?.like.includes(user?.userId.toString()) ? (
 						<button className={`like ${commentUnlikeIcon}`} onClick={handleUnlike}>
 							<AiFillHeart size="1.4em" />
-							{commentLike}
 						</button>
 					) : (
 						""
@@ -79,7 +75,6 @@ const Comment = ({ comment }) => {
 					{comment?.dislike.includes(user?.userId.toString()) ? (
 						<button className={`like ${commentLikeIcon}`} onClick={handleLike}>
 							<AiOutlineHeart size="1.4em" />
-							{commentLike}
 						</button>
 					) : (
 						""
@@ -87,7 +82,6 @@ const Comment = ({ comment }) => {
 					{!comment?.like.includes(user?.userId.toString()) && !comment?.dislike.includes(user?.userId.toString()) ? (
 						<button className={`like ${commentLikeIcon}`} onClick={handleLike}>
 							<AiOutlineHeart size="1.4em" />
-							{commentLike}
 						</button>
 					) : (
 						""
@@ -97,7 +91,6 @@ const Comment = ({ comment }) => {
 					</button>
 					<button className={`like ${commentLikeIcon2}`} onClick={handleLike}>
 						<AiOutlineHeart size="1.4em" />
-						{commentLike}
 					</button>
 				</div>
 			</div>

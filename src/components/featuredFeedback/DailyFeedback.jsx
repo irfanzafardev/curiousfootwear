@@ -6,7 +6,7 @@ const DailyFeedback = () => {
 		<section className="daily-feedback">
 			<div className="container-fluid">
 				<div className="heading">
-					<h1>Today's feedback</h1>
+					<h1>Today's feedbacks</h1>
 				</div>
 				<div className="row mt-4">
 					<div className="col-12 col-lg-3">
