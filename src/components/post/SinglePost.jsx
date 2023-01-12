@@ -10,7 +10,7 @@ import { FaRegComment } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentPost, likePost, unlikePost } from "../../services/post/postSlice";
+import { getCurrentPost, likePost, unlikePost, viewPost } from "../../services/post/postSlice";
 import "./singlepost.css";
 import SuggestedPrice from "./SuggestedPrice";
 
@@ -35,6 +35,7 @@ const SinglePost = () => {
 				setPost(postRes.data);
 				setOwner(userRes.data);
 				dispatch(getCurrentPost(postRes.data._id));
+				dispatch(viewPost(postRes.data._id));
 			} catch (error) {
 				console.log(error);
 			}

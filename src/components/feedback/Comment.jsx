@@ -87,7 +87,7 @@ const Comment = ({ comment }) => {
 						""
 					)}
 					<button className={`like ${commentUnlikeIcon2}`} onClick={handleUnlike}>
-						<AiFillHeart size="1.4em" /> {commentLike}
+						<AiFillHeart size="1.4em" />
 					</button>
 					<button className={`like ${commentLikeIcon2}`} onClick={handleLike}>
 						<AiOutlineHeart size="1.4em" />

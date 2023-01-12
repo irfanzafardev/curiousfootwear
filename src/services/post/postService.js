@@ -4,6 +4,8 @@ const POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/"
 const ALL_POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/all"
 const LIKE_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/like/"
 const UNLIKE_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/dislike/"
+const VIEW_POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/view/"
+
 
 // Get all post
 const getAllPost = async () => {
@@ -66,12 +68,19 @@ const unlikePost = async (postId, token) => {
   return response.data
 }
 
+// View post
+const viewPost = async (postId) => {
+  const response = await axios.put(VIEW_POST_BASE_URL + postId)
+  return response.data
+}
+
 const postService = {
   getAllPost,
   getCurrentPost,
   createPost,
   likePost,
-  unlikePost
+  unlikePost,
+  viewPost
 }
 
 export default postService

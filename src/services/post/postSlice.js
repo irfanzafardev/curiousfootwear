@@ -46,7 +46,7 @@ export const getAllPost = createAsyncThunk(
   }
 )
 
-// Fetch all post
+// Fetch current post
 export const getCurrentPost = createAsyncThunk(
   'post/getCurrent',
   async (postId, thunkAPI) => {
@@ -90,6 +90,24 @@ export const unlikePost = createAsyncThunk(
     try {
       const token = thunkAPI.getState().auth.user.token
       return await postService.unlikePost(postId, token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+// Increase view post
+export const viewPost = createAsyncThunk(
+  'post/view',
+  async (postId, thunkAPI) => {
+    try {
+      return await postService.viewPost(postId)
     } catch (error) {
       const message =
         (error.response &&

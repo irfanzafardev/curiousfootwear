@@ -53,7 +53,7 @@ const CategorySlider = () => {
 							</Carousel>
 						</div>
 					</div>
-					<div className="col-12 col-lg-6 see-more-button">
+					<div className="col-12 col-lg-6 see-more-button d-none">
 						<div className="d-flex justify-content-center justify-content-lg-end">
 							<p>See all</p>
 						</div>
