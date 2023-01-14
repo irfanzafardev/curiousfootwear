@@ -350,7 +350,7 @@ section.single-post .sidebar .product-desc h2 {
 
 section.single-post .sidebar .product-desc p {
 	max-height: 180px;
-	overflow-y: scroll;
+	overflow-y: auto;
 	font-family: "Manrope", sans-serif;
 	font-size: 14px;
 	font-weight: 500;

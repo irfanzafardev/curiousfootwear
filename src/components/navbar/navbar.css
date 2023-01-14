@@ -8,7 +8,7 @@ nav {
 	font-style: normal;
 	background-color: #fff;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-	z-index: 9999;
+	z-index: 9999999;
 }
 
 @media only screen and (max-width: 768px) {
@@ -114,7 +114,7 @@ nav .nav-items .item:first-child {
 	cursor: pointer;
 }
 
-nav .nav-items .item button {
+nav .nav-items .item button.upload-button {
 	width: auto;
 	padding: 8px 12px;
 	margin: 0 30px;
@@ -134,6 +134,7 @@ nav .nav-items .item button {
 nav .nav-items .item .user {
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 }
 
 nav .nav-items .item .user .user-profile img {
@@ -156,6 +157,61 @@ nav .nav-items .divider {
 .link:hover {
 	text-decoration: none;
 	color: #000;
+}
+
+.dropdown-backdrop {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	display: block;
+	top: 0;
+	left: 0;
+	background-color: #d9d9d9;
+	opacity: 0.3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9;
+}
+
+nav .nav-items .item .dropdown {
+	position: fixed;
+	width: 200px;
+	top: 60px;
+	right: 40px;
+	padding: 20px;
+	z-index: 9999999;
+	background-color: #fff;
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+nav .nav-items .item .dropdown-item .profile-image img {
+	width: 64px;
+	height: 64px;
+	margin-right: 10px;
+	border-radius: 100%;
+	object-fit: cover;
+}
+
+nav .nav-items .item .dropdown-item .user-email {
+	text-transform: lowercase;
+	margin-top: 6px;
+}
+
+nav .nav-items .item .dropdown-item .button-group {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+nav .nav-items .item .dropdown-item .button-group button {
+	width: 100%;
+	margin-top: 4px;
+	font-family: "Manrope", sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-align: center;
 }
 
 /* Modal */

@@ -36,8 +36,8 @@ const Search = () => {
 				<div className="row">
 					{posts.length > 0 ? (
 						posts.map((post) => (
-							<div className="col-12 col-lg-3" key={post.id}>
-								<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
+							<div className="col-12 col-lg-3" key={post._id}>
+								<Link to={`/post/${post._id}`} style={{ textDecoration: "none" }}>
 									<div className="card">
 										<div
 											className="card-image"

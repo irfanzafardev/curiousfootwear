@@ -64,7 +64,7 @@ const FeaturedPost = () => {
 											}}
 										>
 											<div className="post-detail">
-												<p>Post description..</p>
+												<p>Post details...</p>
 											</div>
 										</div>
 										{/* <img src={post.image} className="card-img-top" alt="product" /> */}

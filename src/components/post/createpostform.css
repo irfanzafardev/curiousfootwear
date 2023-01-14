@@ -25,20 +25,29 @@ section.upload .wrapper {
 
 section.upload .wrapper .close {
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 20px;
+	right: 20px;
 	cursor: pointer;
+}
+
+section.upload .wrapper .heading {
+	border-bottom: 1px solid #000;
 }
 
 section.upload .wrapper .heading h1 {
 	margin: 0 0 20px;
 	color: #000;
 	text-align: left;
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-weight: 600;
-	font-style: normal;
-	font-size: 20px;
-	letter-spacing: 0rem;
+	font-family: "Poppins", sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 28px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.upload .wrapper form {
+	margin-top: 20px;
 }
 
 section.upload .wrapper form .input-group {
@@ -53,7 +62,10 @@ section.upload .wrapper form .input-group label {
 	font-size: 14px;
 	color: #000;
 	pointer-events: none;
-	font-family: "ESAllianz-Regular", sans-serif;
+	font-family: "Manrope", sans-serif;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	text-align: left;
 	letter-spacing: 0rem;
 }
 
@@ -93,14 +105,19 @@ section.upload .wrapper form .input-group input:valid ~ label {
 	font-size: 12px;
 }
 
-section.upload .wrapper form .input-group input.upload-image {
-	width: 100%;
-	padding: 10px 0;
-	font-size: 14px;
-	color: #000;
-	margin-bottom: 30px;
-	background: transparent;
-	font-family: "ESAllianz-Regular", sans-serif;
+input#file-upload-button {
+	background-color: #1473e6 !important;
+	color: red;
+}
+
+section.upload .wrapper form .input-group .upload-precentage {
+	margin-top: 12px;
+	pointer-events: none;
+	font-size: 12px;
+	font-family: "Manrope", sans-serif;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	text-align: left;
 	letter-spacing: 0rem;
 }
 
@@ -135,15 +152,20 @@ section.upload .wrapper form .input-group select {
 	letter-spacing: 0rem;
 }
 
-section.upload .wrapper form button {
+section.upload .wrapper form .button-group {
 	float: right;
+	display: flex;
+	gap: 20px;
+}
+
+section.upload .wrapper form button {
 	font-family: "ESAllianz-Regular", sans-serif;
 	width: 100px;
 	height: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 0%;
+	border-radius: 50px;
 	text-align: center;
 	font-size: 14px;
 }

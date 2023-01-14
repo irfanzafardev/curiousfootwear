@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, reset } from "../../services/auth/authSlice";
 import CreatePostForm from "../post/CreatePostForm";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -11,6 +12,11 @@ const Navbar = () => {
 	const { user } = useSelector((state) => state.auth);
 
 	const [open, setOpen] = useState(false);
+
+	const [isActive, setActive] = useState(false);
+	const toggleClass = () => {
+		setActive(!isActive);
+	};
 	// Search by query
 	const [search, setSearch] = useState("");
 	const navigate = useNavigate();
@@ -19,14 +25,19 @@ const Navbar = () => {
 			navigate(`/search?q=${search}`);
 		}
 	};
-
+	const dispatch = useDispatch();
+	const handleLogout = () => {
+		dispatch(logout());
+		dispatch(reset());
+		navigate("/");
+		window.location.reload();
+	};
 	return (
 		<>
 			<nav className="row align-items-center">
 				<div className="container-fluid">
 					<Link to="/" className="link">
 						<div className="nav-brand">
-							{/* <p>THE CURIOUS FOOTWEAR</p> */}
 							<p>FOOTWARE</p>
 						</div>
 					</Link>
@@ -58,18 +69,31 @@ const Navbar = () => {
 									</button>
 								</div>
 								<div className="item">
-									<Link to={`/profile/me`} className="link">
-										<div className="user">
-											<div className="user-profile">{user.image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
-											Hi, {user.first_name}
+									<div className="user" onClick={toggleClass}>
+										<div className="user-profile">{user.image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+										Hi, {user.first_name}
+									</div>
+									<div className={isActive ? "dropdown d-block" : "dropdown d-none"}>
+										<div className="dropdown-item">
+											<div className="profile-image">{user.image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+											<div className="user-name">
+												{user.first_name} {user.last_name}
+											</div>
+											<div className="user-email">{user.email}</div>
+											<div className="button-group">
+												<Link to={`/profile/me`} className="link">
+													<button type="button" className="btn btn-primary">
+														See profile
+													</button>
+												</Link>
+												<button type="button" className="btn btn-outline-dark" onClick={handleLogout}>
+													Log out
+												</button>
+											</div>
 										</div>
-									</Link>
+									</div>
+									<div className={isActive ? "dropdown-backdrop d-block" : "dropdown-backdrop d-none"} onClick={toggleClass}></div>
 								</div>
-								{/* <div className="item-btn">
-									<button type="button" className="btn" onClick={handleLogout}>
-										Log out
-									</button>
-								</div> */}
 							</>
 						) : (
 							<>

@@ -92,29 +92,49 @@ const CreatePostForm = ({ setOpen }) => {
 					<AiOutlineClose />
 				</div>
 				<div className="heading">
-					<h1>What footwear do you want to share?</h1>
+					<h1>Share your footwear</h1>
 				</div>
 				<form>
-					<div className="input-group">
-						<input type="text" name="title" onChange={handleChange}></input>
-						<label>Product name</label>
+					<div className="row">
+						<div className="col-6">
+							<div className="input-group">
+								<input type="text" name="brand" onChange={handleChange}></input>
+								<label>Brand</label>
+							</div>
+						</div>
+						<div className="col-6">
+							<div className="input-group">
+								<input type="text" name="title" onChange={handleChange}></input>
+								<label>Name</label>
+							</div>
+						</div>
 					</div>
+
 					<div className="input-group">
-						<input type="text" name="brand" onChange={handleChange}></input>
-						<label>Product brand</label>
-					</div>
-					<div className="input-group">
-						{imgPerc ? "Uploading: " + imgPerc + "%" : ""}
+						{imgPerc ? <div className="upload-precentage">Uploading: {imgPerc} %</div> : ""}
+
 						<input type="file" className="upload-image" id="fileInput" accept="image/*" onChange={(e) => setImg(e.target.files[0])} />
-						<label>Product image</label>
+						<label>Image</label>
 					</div>
-					<div className="input-group">
-						<textarea type="text" name="description" onChange={handleChange}></textarea>
-						<label>Product description</label>
-					</div>
-					<div className="input-group">
-						<input type="date" name="purchase_date" onChange={handleChange}></input>
-						<label>Product purchase date</label>
+					<div className="row">
+						<div className="col-6">
+							<div className="input-group">
+								<input type="date" name="purchase_date" onChange={handleChange}></input>
+								<label>Product purchase date</label>
+							</div>
+						</div>
+						<div className="col-6">
+							<div className="input-group">
+								<select className="form-select" name="category" onChange={handleChange} required>
+									<option>Select Category</option>
+									{categories.map((item) => (
+										<option key={item.categoryId} value={item.name}>
+											{item.name}
+										</option>
+									))}
+								</select>
+							</div>
+						</div>
 					</div>
 					<div className="row price-row">
 						<div className="col-6">
@@ -130,24 +150,23 @@ const CreatePostForm = ({ setOpen }) => {
 							</div>
 						</div>
 					</div>
-					<div className="input-group">
+					{/* <div className="input-group">
 						<input type="text" name="condition" onChange={handleChange}></input>
 						<label>Product condition</label>
-					</div>
-					<div className="input-group">
-						<select className="form-select" name="category" onChange={handleChange} required>
-							<option>Select Category</option>
-							{categories.map((item) => (
-								<option key={item.categoryId} value={item.name}>
-									{item.name}
-								</option>
-							))}
-						</select>
-					</div>
+					</div> */}
 
-					<button className="btn btn-primary" onClick={handleSubmit}>
-						Publish
-					</button>
+					<div className="input-group">
+						<textarea type="text" name="description" onChange={handleChange}></textarea>
+						<label>Description</label>
+					</div>
+					<div className="button-group">
+						<button className="btn btn-outline-dark" onClick={() => setOpen(false)}>
+							Discard
+						</button>
+						<button className="btn btn-dark" onClick={handleSubmit}>
+							Create post
+						</button>
+					</div>
 				</form>
 			</div>
 		</section>
