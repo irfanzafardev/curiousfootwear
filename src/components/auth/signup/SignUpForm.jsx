@@ -45,7 +45,7 @@ const SignUpForm = () => {
 		});
 	};
 
-	const hanldeSubmit = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
 			alert("Password doesn't match");
@@ -120,7 +120,7 @@ const SignUpForm = () => {
 										</Link>
 									</p>
 								</div>
-								<form onSubmit={hanldeSubmit}>
+								<form onSubmit={handleSubmit}>
 									<div className="row name-row">
 										<div className="col-6">
 											<div className="input-group">
@@ -143,19 +143,20 @@ const SignUpForm = () => {
 										<span>should be a valid email address.</span>
 									</div>
 									<div className="input-group">
-										<input type="text" id="username" name="username" pattern="^[A-Za-z0-9]{3,16}$" onChange={handleChange} onBlur={handleFocusUsername} focused={focusedUsername.toString()} required></input>
+										<input type="text" id="username" name="username" pattern="^[A-Za-z0-9]{5,}$" onChange={handleChange} onBlur={handleFocusUsername} focused={focusedUsername.toString()} required></input>
 										<label>Username</label>
-										<span>Username should be 3-16 character. Only letters and numbers.</span>
+										<span>Username should be a minimum of 5 characters. Only letters and numbers.</span>
 									</div>
 									<div className="input-group">
-										<input type="number" id="phone_number" name="phone_number" onChange={handleChange} onBlur={handleFocusPhone} focused={focusedPhone.toString()} required></input>
+										<input type="number" id="phone_number" name="phone_number" pattern="^.{10,14}$" onChange={handleChange} onBlur={handleFocusPhone} focused={focusedPhone.toString()} required></input>
 										<label>Phone</label>
 										<span>Please fill the field.</span>
+										<span>Phone number should a minimum of 10 to 14 characters.</span>
 									</div>
 									<div className="input-group">
 										<input type="password" id="password" name="password" pattern="^.{4,}$" onChange={handleChange} onBlur={handleFocusPassword} focused={focusedPassword.toString()} required></input>
 										<label>Password</label>
-										<span>Passsword should be a minimum of 4 character.</span>
+										<span>Passsword should be a minimum of 4 characters.</span>
 									</div>
 									<div className="input-group">
 										<input type="password" id="confirmPassword" name="confirmPassword" pattern={formData.password} onChange={handleChange} onBlur={handleFocusConfirmPassword} onFocus={() => setFocusedConfirmPassword(true)} focused={focusedConfirmPassword.toString()} required></input>
@@ -163,7 +164,7 @@ const SignUpForm = () => {
 										<span>Passsword doesn't match.</span>
 									</div>
 									<div className="item-btn float-end">
-										<button type="submit" className="btn btn-primary">
+										<button type="submit" className="btn btn-primary" disabled={false}>
 											Sign Up
 										</button>
 									</div>

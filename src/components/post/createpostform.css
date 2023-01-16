@@ -8,7 +8,7 @@ section.upload {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	z-index: 9999999;
+	z-index: 9999999999;
 }
 
 section.upload .wrapper {
@@ -52,17 +52,20 @@ section.upload .wrapper form {
 
 section.upload .wrapper form .input-group {
 	position: relative;
+	margin-bottom: 20px;
 }
 
 section.upload .wrapper form .input-group label {
 	position: absolute;
-	top: 0;
+	top: -20px;
 	left: 0;
 	padding: 10px 0;
-	font-size: 14px;
+	font-size: 12px;
 	color: #000;
 	pointer-events: none;
 	font-family: "Manrope", sans-serif;
+	letter-spacing: 0rem;
+	transition: 0.3s;
 	font-weight: 500;
 	letter-spacing: 0.5px;
 	text-align: left;
@@ -72,23 +75,21 @@ section.upload .wrapper form .input-group label {
 section.upload .wrapper form .input-group input {
 	width: 100%;
 	padding: 10px 0;
-	font-size: 14px;
-	color: #000;
-	margin-bottom: 30px;
 	border: none;
 	border-bottom: 1px solid #eaeaea;
 	outline: none;
 	background: transparent;
 	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 12px;
 	letter-spacing: 0rem;
+	color: #000;
 }
 
 section.upload .wrapper form .input-group input:focus {
 	width: 100%;
 	padding: 10px 0;
-	font-size: 14px;
+	font-size: 12px;
 	color: #000;
-	margin-bottom: 30px;
 	border: none;
 	border-bottom: 1px solid #1473e6;
 	outline: none;

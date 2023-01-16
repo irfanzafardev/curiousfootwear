@@ -11,7 +11,7 @@ const SignInForm = () => {
 		password: "",
 	});
 
-	console.log(formData);
+	// console.log(formData);
 
 	const { username, password } = formData;
 

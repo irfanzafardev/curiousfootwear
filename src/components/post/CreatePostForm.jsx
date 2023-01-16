@@ -71,7 +71,7 @@ const CreatePostForm = ({ setOpen }) => {
 		dispatch(createPost(inputs)).then(() => {
 			console.log(inputs);
 			setOpen(false);
-			// window.location.reload();
+			window.location.reload();
 		});
 	};
 
@@ -94,17 +94,17 @@ const CreatePostForm = ({ setOpen }) => {
 				<div className="heading">
 					<h1>Share your footwear</h1>
 				</div>
-				<form>
+				<form onSubmit={handleSubmit}>
 					<div className="row">
 						<div className="col-6">
 							<div className="input-group">
-								<input type="text" name="brand" onChange={handleChange}></input>
+								<input type="text" name="brand" onChange={handleChange} required></input>
 								<label>Brand</label>
 							</div>
 						</div>
 						<div className="col-6">
 							<div className="input-group">
-								<input type="text" name="title" onChange={handleChange}></input>
+								<input type="text" name="title" onChange={handleChange} required></input>
 								<label>Name</label>
 							</div>
 						</div>
@@ -113,13 +113,13 @@ const CreatePostForm = ({ setOpen }) => {
 					<div className="input-group">
 						{imgPerc ? <div className="upload-precentage">Uploading: {imgPerc} %</div> : ""}
 
-						<input type="file" className="upload-image" id="fileInput" accept="image/*" onChange={(e) => setImg(e.target.files[0])} />
+						<input type="file" className="upload-image" id="fileInput" accept="image/*" onChange={(e) => setImg(e.target.files[0])} required />
 						<label>Image</label>
 					</div>
 					<div className="row">
 						<div className="col-6">
 							<div className="input-group">
-								<input type="date" name="purchase_date" onChange={handleChange}></input>
+								<input type="date" name="purchase_date" onChange={handleChange} required></input>
 								<label>Product purchase date</label>
 							</div>
 						</div>
@@ -139,13 +139,13 @@ const CreatePostForm = ({ setOpen }) => {
 					<div className="row price-row">
 						<div className="col-6">
 							<div className="input-group">
-								<input type="text" name="original_price" onChange={handleChange}></input>
+								<input type="text" name="original_price" onChange={handleChange} required></input>
 								<label>Original price</label>
 							</div>
 						</div>
 						<div className="col-6">
 							<div className="input-group">
-								<input type="text" name="price" onChange={handleChange}></input>
+								<input type="text" name="price" onChange={handleChange} required></input>
 								<label>Initial price</label>
 							</div>
 						</div>
@@ -163,9 +163,7 @@ const CreatePostForm = ({ setOpen }) => {
 						<button className="btn btn-outline-dark" onClick={() => setOpen(false)}>
 							Discard
 						</button>
-						<button className="btn btn-dark" onClick={handleSubmit}>
-							Create post
-						</button>
+						<button className="btn btn-dark">Create post</button>
 					</div>
 				</form>
 			</div>
