@@ -11,11 +11,16 @@ const SignUpNavbar = () => {
 					</div>
 				</Link>
 				<div className="nav-items d-flex">
-					<div className="item">
+					<div className="item d-none">
 						<Link to="/signin" className="link">
 							<button type="button" className="btn">
 								Sign in
 							</button>
+						</Link>
+					</div>
+					<div className="item">
+						<Link to="/signin" className="link">
+							Sign in
 						</Link>
 					</div>
 				</div>

@@ -30,7 +30,7 @@ const PostCard = ({ post }) => {
 		const fetchMostLikedComments = async (postId) => {
 			const commentResp = await axios.get(rootAPI + `comment/getCommentsByMostLiked/${postId}`);
 			setMostLikedComments(commentResp.data);
-			console.log(commentResp.data);
+			// console.log(commentResp.data);
 		};
 		fetchMostLikedComments(post.id);
 	}, [post.id]);

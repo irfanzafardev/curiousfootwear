@@ -32,7 +32,7 @@ const SignUpForm = () => {
 
 		if (isSuccess || currentUser) {
 			window.location.reload();
-			navigate("/");
+			navigate("/signin");
 		}
 
 		dispatch(reset());
@@ -48,7 +48,7 @@ const SignUpForm = () => {
 	const hanldeSubmit = (e) => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
-			alert("Salah password");
+			alert("Password doesn't match");
 		} else {
 			const userData = {
 				first_name,
