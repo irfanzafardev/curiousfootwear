@@ -44,9 +44,11 @@ const CategorySlider = () => {
 						<div className="slider">
 							<Carousel responsive={responsive}>
 								{categories.map((item) => (
-									<div className="item" draggable={false} key={item.categoryId}>
+									<div className="item" key={item.categoryId}>
 										<Link to={`/category?cat=${item.name}`} className="link">
-											<div className="btn btn-outline-dark category-item">{item.name}</div>
+											<div className="btn btn-outline-dark category-item" draggable={false}>
+												{item.name}
+											</div>
 										</Link>
 									</div>
 								))}

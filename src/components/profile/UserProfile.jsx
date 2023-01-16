@@ -8,6 +8,7 @@ const UserProfile = () => {
 				<div className="heading">
 					<h1>Profile</h1>
 				</div>
+				<p>Coming soon...</p>
 			</div>
 		</section>
 	);

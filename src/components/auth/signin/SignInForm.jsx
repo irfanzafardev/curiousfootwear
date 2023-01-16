@@ -11,6 +11,8 @@ const SignInForm = () => {
 		password: "",
 	});
 
+	console.log(formData);
+
 	const { username, password } = formData;
 
 	const navigate = useNavigate();
@@ -32,10 +34,10 @@ const SignInForm = () => {
 	}, [currentUser, isError, isSuccess, message, navigate, dispatch]);
 
 	const handleChange = (e) => {
-		setFormData((prevState) => ({
-			...prevState,
+		setFormData({
+			...formData,
 			[e.target.name]: e.target.value,
-		}));
+		});
 	};
 
 	const handleSubmit = (e) => {
@@ -74,12 +76,14 @@ const SignInForm = () => {
 								</div>
 								<form onSubmit={handleSubmit}>
 									<div className="input-group">
-										<input type="text" id="username" name="username" value={username} onChange={handleChange} autoFocus></input>
+										<input type="text" id="username" name="username" onChange={handleChange} required></input>
 										<label>Username</label>
+										{/* <span>Username should be 3-16 character</span> */}
 									</div>
 									<div className="input-group">
-										<input type="password" id="password" name="password" value={password} onChange={handleChange}></input>
+										<input type="password" id="password" name="password" onChange={handleChange} required></input>
 										<label>Password</label>
+										{/* <span>Password should apakek</span> */}
 									</div>
 									<div className="item-btn float-end">
 										<button type="submit" className="btn btn-primary">

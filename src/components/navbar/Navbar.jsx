@@ -107,9 +107,7 @@ const Navbar = () => {
 								<div className="divider d-none">|</div>
 								<div className="item">
 									<Link to="/signin" className="link">
-										<button type="button" className="btn">
-											Sign in
-										</button>
+										Sign in
 									</Link>
 								</div>
 							</>

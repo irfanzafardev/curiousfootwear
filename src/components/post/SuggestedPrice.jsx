@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 
 const SuggestedPrice = ({ post }) => {
 	const [mostLikedComments, setMostLikedComments] = useState([]);
-	const dispatch = useDispatch();
+
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
 	useEffect(() => {
@@ -15,8 +14,8 @@ const SuggestedPrice = ({ post }) => {
 			setMostLikedComments(commentResp.data);
 		};
 		fetchMostLikedComments(post._id);
-	}, [post._id, dispatch]);
-	return <div className="suggested-price">{mostLikedComments ? <p>IDR{mostLikedComments[0]?.suggestedPrice || "0"}</p> : <p>-</p>}</div>;
+	}, [post._id]);
+	return <div className="suggested-price">{mostLikedComments ? <p>IDR{mostLikedComments[0]?.suggestedPrice || "-"}</p> : <p>-</p>}</div>;
 };
 
 export default SuggestedPrice;

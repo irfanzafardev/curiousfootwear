@@ -75,7 +75,6 @@ nav .nav-items .item {
 	width: auto;
 	max-width: 100%;
 	justify-content: center;
-	text-transform: capitalize;
 }
 
 nav .search .search-box {
@@ -166,7 +165,7 @@ nav .nav-items .divider {
 	display: block;
 	top: 0;
 	left: 0;
-	background-color: #d9d9d9;
+	background-color: transparent;
 	opacity: 0.3;
 	display: flex;
 	align-items: center;

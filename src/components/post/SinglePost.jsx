@@ -83,7 +83,7 @@ const SinglePost = () => {
 									</div>
 								</div>
 								<div className="product-option">
-									<button className="btn btn-outline-dark">
+									<button className="btn btn-outline-dark" disabled>
 										<AiOutlineMessage className="me-1" />
 										Contact owner
 									</button>
@@ -91,7 +91,6 @@ const SinglePost = () => {
 										Give Feedback
 									</button>
 								</div>
-
 								<div className="product-owner">
 									<div className="user-profile">
 										<div className="user-image">{owner[0].image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
@@ -107,7 +106,7 @@ const SinglePost = () => {
 									</div>
 									<div className="user-option">
 										{user ? (
-											<button className="btn btn-dark">
+											<button className="btn btn-dark" disabled>
 												<AiOutlinePlus />
 												Follow
 											</button>
@@ -127,7 +126,6 @@ const SinglePost = () => {
 										</span>
 									</p>
 								</div>
-
 								<div className="product-desc">
 									<h2>Description</h2>
 									<p>{post.description}</p>
@@ -146,7 +144,7 @@ const SinglePost = () => {
 										</div>
 										{user ? (
 											<div className="post-option">
-												<button className="share-post">
+												<button className="share-post" disabled>
 													<RiShareForwardLine size="1.6em" />
 													Share
 												</button>

@@ -39,10 +39,10 @@ const SignUpForm = () => {
 	}, [currentUser, isError, isSuccess, message, navigate, dispatch]);
 
 	const handleChange = (e) => {
-		setFormData((prevState) => ({
-			...prevState,
+		setFormData({
+			...formData,
 			[e.target.name]: e.target.value,
-		}));
+		});
 	};
 
 	const hanldeSubmit = (e) => {
@@ -63,6 +63,35 @@ const SignUpForm = () => {
 
 			dispatch(register(userData));
 		}
+	};
+
+	const [focusedPhone, setFocusedPhone] = useState(false);
+	const [focusedFirstName, setFocusedFirstName] = useState(false);
+	const [focusedLastName, setFocusedLastName] = useState(false);
+	const [focusedEmail, setFocusedEmail] = useState(false);
+	const [focusedUsername, setFocusedUsername] = useState(false);
+	const [focusedPassword, setFocusedPassword] = useState(false);
+	const [focusedConfirmPassword, setFocusedConfirmPassword] = useState(false);
+	const handleFocusPhone = (e) => {
+		setFocusedPhone(true);
+	};
+	const handleFocusFirstName = (e) => {
+		setFocusedFirstName(true);
+	};
+	const handleFocusLastName = (e) => {
+		setFocusedLastName(true);
+	};
+	const handleFocusEmail = (e) => {
+		setFocusedEmail(true);
+	};
+	const handleFocusUsername = (e) => {
+		setFocusedUsername(true);
+	};
+	const handleFocusPassword = (e) => {
+		setFocusedPassword(true);
+	};
+	const handleFocusConfirmPassword = (e) => {
+		setFocusedConfirmPassword(true);
 	};
 
 	if (isLoading) {
@@ -95,36 +124,43 @@ const SignUpForm = () => {
 									<div className="row name-row">
 										<div className="col-6">
 											<div className="input-group">
-												<input type="text" id="firstName" name="first_name" value={first_name} onChange={handleChange}></input>
+												<input type="text" id="firstName" name="first_name" pattern="^.{1,}$" onChange={handleChange} onBlur={handleFocusFirstName} focused={focusedFirstName.toString()} required></input>
 												<label>First name</label>
+												<span>Please fill the field.</span>
 											</div>
 										</div>
 										<div className="col-6">
 											<div className="input-group">
-												<input type="text" id="lastName" name="last_name" value={last_name} onChange={handleChange}></input>
+												<input type="text" id="lastName" name="last_name" pattern="^.{1,}$" onChange={handleChange} onBlur={handleFocusLastName} focused={focusedLastName.toString()} required></input>
 												<label>Last name</label>
+												<span>Please fill the field.</span>
 											</div>
 										</div>
 									</div>
 									<div className="input-group">
-										<input type="text" id="email" name="email" value={email} onChange={handleChange}></input>
+										<input type="email" id="email" name="email" onChange={handleChange} onBlur={handleFocusEmail} focused={focusedEmail.toString()} required></input>
 										<label>Email</label>
+										<span>should be a valid email address.</span>
 									</div>
 									<div className="input-group">
-										<input type="text" id="username" name="username" value={username} onChange={handleChange}></input>
+										<input type="text" id="username" name="username" pattern="^[A-Za-z0-9]{3,16}$" onChange={handleChange} onBlur={handleFocusUsername} focused={focusedUsername.toString()} required></input>
 										<label>Username</label>
+										<span>Username should be 3-16 character. Only letters and numbers.</span>
 									</div>
 									<div className="input-group">
-										<input type="number" id="phone_number" name="phone_number" value={phone_number} onChange={handleChange}></input>
+										<input type="number" id="phone_number" name="phone_number" onChange={handleChange} onBlur={handleFocusPhone} focused={focusedPhone.toString()} required></input>
 										<label>Phone</label>
+										<span>Please fill the field.</span>
 									</div>
 									<div className="input-group">
-										<input type="password" id="password" name="password" value={password} onChange={handleChange}></input>
+										<input type="password" id="password" name="password" pattern="^.{4,}$" onChange={handleChange} onBlur={handleFocusPassword} focused={focusedPassword.toString()} required></input>
 										<label>Password</label>
+										<span>Passsword should be a minimum of 4 character.</span>
 									</div>
 									<div className="input-group">
-										<input type="password" id="confirmPassword" name="confirmPassword" value={confirmPassword} onChange={handleChange}></input>
+										<input type="password" id="confirmPassword" name="confirmPassword" pattern={formData.password} onChange={handleChange} onBlur={handleFocusConfirmPassword} onFocus={() => setFocusedConfirmPassword(true)} focused={focusedConfirmPassword.toString()} required></input>
 										<label>Confirm Password</label>
+										<span>Passsword doesn't match.</span>
 									</div>
 									<div className="item-btn float-end">
 										<button type="submit" className="btn btn-primary">

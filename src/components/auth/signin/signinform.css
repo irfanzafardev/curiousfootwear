@@ -91,20 +91,20 @@ section.login .container-fluid .row .login-form .heading .link {
 
 .login-form .input-group {
 	position: relative;
+	margin-bottom: 30px;
 }
 
 .login-form .input-group input {
 	width: 100%;
 	padding: 10px 0;
-	font-size: 14px;
-	color: #000;
-	margin-bottom: 30px;
 	border: none;
 	border-bottom: 1px solid #eaeaea;
 	outline: none;
 	background: transparent;
 	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
 	letter-spacing: 0rem;
+	color: #000;
 }
 
 .login-form .input-group input:focus {
@@ -112,7 +112,6 @@ section.login .container-fluid .row .login-form .heading .link {
 	padding: 10px 0;
 	font-size: 14px;
 	color: #000;
-	margin-bottom: 30px;
 	border: none;
 	border-bottom: 1px solid #1473e6;
 	outline: none;
@@ -123,10 +122,10 @@ section.login .container-fluid .row .login-form .heading .link {
 
 .login-form .input-group label {
 	position: absolute;
-	top: 0;
+	top: -20px;
 	left: 0;
 	padding: 10px 0;
-	font-size: 14px;
+	font-size: 12px;
 	color: #000;
 	pointer-events: none;
 	font-family: "ESAllianz-Regular", sans-serif;
@@ -140,6 +139,19 @@ section.login .container-fluid .row .login-form .heading .link {
 	left: 0;
 	color: #000;
 	font-size: 12px;
+}
+
+.login-form .input-group span {
+	display: none;
+	padding: 10px 0;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 12px;
+	letter-spacing: 0rem;
+	color: #ff0000;
+}
+
+.login-form .input-group input:invalid ~ span {
+	display: block;
 }
 
 .login-form button {

@@ -65,33 +65,39 @@ const Comment = ({ comment }) => {
 					<div className="suggested-price">IDR{comment.price}</div>
 				</div>
 				<div>
-					{comment?.like.includes(user?.userId.toString()) ? (
-						<button className={`like ${commentUnlikeIcon}`} onClick={handleUnlike}>
-							<AiFillHeart size="1.4em" />
-						</button>
+					{user ? (
+						<>
+							{comment?.like.includes(user?.userId.toString()) ? (
+								<button className={`like ${commentUnlikeIcon}`} onClick={handleUnlike}>
+									<AiFillHeart size="1.4em" />
+								</button>
+							) : (
+								""
+							)}
+							{comment?.dislike.includes(user?.userId.toString()) ? (
+								<button className={`like ${commentLikeIcon}`} onClick={handleLike}>
+									<AiOutlineHeart size="1.4em" />
+								</button>
+							) : (
+								""
+							)}
+							{!comment?.like.includes(user?.userId.toString()) && !comment?.dislike.includes(user?.userId.toString()) ? (
+								<button className={`like ${commentLikeIcon}`} onClick={handleLike}>
+									<AiOutlineHeart size="1.4em" />
+								</button>
+							) : (
+								""
+							)}
+							<button className={`like ${commentUnlikeIcon2}`} onClick={handleUnlike}>
+								<AiFillHeart size="1.4em" />
+							</button>
+							<button className={`like ${commentLikeIcon2}`} onClick={handleLike}>
+								<AiOutlineHeart size="1.4em" />
+							</button>
+						</>
 					) : (
 						""
 					)}
-					{comment?.dislike.includes(user?.userId.toString()) ? (
-						<button className={`like ${commentLikeIcon}`} onClick={handleLike}>
-							<AiOutlineHeart size="1.4em" />
-						</button>
-					) : (
-						""
-					)}
-					{!comment?.like.includes(user?.userId.toString()) && !comment?.dislike.includes(user?.userId.toString()) ? (
-						<button className={`like ${commentLikeIcon}`} onClick={handleLike}>
-							<AiOutlineHeart size="1.4em" />
-						</button>
-					) : (
-						""
-					)}
-					<button className={`like ${commentUnlikeIcon2}`} onClick={handleUnlike}>
-						<AiFillHeart size="1.4em" />
-					</button>
-					<button className={`like ${commentLikeIcon2}`} onClick={handleLike}>
-						<AiOutlineHeart size="1.4em" />
-					</button>
 				</div>
 			</div>
 		</div>
