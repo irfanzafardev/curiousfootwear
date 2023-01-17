@@ -12,7 +12,7 @@ const Footer = () => {
 						Made with love for LXI-SCC final project.
 						<span>
 							{" "}
-							<a href="https://github.com/irfanzafardev/thecuriousfootwear" rel="noreferrer" target="_blank">
+							<a href="https://github.com/irfanzafardev/curiousfootwear" rel="noreferrer" target="_blank">
 								Github <FiArrowUpRight />
 							</a>
 						</span>
