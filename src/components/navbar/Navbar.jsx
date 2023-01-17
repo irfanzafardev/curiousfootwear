@@ -141,7 +141,7 @@ const Navbar = () => {
 								</div>
 								<div className="modal-item">
 									<div className="modal-btn">
-										<button className="upload-button" onClick={() => setOpen(true)}>
+										<button className="upload-button" data-bs-dismiss="modal" aria-label="Close" onClick={() => setOpen(true)}>
 											<AiOutlinePlus />
 											<span className="ms-2">Upload footwear</span>
 										</button>
@@ -149,7 +149,7 @@ const Navbar = () => {
 								</div>
 								<div className="modal-btn">
 									<div className="item-btn">
-										<button type="button" className="btn">
+										<button type="button" className="btn" onClick={handleLogout}>
 											Log out
 										</button>
 									</div>
@@ -160,7 +160,9 @@ const Navbar = () => {
 								<div className="modal-btn">
 									<button className="upload-button" onClick={() => setOpen(true)}>
 										<AiOutlinePlus />
-										<span className="ms-2">Upload footwear</span>
+										<span className="ms-2" data-bs-dismiss="modal" aria-label="Close">
+											Upload footwear
+										</span>
 									</button>
 								</div>
 								<div className="modal-btn">
