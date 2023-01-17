@@ -9,6 +9,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import app from "../../firebase";
 
 import "./createpostform.css";
+import { Link } from "react-router-dom";
 
 const CreatePostForm = ({ setOpen }) => {
 	const { user } = useSelector((state) => state.auth);
@@ -86,88 +87,112 @@ const CreatePostForm = ({ setOpen }) => {
 		fetchCategories();
 	}, []);
 	return (
-		<section className="upload">
-			<div className="wrapper">
-				<div className="close" onClick={() => setOpen(false)}>
-					<AiOutlineClose />
-				</div>
-				<div className="heading">
-					<h1>Share your footwear</h1>
-				</div>
-				<form onSubmit={handleSubmit}>
-					<div className="row">
-						<div className="col-6">
-							<div className="input-group">
-								<input type="text" name="brand" onChange={handleChange} required></input>
-								<label>Brand</label>
-							</div>
+		<>
+			{user ? (
+				<section className="upload">
+					<div className="wrapper">
+						<div className="close" onClick={() => setOpen(false)}>
+							<AiOutlineClose />
 						</div>
-						<div className="col-6">
-							<div className="input-group">
-								<input type="text" name="title" onChange={handleChange} required></input>
-								<label>Name</label>
-							</div>
+						<div className="heading">
+							<h1>Share your footwear</h1>
 						</div>
-					</div>
+						<form onSubmit={handleSubmit}>
+							<div className="row">
+								<div className="col-6">
+									<div className="input-group">
+										<input type="text" name="brand" onChange={handleChange} required></input>
+										<label>Brand</label>
+									</div>
+								</div>
+								<div className="col-6">
+									<div className="input-group">
+										<input type="text" name="title" onChange={handleChange} required></input>
+										<label>Name</label>
+									</div>
+								</div>
+							</div>
 
-					<div className="input-group">
-						{imgPerc ? <div className="upload-precentage">Uploading: {imgPerc} %</div> : ""}
+							<div className="input-group">
+								{imgPerc ? <div className="upload-precentage">Uploading: {imgPerc} %</div> : ""}
 
-						<input type="file" className="upload-image" id="fileInput" accept="image/*" onChange={(e) => setImg(e.target.files[0])} required />
-						<label>Image</label>
-					</div>
-					<div className="row">
-						<div className="col-6">
-							<div className="input-group">
-								<input type="date" name="purchase_date" onChange={handleChange} required></input>
-								<label>Product purchase date</label>
+								<input type="file" className="upload-image" id="fileInput" accept="image/*" onChange={(e) => setImg(e.target.files[0])} required />
+								<label>Image</label>
 							</div>
-						</div>
-						<div className="col-6">
-							<div className="input-group">
-								<select className="form-select" name="category" onChange={handleChange} required>
-									<option>Select Category</option>
-									{categories.map((item) => (
-										<option key={item.categoryId} value={item.name}>
-											{item.name}
-										</option>
-									))}
-								</select>
+							<div className="row">
+								<div className="col-6">
+									<div className="input-group">
+										<input type="date" name="purchase_date" onChange={handleChange} required></input>
+										<label>Product purchase date</label>
+									</div>
+								</div>
+								<div className="col-6">
+									<div className="input-group">
+										<select className="form-select" name="category" onChange={handleChange} required>
+											<option>Select Category</option>
+											{categories.map((item) => (
+												<option key={item.categoryId} value={item.name}>
+													{item.name}
+												</option>
+											))}
+										</select>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div className="row price-row">
-						<div className="col-6">
-							<div className="input-group">
-								<input type="text" name="original_price" onChange={handleChange} required></input>
-								<label>Original price</label>
+							<div className="row price-row">
+								<div className="col-6">
+									<div className="input-group">
+										<input type="text" name="original_price" onChange={handleChange} required></input>
+										<label>Original price</label>
+									</div>
+								</div>
+								<div className="col-6">
+									<div className="input-group">
+										<input type="text" name="price" onChange={handleChange} required></input>
+										<label>Initial price</label>
+									</div>
+								</div>
 							</div>
-						</div>
-						<div className="col-6">
-							<div className="input-group">
-								<input type="text" name="price" onChange={handleChange} required></input>
-								<label>Initial price</label>
-							</div>
-						</div>
-					</div>
-					{/* <div className="input-group">
+							{/* <div className="input-group">
 						<input type="text" name="condition" onChange={handleChange}></input>
 						<label>Product condition</label>
 					</div> */}
 
-					<div className="input-group">
-						<textarea type="text" name="description" onChange={handleChange}></textarea>
-						<label>Description</label>
+							<div className="input-group">
+								<textarea type="text" name="description" onChange={handleChange}></textarea>
+								<label>Description</label>
+							</div>
+							<div className="button-group">
+								<button className="btn btn-outline-dark" onClick={() => setOpen(false)}>
+									Discard
+								</button>
+								<button className="btn btn-dark">Create post</button>
+							</div>
+						</form>
 					</div>
-					<div className="button-group">
-						<button className="btn btn-outline-dark" onClick={() => setOpen(false)}>
-							Discard
-						</button>
-						<button className="btn btn-dark">Create post</button>
+				</section>
+			) : (
+				<section className="upload">
+					<div className="wrapper">
+						<div className="close" onClick={() => setOpen(false)}>
+							<AiOutlineClose />
+						</div>
+						<div className="heading">
+							<h1>Share your footwear</h1>
+						</div>
+						<div className="message">
+							<p>
+								Please{" "}
+								<Link to="/signin" className="link">
+									<span>sign in</span>{" "}
+								</Link>
+								to like or give feedback.
+							</p>
+						</div>
 					</div>
-				</form>
-			</div>
-		</section>
+				</section>
+			)}
+		</>
 	);
 };
 

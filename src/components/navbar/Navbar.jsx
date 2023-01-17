@@ -104,6 +104,12 @@ const Navbar = () => {
 										</button>
 									</Link>
 								</div>
+								<div className="item">
+									<button className="upload-button" onClick={() => setOpen(true)}>
+										<AiOutlinePlus />
+										<span className="ms-2">Upload footwear</span>
+									</button>
+								</div>
 								<div className="divider d-none">|</div>
 								<div className="item">
 									<Link to="/signin" className="link">

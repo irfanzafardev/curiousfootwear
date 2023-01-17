@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import Comments from "../feedback/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 
-import { AiOutlineHeart, AiFillHeart, AiOutlineMessage, AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineMessage, AiOutlinePlus, AiFillInfoCircle } from "react-icons/ai";
 import { RiShareForwardLine } from "react-icons/ri";
 import { FaRegComment } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
@@ -78,7 +78,13 @@ const SinglePost = () => {
 										</div>
 										<div className="col-6">
 											<SuggestedPrice post={post} />
-											<span className="suggested-price">Most Suggested Price</span>
+											<div className="suggested-price">
+												Most Suggested Price{" "}
+												<span>
+													<AiFillInfoCircle />
+													<span id="tooltipText">The most suggested price is set from the most liked feedback. You can also give a suggestion by clicking the Give Feedback button below. </span>
+												</span>
+											</div>
 										</div>
 									</div>
 								</div>

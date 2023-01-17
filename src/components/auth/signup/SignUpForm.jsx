@@ -148,10 +148,9 @@ const SignUpForm = () => {
 										<span>Username should be a minimum of 5 characters. Only letters and numbers.</span>
 									</div>
 									<div className="input-group">
-										<input type="number" id="phone_number" name="phone_number" pattern="^.{10,14}$" onChange={handleChange} onBlur={handleFocusPhone} focused={focusedPhone.toString()} required></input>
+										<input type="text" id="phone_number" name="phone_number" pattern="^[0-9]{10,14}$" onChange={handleChange} onBlur={handleFocusPhone} focused={focusedPhone.toString()} required></input>
 										<label>Phone</label>
-										<span>Please fill the field.</span>
-										<span>Phone number should a minimum of 10 to 14 characters.</span>
+										<span>Phone number should a minimum of 10 to 14 characters of numbers.</span>
 									</div>
 									<div className="input-group">
 										<input type="password" id="password" name="password" pattern="^.{4,}$" onChange={handleChange} onBlur={handleFocusPassword} focused={focusedPassword.toString()} required></input>

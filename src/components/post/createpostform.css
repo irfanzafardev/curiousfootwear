@@ -170,3 +170,8 @@ section.upload .wrapper form button {
 	text-align: center;
 	font-size: 14px;
 }
+
+section.upload .wrapper .message p span {
+	color: blue;
+	cursor: pointer;
+}
