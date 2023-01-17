@@ -186,7 +186,7 @@ const CreatePostForm = ({ setOpen }) => {
 								<Link to="/signin" className="link">
 									<span>sign in</span>{" "}
 								</Link>
-								to like or give feedback.
+								to share your footwear.
 							</p>
 						</div>
 					</div>

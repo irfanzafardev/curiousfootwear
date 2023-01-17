@@ -139,11 +139,12 @@ const Navbar = () => {
 								<div className="modal-line">
 									<div className="modal-item">Hi, {user.first_name}</div>
 								</div>
-								<div className="modal-line">
-									<div className="modal-item">
-										<Link to="/post/create" className="link">
-											Share your footwear
-										</Link>
+								<div className="modal-item">
+									<div className="modal-btn">
+										<button className="upload-button" onClick={() => setOpen(true)}>
+											<AiOutlinePlus />
+											<span className="ms-2">Upload footwear</span>
+										</button>
 									</div>
 								</div>
 								<div className="modal-btn">
@@ -157,7 +158,13 @@ const Navbar = () => {
 						) : (
 							<div className="modal-body">
 								<div className="modal-btn">
-									<Link to="/login" className="link">
+									<button className="upload-button" onClick={() => setOpen(true)}>
+										<AiOutlinePlus />
+										<span className="ms-2">Upload footwear</span>
+									</button>
+								</div>
+								<div className="modal-btn">
+									<Link to="/signin" className="link">
 										<button type="button" className="btn" data-bs-dismiss="modal" aria-label="Close">
 											Sign in
 										</button>

@@ -286,3 +286,19 @@ nav .nav-items .item .dropdown-item .button-group button {
 	text-align: left !important;
 	border-radius: 0%;
 }
+
+.modal-body .modal-btn button.upload-button {
+	width: auto;
+	padding: 8px 12px;
+	justify-content: center;
+	border: none;
+	border-radius: 6px;
+	background-color: #000;
+	color: #fff;
+	font-family: "Manrope", sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-align: center;
+	text-transform: capitalize;
+}

@@ -170,7 +170,6 @@ const SinglePost = () => {
 														Like
 													</button>
 												)}
-
 												<div className="other-option">
 													<BsThreeDots />
 												</div>
@@ -187,6 +186,78 @@ const SinglePost = () => {
 												</p>
 											</div>
 										)}
+										<div className="mobile-display">
+											<div className="product-wrapper">
+												<div className="product-price">
+													<div className="row">
+														<div className="col-6 col-divider">
+															<div className="initial-price">
+																<p>IDR{post.price}</p>
+															</div>
+															<span className="initial-price">Initial Price</span>
+														</div>
+														<div className="col-6">
+															<SuggestedPrice post={post} />
+															<div className="suggested-price">
+																Most Suggested Price{" "}
+																<span>
+																	<AiFillInfoCircle />
+																	<span id="tooltipText">The most suggested price is set from the most liked feedback. You can also give a suggestion by clicking the Give Feedback button below. </span>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div className="product-option">
+													<button className="btn btn-outline-dark" disabled>
+														<AiOutlineMessage className="me-1" />
+														Contact owner
+													</button>
+													<button className="btn btn-dark" onClick={() => setOpen(true)}>
+														Give Feedback
+													</button>
+												</div>
+												<div className="product-owner">
+													<div className="user-profile">
+														<div className="user-image">{owner[0].image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+														<div className="user-info">
+															<div>
+																<div className="username">
+																	{owner[0].first_name} {owner[0].last_name}
+																</div>
+																{/* <div className="created-at">{moment(`${post.createdAt}`, "YYYYMMDD").fromNow()}</div> */}
+																<div className="created-at">{formatDate(`${post.createdAt}`)}</div>
+															</div>
+														</div>
+													</div>
+													<div className="user-option">
+														{user ? (
+															<button className="btn btn-dark" disabled>
+																<AiOutlinePlus />
+																Follow
+															</button>
+														) : (
+															""
+														)}
+													</div>
+												</div>
+												<div className="product-name">
+													<h1>{post.title}</h1>
+												</div>
+												<div className="product-original-price">
+													<p>
+														Original price:{" "}
+														<span>
+															IDR{post.original_price} ({year})
+														</span>
+													</p>
+												</div>
+												<div className="product-desc">
+													<h2>Description</h2>
+													<p>{post.description}</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
