@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Comments from "../feedback/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 
@@ -10,7 +10,7 @@ import { FaRegComment } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentPost, likePost, unlikePost, viewPost } from "../../services/post/postSlice";
+import { getCurrentPost, likePost, unlikePost, deletePost, viewPost } from "../../services/post/postSlice";
 import "./singlepost.css";
 import SuggestedPrice from "./SuggestedPrice";
 
@@ -21,6 +21,7 @@ const SinglePost = () => {
 	const [open, setOpen] = useState(false);
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const { user } = useSelector((state) => state.auth);
 	const { posts } = useSelector((state) => state.post);
 	const { comments } = useSelector((state) => state.comment);
@@ -52,14 +53,23 @@ const SinglePost = () => {
 	var date = new Date(post.purchase_date);
 	const year = date.getFullYear();
 
-	// Like a post
+	// Like post
 	const handleLike = () => {
 		dispatch(likePost(post._id));
 	};
 
-	// Unlike a post
+	// Unlike post
 	const handleUnlike = () => {
 		dispatch(unlikePost(post._id));
+	};
+
+	// Delete post
+	const handleDelete = () => {
+		dispatch(deletePost(post._id)).then(() => {
+			navigate(`/`);
+			window.location.reload();
+			alert("Post has been deleted");
+		});
 	};
 	return (
 		<>
@@ -170,8 +180,27 @@ const SinglePost = () => {
 														Like
 													</button>
 												)}
-												<div className="other-option">
-													<BsThreeDots />
+												<div className="dropdown">
+													<div className="other-option dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+														<BsThreeDots />
+													</div>
+													<ul className="dropdown-menu">
+														<li>
+															{user.userId?.toString() === posts.userId ? (
+																<button className="dropdown-item" onClick={handleDelete}>
+																	Delete post
+																</button>
+															) : (
+																<button className="dropdown-item" onClick={handleDelete} disabled>
+																	Delete post
+																</button>
+															)}
+
+															<button className="dropdown-item" disabled>
+																Save to bookmark
+															</button>
+														</li>
+													</ul>
 												</div>
 											</div>
 										) : (

@@ -50,6 +50,12 @@ section.upload .wrapper form {
 	margin-top: 20px;
 }
 
+@media only screen and (max-width: 768px) {
+	section.upload .wrapper form {
+		display: none;
+	}
+}
+
 section.upload .wrapper form .input-group {
 	position: relative;
 	margin-bottom: 20px;
@@ -174,4 +180,26 @@ section.upload .wrapper form button {
 section.upload .wrapper .message p span {
 	color: blue;
 	cursor: pointer;
+}
+
+section.upload .wrapper .mobile-message {
+	display: none;
+	font-family: "Poppins", sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 30px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+	section.upload .wrapper .mobile-message {
+		display: block;
+		font-family: "Poppins", sans-serif;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 30px;
+		letter-spacing: 0em;
+		text-align: left;
+	}
 }

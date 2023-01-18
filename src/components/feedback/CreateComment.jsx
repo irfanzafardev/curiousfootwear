@@ -56,6 +56,9 @@ const CreateComment = ({ user, postId, setOpen }) => {
 								Send
 							</button>
 						</div>
+						<div className="mobile-message">
+							<p>Please visit this site on desktop browser to give your feedback.</p>
+						</div>
 					</div>
 				</section>
 			) : (
@@ -73,8 +76,11 @@ const CreateComment = ({ user, postId, setOpen }) => {
 								<Link to="/signin" className="link">
 									<span>sign in</span>{" "}
 								</Link>
-								to like or give feedback.
+								to give feedback.
 							</p>
+						</div>
+						<div className="mobile-message">
+							<p>Please visit this site on desktop browser to give your feedback.</p>
 						</div>
 					</div>
 				</section>

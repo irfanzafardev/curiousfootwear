@@ -4,6 +4,7 @@ const POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/"
 const ALL_POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/all"
 const LIKE_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/like/"
 const UNLIKE_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/dislike/"
+const DELETE_POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/"
 const VIEW_POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/view/"
 
 
@@ -68,6 +69,18 @@ const unlikePost = async (postId, token) => {
   return response.data
 }
 
+// Delete post
+const deletePost = async (postId, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+
+  const response = await axios.delete(DELETE_POST_BASE_URL + postId, config)
+
+  return response.data
+}
 // View post
 const viewPost = async (postId) => {
   const response = await axios.put(VIEW_POST_BASE_URL + postId)
@@ -80,6 +93,7 @@ const postService = {
   createPost,
   likePost,
   unlikePost,
+  deletePost,
   viewPost
 }
 

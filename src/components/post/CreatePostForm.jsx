@@ -169,6 +169,9 @@ const CreatePostForm = ({ setOpen }) => {
 								<button className="btn btn-dark">Create post</button>
 							</div>
 						</form>
+						<div className="mobile-message">
+							<p>Please visit this site on desktop browser to give your feedback.</p>
+						</div>
 					</div>
 				</section>
 			) : (
@@ -188,6 +191,9 @@ const CreatePostForm = ({ setOpen }) => {
 								</Link>
 								to share your footwear.
 							</p>
+						</div>
+						<div className="mobile-message">
+							<p>Please visit this site on desktop browser to upload your footwear.</p>
 						</div>
 					</div>
 				</section>

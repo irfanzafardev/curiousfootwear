@@ -126,6 +126,19 @@ section.single-post .main .container-fluid .post-detail .post-option button.like
 	text-align: left;
 }
 
+section.single-post .main .container-fluid .post-detail .post-option .dropdown .dropdown-menu {
+	font-family: "Manrope", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 22px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.dropdown-toggle::after {
+	display: none;
+}
+
 /* sidebar */
 section.single-post .sidebar {
 	position: fixed;

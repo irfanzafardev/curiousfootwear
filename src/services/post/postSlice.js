@@ -102,6 +102,25 @@ export const unlikePost = createAsyncThunk(
   }
 )
 
+// Unlike post
+export const deletePost = createAsyncThunk(
+  'post/delete',
+  async (postId, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await postService.deletePost(postId, token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 // Increase view post
 export const viewPost = createAsyncThunk(
   'post/view',
