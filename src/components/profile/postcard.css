@@ -1,61 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Jost&family=Lato:wght@400;700&family=Manrope:wght@500;600&display=swap");
-section.explore-post {
-	width: 100%;
-	margin-top: 60px;
-	background-color: transparent;
-}
-
-section.explore-post .container-fluid {
-	width: 100%;
-	padding: 30px 60px 0 60px;
-	align-items: center;
-	justify-content: space-between;
-}
-
-@media only screen and (max-width: 768px) {
-	section.explore-post .container-fluid {
-		width: 100%;
-		padding: 30px 20px 0 20px;
-		align-items: center;
-		justify-content: space-between;
-	}
-}
-
-section.explore-post .container-fluid .row {
-	gap: 0px;
-}
-
-section.explore-post .container-fluid .heading {
-	margin-bottom: 6px;
-	padding-bottom: 20px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-section.explore-post .container-fluid .heading h1 {
-	display: inline;
-	font-family: "Lato", sans-serif;
-	font-size: 24px;
-	font-weight: 600;
-	line-height: 24px;
-	letter-spacing: 0em;
-	text-align: left;
-}
-
-section.explore-post .container-fluid .heading .icon {
-	margin: -30px 0 0 0;
-	padding: 0;
-}
-
 /* Card */
 
-section.explore-post .container-fluid .card {
+.card {
 	width: 100%;
 	padding: 0px;
 	margin-bottom: 10px;
 	border: 1px solid #fff;
 }
 
-section.explore-post .container-fluid .card .card-image {
+/* .card:hover {
+	border: 1px solid #000;
+} */
+
+.card .card-image {
 	width: 100%;
 	height: 216px;
 	padding: 0;
@@ -65,7 +22,7 @@ section.explore-post .container-fluid .card .card-image {
 	border-radius: 10px;
 }
 
-section.explore-post .container-fluid .card .card-image .post-detail {
+.card .card-image .post-detail {
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -79,7 +36,7 @@ section.explore-post .container-fluid .card .card-image .post-detail {
 	z-index: 3;
 }
 
-section.explore-post .container-fluid .card .card-image .post-detail:hover {
+.card .card-image .post-detail:hover {
 	position: absolute;
 	display: block;
 	width: 100%;
@@ -90,18 +47,18 @@ section.explore-post .container-fluid .card .card-image .post-detail:hover {
 	z-index: 3;
 }
 
-section.explore-post .container-fluid .card .card-image .post-detail .user-detail {
+.card .card-image .post-detail .user-detail {
 	display: flex;
 	align-items: center;
 }
 
-section.explore-post .container-fluid .card .card-image .post-detail .user-detail img {
+.card .card-image .post-detail .user-detail img {
 	margin-right: 6px;
 	width: 34px;
 	height: 34px;
 }
 
-section.explore-post .container-fluid .card .card-image .post-detail .user-detail .user-firstname {
+.card .card-image .post-detail .user-detail .user-firstname {
 	font-family: "Jost", sans-serif;
 	font-size: 14px;
 	font-weight: 500;
@@ -111,13 +68,17 @@ section.explore-post .container-fluid .card .card-image .post-detail .user-detai
 	color: #fff;
 }
 
-section.explore-post .container-fluid .card .card-image .post-detail .button-wrapper {
+.card .card-image .post-detail .button-wrapper {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-section.explore-post .container-fluid .card .card-image .post-detail button {
+.card .card-image .post-detail button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	font-family: "Josefin Sans", sans-serif;
 	font-size: 16px;
 	font-weight: 600;
@@ -125,12 +86,12 @@ section.explore-post .container-fluid .card .card-image .post-detail button {
 	letter-spacing: 0em;
 }
 
-section.explore-post .container-fluid .card .card-image .price-detail {
+.card .card-image .price-detail {
 	display: flex;
 	justify-content: space-between;
 }
 
-section.explore-post .container-fluid .card .card-image .price-detail .label {
+.card .card-image .price-detail .label {
 	font-family: "Lato", sans-serif;
 	font-size: 12px;
 	font-weight: 500;
@@ -140,7 +101,7 @@ section.explore-post .container-fluid .card .card-image .price-detail .label {
 	color: #fff;
 }
 
-section.explore-post .container-fluid .card .card-image .price-detail .value {
+.card .card-image .price-detail .value {
 	font-family: "Jost", sans-serif;
 	font-size: 16px;
 	font-weight: 600;
@@ -150,24 +111,29 @@ section.explore-post .container-fluid .card .card-image .price-detail .value {
 	color: #fff;
 }
 
-section.explore-post .container-fluid .card .card-image .post-detail .price-detail {
+.card .card-image .post-detail .price-detail {
+	width: 100%;
 	display: flex;
+	position: absolute;
+	padding: 10px;
+	bottom: 0;
+	left: 0;
 }
 
-section.explore-post .container-fluid .card img {
+.card img {
 	width: 100%;
 	height: 216px;
 	border-radius: 10px;
 	object-fit: cover;
 }
 
-section.explore-post .container-fluid .card .card-body {
+.card .card-body {
 	margin: 10px 0;
 	padding: 0;
 	color: #000;
 }
 
-section.explore-post .container-fluid .card .post-title {
+.card .post-title {
 	padding-top: 5px;
 	font-family: "Lato", sans-serif;
 	font-size: 20px;
@@ -177,7 +143,7 @@ section.explore-post .container-fluid .card .post-title {
 	text-align: left;
 }
 
-section.explore-post .container-fluid .card .post-category {
+.card .post-category {
 	padding-top: 2px;
 	font-family: "Lato", sans-serif;
 	font-size: 14px;
@@ -188,14 +154,14 @@ section.explore-post .container-fluid .card .post-category {
 	color: #101623;
 }
 
-section.explore-post .container-fluid .card .post-view {
+.card .post-view {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	padding-top: 2px;
 }
 
-section.explore-post .container-fluid .card .post-view span {
+.card .post-view span {
 	margin-left: 2px;
 	font-family: "Lato", sans-serif;
 	font-size: 14px;
@@ -206,11 +172,11 @@ section.explore-post .container-fluid .card .post-view span {
 	color: #101623;
 }
 
-section.explore-post .container-fluid .explore {
+.explore {
 	margin-top: 60px;
 }
 
-section.explore-post .container-fluid .explore h2 {
+.explore h2 {
 	padding-bottom: 20px;
 	font-family: "ESAllianz-Regular", sans-serif;
 	font-weight: 400;
@@ -221,7 +187,7 @@ section.explore-post .container-fluid .explore h2 {
 	background-color: #000;
 }
 
-section.explore-post .container-fluid .explore img {
+.explore img {
 	width: 100%;
 	height: 500px;
 	border-radius: 0;

@@ -142,7 +142,7 @@ section.login .container-fluid .row .login-form .heading .link {
 }
 
 .login-form .input-group span {
-	display: none;
+	display: block;
 	padding: 10px 0;
 	font-family: "ESAllianz-Regular", sans-serif;
 	font-size: 12px;

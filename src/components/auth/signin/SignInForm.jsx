@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login, reset } from "../../../services/auth/authSlice";
+import { login } from "../../../services/auth/authSlice";
 import Spinner from "../../loading/Spinner";
 import "./signinform.css";
 
@@ -22,15 +22,16 @@ const SignInForm = () => {
 
 	useEffect(() => {
 		if (isError) {
-			alert(message);
+			console.log(message);
 		}
 
 		if (isSuccess || currentUser) {
-			window.location.reload();
+			console.log("signin succes");
 			navigate("/");
+			window.location.reload();
 		}
 
-		dispatch(reset());
+		// dispatch(reset());
 	}, [currentUser, isError, isSuccess, message, navigate, dispatch]);
 
 	const handleChange = (e) => {
@@ -78,12 +79,11 @@ const SignInForm = () => {
 									<div className="input-group">
 										<input type="text" id="username" name="username" onChange={handleChange} required></input>
 										<label>Username</label>
-										{/* <span>Username should be 3-16 character</span> */}
 									</div>
 									<div className="input-group">
 										<input type="password" id="password" name="password" onChange={handleChange} required></input>
 										<label>Password</label>
-										{/* <span>Password should apakek</span> */}
+										<span>{message.toString()}</span>
 									</div>
 									<div className="item-btn float-end">
 										<button type="submit" className="btn btn-primary">
