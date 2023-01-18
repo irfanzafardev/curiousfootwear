@@ -8,6 +8,14 @@ section.user-profile .container-fluid {
 	padding-inline: 60px;
 }
 
+@media only screen and (max-width: 768px) {
+	section.user-profile .container-fluid {
+		width: 100%;
+		padding-top: 60px;
+		padding-inline: 10px;
+	}
+}
+
 section.user-profile .profile {
 	display: flex;
 	padding-block: 40px;
@@ -52,7 +60,7 @@ section.user-profile .profile .profile-details .user-statistic {
 	text-align: left;
 }
 
-section.user-profile .profile .profile-details .edit-button {
+section.user-profile .profile .profile-details button {
 	width: auto;
 	padding: 8px 12px;
 	justify-content: center;
@@ -68,6 +76,16 @@ section.user-profile .profile .profile-details .edit-button {
 	text-transform: capitalize;
 }
 
-section.user-profile .nav-tabs {
+section.user-profile .main .nav-tabs {
 	background-color: transparent;
+}
+
+section.user-profile .main .nav-tabs button {
+	font-family: "Lato", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: #000;
 }

@@ -137,7 +137,9 @@ const Navbar = () => {
 						{user ? (
 							<div className="modal-body">
 								<div className="modal-line">
-									<div className="modal-item">Hi, {user.first_name}</div>
+									<Link to={`/profile/me`} className="link">
+										<div className="modal-item">Hi, {user.first_name}</div>
+									</Link>
 								</div>
 								<div className="modal-item">
 									<div className="modal-btn">

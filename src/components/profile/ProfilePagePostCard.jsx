@@ -16,13 +16,14 @@ const ProfilePagePostCard = ({ post }) => {
 			try {
 				const userRes = await axios.get(rootAPI + `user/profil/${post.userId}`);
 				setUer(userRes.data[0]);
+				console.log(post._id);
 			} catch (error) {
 				console.log(error);
 			}
 		};
 
 		fetchOwner();
-	}, [post.userId, dispatch]);
+	}, [post.userId, dispatch, post]);
 
 	const [mostLikedComments, setMostLikedComments] = useState([]);
 
@@ -35,8 +36,8 @@ const ProfilePagePostCard = ({ post }) => {
 		fetchMostLikedComments(post.id);
 	}, [post.id]);
 	return (
-		<div className="col-12 col-lg-3" key={post.id}>
-			<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
+		<div className="col-12 col-lg-3" key={post._id}>
+			<Link to={`post/${post._id}`} style={{ textDecoration: "none" }}>
 				<div className="card">
 					<div
 						className="card-image"

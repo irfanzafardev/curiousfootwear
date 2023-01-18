@@ -22,7 +22,7 @@ const UserProfile = () => {
 			setPosts(postsRes.data);
 		};
 		fetchCurrentUser();
-	}, []);
+	}, [user.userId]);
 	return (
 		<section className="user-profile">
 			<div className="container-fluid">
@@ -41,7 +41,7 @@ const UserProfile = () => {
 								<div className="follower-length">Follower</div>
 								<div className="following-length">Following</div>
 							</div>
-							<button className="edit-button" disabled>
+							<button className="btn btn-dark" disabled>
 								Edit profile
 							</button>
 						</div>
