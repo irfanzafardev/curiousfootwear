@@ -102,13 +102,17 @@ const CreatePostForm = ({ setOpen }) => {
 								<div className="col-6">
 									<div className="input-group">
 										<input type="text" name="brand" onChange={handleChange} required></input>
-										<label>Brand</label>
+										<label>
+											Brand <span className="text-danger">*</span>
+										</label>
 									</div>
 								</div>
 								<div className="col-6">
 									<div className="input-group">
 										<input type="text" name="title" onChange={handleChange} required></input>
-										<label>Name</label>
+										<label>
+											Name <span className="text-danger">*</span>
+										</label>
 									</div>
 								</div>
 							</div>
@@ -117,19 +121,25 @@ const CreatePostForm = ({ setOpen }) => {
 								{imgPerc ? <div className="upload-precentage">Uploading: {imgPerc} %</div> : ""}
 
 								<input type="file" className="upload-image" id="fileInput" accept="image/*" onChange={(e) => setImg(e.target.files[0])} required />
-								<label>Image</label>
+								<label>
+									Image <span className="text-danger">*</span>
+								</label>
 							</div>
 							<div className="row">
 								<div className="col-6">
 									<div className="input-group">
 										<input type="date" name="purchase_date" onChange={handleChange} required></input>
-										<label>Product purchase date</label>
+										<label>
+											Purchase date <span className="text-danger">*</span>
+										</label>
 									</div>
 								</div>
 								<div className="col-6">
 									<div className="input-group">
 										<select className="form-select" name="category" onChange={handleChange} required>
-											<option>Select Category</option>
+											<option>
+												Select Category <span className="text-danger">*</span>
+											</option>
 											{categories.map((item) => (
 												<option key={item.categoryId} value={item.name}>
 													{item.name}
@@ -142,14 +152,18 @@ const CreatePostForm = ({ setOpen }) => {
 							<div className="row price-row">
 								<div className="col-6">
 									<div className="input-group">
-										<input type="text" name="original_price" onChange={handleChange} required></input>
-										<label>Original price</label>
+										<input type="number" name="original_price" placeholder="The price of this shoes when you bought them" onChange={handleChange} required></input>
+										<label>
+											Original price <span className="text-danger">*</span>
+										</label>
 									</div>
 								</div>
 								<div className="col-6">
 									<div className="input-group">
-										<input type="text" name="price" onChange={handleChange} required></input>
-										<label>Initial price</label>
+										<input type="number" name="price" placeholder="Set your own price of this shoes" onChange={handleChange} required></input>
+										<label>
+											Initial price <span className="text-danger">*</span>
+										</label>
 									</div>
 								</div>
 							</div>
@@ -160,7 +174,9 @@ const CreatePostForm = ({ setOpen }) => {
 
 							<div className="input-group">
 								<textarea type="text" name="description" onChange={handleChange}></textarea>
-								<label>Description</label>
+								<label>
+									Description <span className="text-danger">*</span>
+								</label>
 							</div>
 							<div className="button-group">
 								<button className="btn btn-outline-dark" onClick={() => setOpen(false)}>

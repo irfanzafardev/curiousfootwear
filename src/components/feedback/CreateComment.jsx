@@ -40,14 +40,14 @@ const CreateComment = ({ user, postId, setOpen }) => {
 							<div className="set-price">
 								<div className="label">
 									<h2>Price</h2>
-									<span>Suggest a fair price for the shoes</span>
+									<span>Suggest your version of price for the shoes</span>
 								</div>
 								<input type="number" className="currency" placeholder="Suggest a value..." name="suggestedPrice" onChange={handleChange} />
 							</div>
 							<div className="set-feedback">
 								<div className="label">
 									<h2>Feedback</h2>
-									<span>Tell the author your reasons</span>
+									<span>Tell the owner your reason</span>
 								</div>
 								<textarea type="text" placeholder="Add a feedback..." name="body" onChange={handleChange} />
 							</div>

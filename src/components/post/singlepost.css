@@ -361,7 +361,7 @@ section.single-post .sidebar .product-owner .user-option button {
 }
 
 section.single-post .sidebar .product-wrapper .product-name {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 section.single-post .sidebar .product-wrapper .product-name h1 {
@@ -405,7 +405,7 @@ section.single-post .sidebar .product-desc h2 {
 }
 
 section.single-post .sidebar .product-desc p {
-	max-height: 180px;
+	max-height: 160px;
 	overflow-y: auto;
 	font-family: "Manrope", sans-serif;
 	font-size: 14px;

@@ -41,7 +41,7 @@ const FeaturedPost = () => {
 		<section className="explore-post mb-5">
 			<div className="container-fluid">
 				<div className="heading">
-					<h1>Featured Posts</h1>
+					<h1>Featured posts</h1>
 				</div>
 				<div className="category-slider">
 					<CategorySlider />
