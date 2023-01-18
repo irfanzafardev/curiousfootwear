@@ -69,9 +69,9 @@ const SignInForm = () => {
 								<div className="heading">
 									<h2>Sign in</h2>
 									<p>
-										New user?
+										Don't have an account?
 										<Link to="/signup" className="link">
-											<span> </span> Create an account
+											<span> </span> Sign up here.
 										</Link>
 									</p>
 								</div>
@@ -85,12 +85,19 @@ const SignInForm = () => {
 										<label>Password</label>
 										<span>{message.toString()}</span>
 									</div>
-									<div className="item-btn float-end">
-										<button type="submit" className="btn btn-primary">
+									<div className="item-btn">
+										<button type="submit" className="btn btn-dark">
 											Sign in
 										</button>
 									</div>
 								</form>
+								<p className="back-to-home">
+									Back to
+									<Link to="/" className="link">
+										{" "}
+										Home
+									</Link>
+								</p>
 							</div>
 						</div>
 					</div>

@@ -162,8 +162,8 @@ const SignUpForm = () => {
 										<label>Confirm Password</label>
 										<span>Passsword doesn't match.</span>
 									</div>
-									<div className="item-btn float-end">
-										<button type="submit" className="btn btn-primary" disabled={false}>
+									<div className="item-btn">
+										<button type="submit" className="btn btn-dark" disabled={false}>
 											Sign Up
 										</button>
 									</div>

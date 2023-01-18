@@ -63,7 +63,9 @@ const UserProfile = () => {
 							<div className="row">{posts.length > 0 ? posts.map((post) => <ProfilePagePostCard key={post.id} post={post} />) : <Null />}</div>
 						</div>
 						<div className="tab-pane fade p-3" id="nav-bookmark" role="tabpanel" aria-labelledby="nav-bookmark-tab">
-							<p>To be developed</p>
+							<div className="message">
+								<p>To be developed</p>
+							</div>
 						</div>
 					</div>
 				</div>

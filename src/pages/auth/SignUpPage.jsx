@@ -1,14 +1,14 @@
 import React from "react";
 import SignUpForm from "../../components/auth/signup/SignUpForm";
-import Footer from "../../components/footer/Footer";
-import SignUpNavbar from "../../components/navbar/SignUpNavbar";
+// import Footer from "../../components/footer/Footer";
+// import SignUpNavbar from "../../components/navbar/SignUpNavbar";
 
 const SignUpPage = () => {
 	return (
 		<div>
-			<SignUpNavbar />
+			{/* <SignUpNavbar /> */}
 			<SignUpForm />
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 };

@@ -1,5 +1,9 @@
 section.login {
 	width: 100%;
+	background: url(../../../assets/background-img.png);
+
+	background-size: cover;
+	background-position: center;
 }
 
 section.login .container-fluid {
@@ -26,10 +30,11 @@ section.login .container-fluid .row .welcome-column h1 {
 	line-height: 1.4;
 	text-align: left;
 	text-transform: uppercase;
+	color: #fff;
 }
 
 section.login .container-fluid .row .welcome-column span.divider {
-	border-left: 3px solid #000;
+	border-left: 3px solid #fff;
 	height: 20px;
 	margin-right: 20px;
 }
@@ -51,8 +56,8 @@ section.login .container-fluid .row .login-column {
 }
 
 section.login .container-fluid .row .login-form {
-	width: 400px;
-	padding: 40px;
+	width: 360px;
+	padding: 30px;
 	background: #fff;
 	box-sizing: border-box;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -156,12 +161,27 @@ section.login .container-fluid .row .login-form .heading .link {
 
 .login-form button {
 	font-family: "ESAllianz-Regular", sans-serif;
-	width: 100px;
+	width: 100%;
 	height: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 0%;
+	border-radius: 10px;
 	text-align: center;
 	font-size: 16px;
+}
+
+.back-to-home {
+	margin-top: 10px;
+	color: #000;
+	text-align: left;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 14px;
+	letter-spacing: 0rem;
+}
+
+.back-to-home .link {
+	color: #1473e6;
 }
