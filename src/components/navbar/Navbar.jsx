@@ -43,7 +43,7 @@ const Navbar = () => {
 					</Link>
 					<div className="search d-none d-lg-block">
 						<div className="search-box">
-							<input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} onKeyPress={handleSearch} />
+							<input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} onKeyDown={handleSearch} />
 							<div className="item">
 								<div className="search-icon">
 									<BiSearch size="1rem" color="#666666" />

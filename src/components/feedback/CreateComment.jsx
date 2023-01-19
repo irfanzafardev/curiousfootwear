@@ -25,6 +25,13 @@ const CreateComment = ({ user, postId, setOpen }) => {
 			window.location.reload();
 		});
 	};
+
+	const handleKeyPress = (e) => {
+		if(e.key === 'Enter'){
+			handleSubmit(e)
+		} 
+	}
+	
 	return (
 		<>
 			{user ? (
@@ -49,7 +56,7 @@ const CreateComment = ({ user, postId, setOpen }) => {
 									<h2>Feedback</h2>
 									<span>Tell the owner your reason</span>
 								</div>
-								<textarea type="text" placeholder="Add a feedback..." name="body" onChange={handleChange} />
+								<textarea type="text" placeholder="Add a feedback..." name="body" onChange={handleChange} onKeyDown={handleKeyPress} />
 							</div>
 							<button type="submit" className="btn btn-dark" onClick={handleSubmit}>
 								<AiOutlineSend />
