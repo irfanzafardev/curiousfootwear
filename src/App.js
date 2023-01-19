@@ -10,11 +10,13 @@ import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage.jsx';
 import SinglePostPage from './pages/post/SinglePostPage.jsx';
 import CategoryPage from './pages/category/CategoryPage.jsx';
-import ProfilePage from './pages/profile/ProfilePage.jsx';
+import ProfilePage from './pages/profile/MyProfilePage.jsx';
 import AboutPage from './pages/about/AboutPage.jsx';
 import SearchPage from './pages/search/SearchPage.jsx';
-import "./reset.css";
 import CreatePostPage from './pages/post/CreatePostPage.jsx';
+import EditProfilePage from './pages/profile/EditProfilePage.jsx';
+import MyProfilePage from './pages/profile/MyProfilePage.jsx';
+import "./reset.css";
 
 const App = () => {
   return (
@@ -32,8 +34,9 @@ const App = () => {
           <Route path="search" element={<SearchPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="profile">
-            <Route path="me" element={<ProfilePage />} />
+            <Route path="me" element={<MyProfilePage />} />
             <Route path=":id" element={<ProfilePage />} />
+            <Route path="edit" element={<EditProfilePage />} />
           </Route>
         </Route>
       </Routes>

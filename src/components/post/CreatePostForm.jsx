@@ -116,7 +116,6 @@ const CreatePostForm = ({ setOpen }) => {
 									</div>
 								</div>
 							</div>
-
 							<div className="input-group">
 								{imgPerc ? <div className="upload-precentage">Uploading: {imgPerc} %</div> : ""}
 

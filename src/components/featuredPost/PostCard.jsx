@@ -30,7 +30,6 @@ const PostCard = ({ post }) => {
 		const fetchMostLikedComments = async (postId) => {
 			const commentResp = await axios.get(rootAPI + `comment/getCommentsByMostLiked/${postId}`);
 			setMostLikedComments(commentResp.data);
-			// console.log(commentResp.data);
 		};
 		fetchMostLikedComments(post.id);
 	}, [post.id]);
@@ -73,7 +72,6 @@ const PostCard = ({ post }) => {
 					</div>
 					<div className="card-body">
 						<h2 className="post-title">{post.title}</h2>
-
 						<div className="price row">
 							<div className="col-8">
 								<p className="post-category">{post.category}</p>
@@ -84,9 +82,6 @@ const PostCard = ({ post }) => {
 									<span>{post?.view}</span>
 								</div>
 							</div>
-							{/* <div className="col-4">
-              <span>{kFormatter(post.suggested_price)}</span>
-            </div> */}
 						</div>
 					</div>
 				</div>

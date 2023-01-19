@@ -3,7 +3,7 @@ import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import UserProfile from "../../components/profile/UserProfile";
 
-const ProfilePage = () => {
+const MyProfilePage = () => {
 	return (
 		<div>
 			<Navbar />
@@ -13,4 +13,4 @@ const ProfilePage = () => {
 	);
 };
 
-export default ProfilePage;
+export default MyProfilePage;

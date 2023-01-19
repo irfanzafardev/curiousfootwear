@@ -1,0 +1,106 @@
+section.edit-profile {
+	width: 100%;
+}
+
+section.edit-profile .container-fluid {
+	width: 100%;
+	padding-top: 100px;
+	padding-inline: 60px;
+}
+
+section.edit-profile .heading {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+section.edit-profile .heading h1 {
+	display: inline;
+	font-family: "Lato", sans-serif;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+section.edit-profile .input-group {
+	position: relative;
+	margin-bottom: 26px;
+}
+
+section.edit-profile .input-group input {
+	width: 100%;
+	padding: 10px 0;
+	border: none;
+	border-bottom: 1px solid #eaeaea;
+	outline: none;
+	background: transparent;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 12px;
+	letter-spacing: 0rem;
+	color: #000;
+}
+
+section.edit-profile .input-group input:focus {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 12px;
+	color: #000;
+	border: none;
+	border-bottom: 1px solid #1473e6;
+	outline: none;
+	background: transparent;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+}
+
+section.edit-profile .input-group label {
+	position: absolute;
+	top: -20px;
+	left: 0;
+	padding: 10px 0;
+	font-size: 12px;
+	color: #000;
+	pointer-events: none;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+	transition: 0.3s;
+}
+
+section.edit-profile .input-group input:focus ~ label,
+section.edit-profile .input-group input:valid ~ label {
+	top: -20px;
+	left: 0;
+	color: #000;
+	font-size: 12px;
+}
+
+section.edit-profile .input-group span {
+	display: none;
+	padding: 10px 0;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 12px;
+	letter-spacing: 0rem;
+	color: #ff0000;
+}
+
+section.edit-profile .input-group input:invalid[focused="true"] {
+	border-bottom: 1px solid #ff0000;
+}
+
+section.edit-profile .input-group input:invalid[focused="true"] ~ span {
+	display: block;
+}
+
+section.edit-profile button {
+	font-family: "ESAllianz-Regular", sans-serif;
+	width: 100%;
+	height: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 16px;
+}

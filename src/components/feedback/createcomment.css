@@ -43,7 +43,8 @@ section.comments section.create-comment .comment-form .heading .close {
 
 @media only screen and (max-width: 768px) {
 	section.comments section.create-comment .comment-form .form-input {
-		display: none;
+		/* display: none; */
+		display: block;
 	}
 }
 
@@ -137,7 +138,8 @@ section.comments section.create-comment .mobile-message {
 
 @media only screen and (max-width: 768px) {
 	section.comments section.create-comment .mobile-message {
-		display: block;
+		/* display: block; */
+		display: none;
 		font-family: "Poppins", sans-serif;
 		font-size: 18px;
 		font-weight: 500;

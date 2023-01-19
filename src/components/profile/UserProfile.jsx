@@ -5,6 +5,7 @@ import Null from "../loading/Null";
 
 import "./userprofile.css";
 import ProfilePagePostCard from "./ProfilePagePostCard";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
 	const { user } = useSelector((state) => state.auth);
@@ -12,8 +13,7 @@ const UserProfile = () => {
 	const [posts, setPosts] = useState([]);
 
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api";
-	// console.log(currentUser);
-	// console.log(posts);
+
 	useEffect(() => {
 		const fetchCurrentUser = async () => {
 			const profileRes = await axios.get(rootAPI + "/user/profil/" + user.userId);
@@ -41,9 +41,9 @@ const UserProfile = () => {
 								<div className="follower-length">Follower</div>
 								<div className="following-length">Following</div>
 							</div>
-							<button className="btn btn-dark" disabled>
-								Edit profile
-							</button>
+							<Link to="/profile/edit" className="link">
+								<button className="btn btn-dark">Edit profile</button>
+							</Link>
 						</div>
 					</div>
 				</header>
