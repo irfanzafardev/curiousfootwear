@@ -9,7 +9,6 @@ import "./createcomment.css";
 
 const CreateComment = ({ user, postId, setOpen }) => {
 	// Create new comment
-	// const { message } = useSelector((state) => state.comment);
 	const [inputs, setInputs] = useState(0);
 	const dispatch = useDispatch();
 

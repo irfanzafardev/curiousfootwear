@@ -12,6 +12,7 @@ const FeaturedPost = () => {
 	const { posts, isLoading, isError, message } = useSelector((state) => state.post);
 
 	useEffect(() => {
+		console.log("render");
 		if (isError) {
 			console.log(message);
 		}

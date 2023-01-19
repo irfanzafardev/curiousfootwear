@@ -25,9 +25,9 @@ const SinglePost = () => {
 	const { user } = useSelector((state) => state.auth);
 	const { posts } = useSelector((state) => state.post);
 	const { comments } = useSelector((state) => state.comment);
-
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
+	console.log("render");
 	useEffect(() => {
 		const fetchOwner = async () => {
 			try {
@@ -36,6 +36,7 @@ const SinglePost = () => {
 				setPost(postRes.data);
 				setOwner(userRes.data);
 				dispatch(getCurrentPost(postRes.data._id));
+				console.log(userRes.data);
 				dispatch(viewPost(postRes.data._id));
 			} catch (error) {
 				console.log(error);
@@ -50,6 +51,7 @@ const SinglePost = () => {
 		const options = { year: "numeric", month: "long", day: "numeric" };
 		return new Date(dateString).toLocaleDateString(undefined, options);
 	};
+
 	var date = new Date(post.purchase_date);
 	const year = date.getFullYear();
 
@@ -71,6 +73,7 @@ const SinglePost = () => {
 			alert("Post has been deleted");
 		});
 	};
+
 	return (
 		<>
 			<section className="single-post">
@@ -99,10 +102,10 @@ const SinglePost = () => {
 									</div>
 								</div>
 								<div className="product-option">
-									<button className="btn btn-outline-dark" disabled>
+									<a className="btn btn-outline-dark" href={`https://api.whatsapp.com/send?phone=${owner[0].phone_number}`} target="_blank" rel="noreferrer">
 										<AiOutlineMessage className="me-1" />
 										Contact owner
-									</button>
+									</a>
 									<button className="btn btn-dark" onClick={() => setOpen(true)}>
 										Give Feedback
 									</button>
@@ -115,7 +118,6 @@ const SinglePost = () => {
 												<div className="username">
 													{owner[0].first_name} {owner[0].last_name}
 												</div>
-												{/* <div className="created-at">{moment(`${post.createdAt}`, "YYYYMMDD").fromNow()}</div> */}
 												<div className="created-at">{formatDate(`${post.createdAt}`)}</div>
 											</div>
 										</div>

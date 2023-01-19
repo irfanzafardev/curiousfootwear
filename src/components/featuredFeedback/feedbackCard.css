@@ -1,0 +1,198 @@
+.feedback-card .card {
+	width: 320px;
+	height: 146px;
+	padding: 0 10px;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/background-img.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-radius: 12px;
+	-webkit-user-select: none; /* Safari */
+	-ms-user-select: none; /* IE 10 and IE 11 */
+	user-select: none; /* Standard syntax */
+}
+
+.feedback-card .dark-layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0;
+	border-radius: 12px;
+	z-index: 2;
+}
+
+.feedback-card .card:hover .dark-layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: 000;
+	opacity: 0.7;
+	border-radius: 12px;
+	z-index: 2;
+}
+
+.feedback-card .message {
+	position: absolute;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 20px;
+	letter-spacing: 0rem;
+	z-index: 3;
+}
+
+.feedback-card .card:hover .message {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 20px;
+	letter-spacing: 0rem;
+	z-index: 3;
+}
+
+.feedback-card .card-body {
+	padding: 10px 10px;
+}
+
+.feedback-card .card-body .product-name {
+	width: fit-content;
+	padding-inline: 12px;
+	padding-block: 2px;
+	color: #fff;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0rem;
+	background-color: #000;
+	border-radius: 6px;
+}
+
+.feedback-card .card-body .comment-wrapper {
+	width: 100%;
+	position: absolute;
+	bottom: 10px;
+}
+
+.feedback-card .card-body .comment-wrapper .comment-body {
+	margin-bottom: 12px;
+	color: #fff;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 260px;
+}
+
+.feedback-card .card-body .comment-wrapper .comment-info {
+	display: flex;
+}
+
+.feedback-card .card-body .comment-wrapper .comment-info .user-info {
+	display: flex;
+}
+
+.feedback-card .card-body .comment-wrapper .comment-info .user-info img {
+	margin-right: 6px;
+	width: 34px;
+	height: 34px;
+}
+
+.feedback-card .card-body .comment-wrapper .comment-info .user-info .user-firstname {
+	color: #fff;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0rem;
+}
+
+.feedback-card .card-body .comment-wrapper .comment-info .user-info .created-at {
+	color: #fff;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 10px;
+	font-weight: 400;
+	line-height: 20px;
+	letter-spacing: 0rem;
+}
+
+.card-body .comment-wrapper .like-info {
+	color: #fff;
+	position: absolute;
+	right: 20px;
+	bottom: 0;
+	display: flex;
+	justify-content: flex-end;
+	font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0rem;
+}
+
+section.daily-feedback .react-multiple-carousel__arrow {
+	/* background-color: transparent !important; */
+	color: black !important;
+}
+
+section.daily-feedback .react-multiple-carousel__arrow--right {
+	margin-right: -36px;
+	z-index: 2;
+	background-color: transparent !important;
+}
+
+@media only screen and (max-width: 768px) {
+	section.daily-feedback .react-multiple-carousel__arrow--right {
+		margin-right: -30px;
+		z-index: 2;
+	}
+}
+
+section.daily-feedback .react-multiple-carousel__arrow--right::before {
+	color: #fff !important;
+}
+
+section.daily-feedback .react-multiple-carousel__arrow--left {
+	margin-left: -36px;
+	z-index: 2;
+}
+
+@media only screen and (max-width: 768px) {
+	section.daily-feedback .react-multiple-carousel__arrow--left {
+		margin-left: -26px;
+		z-index: 2;
+	}
+}
+
+section.daily-feedback .react-multiple-carousel__arrow--left::before {
+	color: #fff !important;
+}

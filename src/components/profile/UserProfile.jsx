@@ -36,7 +36,7 @@ const UserProfile = () => {
 								{currentUser[0]?.first_name} {currentUser[0]?.last_name}
 							</div>
 							<div className="user-username">@{currentUser[0]?.username}</div>
-							<div className="user-statistic">
+							<div className="user-statistic d-none">
 								<div className="post-length">Post</div>
 								<div className="follower-length">Follower</div>
 								<div className="following-length">Following</div>

@@ -292,6 +292,19 @@ section.single-post .sidebar .product-option {
 	margin-top: 20px;
 }
 
+section.single-post .sidebar .product-option a {
+	width: 100%;
+	margin-bottom: 20px;
+	padding-inline: 20px;
+	padding-block: 10px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+	text-transform: capitalize;
+}
+
 section.single-post .sidebar .product-option button {
 	width: 100%;
 	margin-bottom: 20px;
