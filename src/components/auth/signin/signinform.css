@@ -1,7 +1,6 @@
 section.login {
 	width: 100%;
 	background: url(../../../assets/background-img.png);
-
 	background-size: cover;
 	background-position: center;
 }
@@ -62,6 +61,12 @@ section.login .container-fluid .row .login-form {
 	box-sizing: border-box;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 	border-radius: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+	section.login .container-fluid .row .login-form {
+		margin-left: 20px;
+	}
 }
 
 section.login .container-fluid .row .login-form .heading {

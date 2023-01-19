@@ -71,6 +71,12 @@ section.signup .container-fluid .signup-row .signup-column .signup-form {
 	border-radius: 10px;
 }
 
+@media only screen and (max-width: 768px) {
+	section.signup .container-fluid .signup-row .signup-column .signup-form {
+		margin-left: 20px;
+	}
+}
+
 section.signup .container-fluid .signup-row .signup-form .heading {
 	margin-bottom: 40px;
 }

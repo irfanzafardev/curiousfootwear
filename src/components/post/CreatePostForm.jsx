@@ -182,7 +182,9 @@ const CreatePostForm = ({ setOpen }) => {
 								<button className="btn btn-outline-dark" onClick={() => setOpen(false)}>
 									Discard
 								</button>
-								<button className="btn btn-dark">Create post</button>
+								<button type="submit" className="btn btn-dark">
+									Create post
+								</button>
 							</div>
 						</form>
 						<div className="mobile-message">
