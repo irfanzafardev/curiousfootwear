@@ -23,20 +23,22 @@ const SignUpForm = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const { currentUser, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+	const { isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
 
 	useEffect(() => {
 		if (isError) {
 			console.log(message);
 		}
 
-		if (isSuccess || currentUser) {
-			window.location.reload();
-			navigate("/signin");
+		if (isSuccess) {
+			// window.location.reload().then(() => {
+			// 	navigate("/signin");
+			// });
+			console.log("regis sukses");
 		}
 
 		dispatch(reset());
-	}, [currentUser, isError, isSuccess, message, navigate, dispatch]);
+	}, [isError, isSuccess, message, navigate, dispatch]);
 
 	const handleChange = (e) => {
 		setFormData({
@@ -62,6 +64,8 @@ const SignUpForm = () => {
 			console.log(userData);
 
 			dispatch(register(userData));
+			navigate("/signin");
+			console.log("Registration succeed");
 		}
 	};
 

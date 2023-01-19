@@ -5,11 +5,6 @@ const API_URL = "https://thecuriousfootwear-server.vercel.app/api/auth/"
 // Register new user
 const register = async (userData) => {
   const res = await axios.post(API_URL + 'signup', userData)
-
-  if (res.data) {
-    localStorage.setItem('user', JSON.stringify(res.data))
-  }
-
   return res.data
 }
 

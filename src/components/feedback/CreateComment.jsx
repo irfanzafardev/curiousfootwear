@@ -27,11 +27,11 @@ const CreateComment = ({ user, postId, setOpen }) => {
 	};
 
 	const handleKeyPress = (e) => {
-		if(e.key === 'Enter'){
-			handleSubmit(e)
-		} 
-	}
-	
+		if (e.key === "Enter") {
+			handleSubmit(e);
+		}
+	};
+
 	return (
 		<>
 			{user ? (

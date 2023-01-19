@@ -26,9 +26,9 @@ const SignInForm = () => {
 		}
 
 		if (isSuccess || currentUser) {
-			console.log("signin succes");
 			navigate("/");
 			window.location.reload();
+			console.log("Sign in succeed");
 		}
 
 		// dispatch(reset());
