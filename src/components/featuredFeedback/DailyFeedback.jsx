@@ -26,7 +26,7 @@ const DailyFeedback = () => {
 		},
 		tablet: {
 			breakpoint: { max: 1024, min: 464 },
-			items: 4,
+			items: 3,
 			paritialVisibilityGutter: 50,
 		},
 		mobile: {
@@ -39,7 +39,7 @@ const DailyFeedback = () => {
 		<section className="daily-feedback">
 			<div className="container-fluid">
 				<div className="heading">
-					<h1>Today's feedbacks</h1>
+					<h1>Newest feedbacks</h1>
 				</div>
 				<div className="row mt-4">
 					<Carousel responsive={responsive}>

@@ -27,7 +27,7 @@ section.category-slider .slider .item {
 }
 
 section.category-slider .slider .item .category-item {
-	width: 100%;
+	width: 100px;
 	padding-block: 4px;
 	padding-inline: 16px;
 	border-radius: 50px;

@@ -22,7 +22,7 @@ const CategorySlider = () => {
 	const responsive = {
 		desktop: {
 			breakpoint: { max: 3000, min: 1024 },
-			items: 5,
+			items: 10,
 			paritialVisibilityGutter: 60,
 		},
 		tablet: {
@@ -40,7 +40,7 @@ const CategorySlider = () => {
 		<>
 			<section className="category-slider">
 				<div className="row">
-					<div className="col-12 col-lg-6">
+					<div className="col-12 col-lg-12">
 						<div className="slider">
 							<Carousel responsive={responsive}>
 								{categories.map((item) => (

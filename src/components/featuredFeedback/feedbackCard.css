@@ -181,6 +181,12 @@ section.daily-feedback .react-multiple-carousel__arrow--right::before {
 	color: #fff !important;
 }
 
+@media only screen and (max-width: 768px) {
+	section.daily-feedback .react-multiple-carousel__arrow--right::before {
+		color: #000 !important;
+	}
+}
+
 section.daily-feedback .react-multiple-carousel__arrow--left {
 	margin-left: -36px;
 	z-index: 2;
@@ -188,11 +194,17 @@ section.daily-feedback .react-multiple-carousel__arrow--left {
 
 @media only screen and (max-width: 768px) {
 	section.daily-feedback .react-multiple-carousel__arrow--left {
-		margin-left: -26px;
+		margin-left: -32px;
 		z-index: 2;
 	}
 }
 
 section.daily-feedback .react-multiple-carousel__arrow--left::before {
 	color: #fff !important;
+}
+
+@media only screen and (max-width: 768px) {
+	section.daily-feedback .react-multiple-carousel__arrow--left::before {
+		color: #000 !important;
+	}
 }

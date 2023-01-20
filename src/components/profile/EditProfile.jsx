@@ -29,7 +29,7 @@ const EditProfile = () => {
 		<section className="edit-profile">
 			<div className="container-fluid">
 				<div className="heading">
-					<h1>Edit my profile</h1>
+					<h1>Edit My Profile</h1>
 				</div>
 				<form>
 					<div className="input-group">
@@ -65,8 +65,8 @@ const EditProfile = () => {
 						<label>Phone</label>
 					</div>
 					<div className="item-btn">
-						<button type="submit" className="btn btn-dark">
-							Update Profile
+						<button type="submit" className="btn btn-dark" disabled>
+							Update profile
 						</button>
 					</div>
 				</form>

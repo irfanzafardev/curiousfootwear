@@ -27,7 +27,6 @@ const SinglePost = () => {
 	const { comments } = useSelector((state) => state.comment);
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
-	console.log("render");
 	useEffect(() => {
 		const fetchOwner = async () => {
 			try {
@@ -36,7 +35,6 @@ const SinglePost = () => {
 				setPost(postRes.data);
 				setOwner(userRes.data);
 				dispatch(getCurrentPost(postRes.data._id));
-				console.log(userRes.data);
 				dispatch(viewPost(postRes.data._id));
 			} catch (error) {
 				console.log(error);
