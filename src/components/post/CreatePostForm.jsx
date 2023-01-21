@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
 import { createPost } from "../../services/post/postSlice";
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -118,7 +117,6 @@ const CreatePostForm = ({ setOpen }) => {
 							</div>
 							<div className="input-group">
 								{imgPerc ? <div className="upload-precentage">Uploading: {imgPerc} %</div> : ""}
-
 								<input type="file" className="upload-image" id="fileInput" accept="image/*" onChange={(e) => setImg(e.target.files[0])} required />
 								<label>
 									Image <span className="text-danger">*</span>

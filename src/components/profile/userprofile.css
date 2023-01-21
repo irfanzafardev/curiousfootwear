@@ -78,7 +78,36 @@ section.user-profile .profile .profile-details button {
 }
 
 section.user-profile .main .nav-tabs {
+	margin-block: 20px;
 	background-color: transparent;
+	border: none;
+	gap: 20px;
+}
+
+section.user-profile .main .nav-tabs button.active {
+	font-family: "Lato", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: #fff;
+	background-color: #000;
+	border: none;
+	border-radius: 50px;
+}
+
+section.user-profile .main .nav-tabs button.active:hover {
+	font-family: "Lato", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: #fff;
+	background-color: #000;
+	border: none;
+	border-radius: 50px;
 }
 
 section.user-profile .main .nav-tabs button {
@@ -89,6 +118,22 @@ section.user-profile .main .nav-tabs button {
 	letter-spacing: 0em;
 	text-align: left;
 	color: #000;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-radius: 50px;
+}
+
+section.user-profile .main .nav-tabs button:hover {
+	font-family: "Lato", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: #fff;
+	background-color: #000;
+	border: 1px solid #000;
+	border-radius: 50px;
 }
 
 .message {

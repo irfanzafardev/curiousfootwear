@@ -12,6 +12,13 @@ const MOST_LIKED_COMMENTS_BASE_URL =
   "https://thecuriousfootwear-server.vercel.app/api/comment/getCommentsByMostLiked/";
 
 // Get all comment by postId
+const getAllComment = async () => {
+  const response = await axios.get(COMMENT_BASE_URL + "all");
+
+  return response.data;
+};
+
+// Get all comment by postId
 const getAllCommentByPostId = async (postId) => {
   const response = await axios.get(ALL_COMMENT_BASE_URL + postId);
 
@@ -77,6 +84,7 @@ const getMostLikedCommentsByPostId = async (postId) => {
 };
 
 const commentService = {
+  getAllComment,
   getAllCommentByPostId,
   createComment,
   getCommentById,

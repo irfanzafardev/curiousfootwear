@@ -6,18 +6,45 @@ import "slick-carousel/slick/slick-theme.css";
 import "react-multi-carousel/lib/styles.css";
 import "./dailyfeedback.css";
 import FeedbackCard from "./FeedbackCard";
+import { useDispatch, useSelector } from "react-redux";
+import MiniSpinner from "../loading/MiniSpinner";
+import { getAllComment } from "../../services/comment/commentSlice";
+import { reset } from "../../services/post/postSlice";
 
 const DailyFeedback = () => {
-	const [feedbacks, setFeedbacks] = useState([]);
+	// const [feedbacks, setFeedbacks] = useState([]);
 
-	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/comment";
-	const fetchFeedbacks = async () => {
-		const { data } = await axios.get(rootAPI + "/all");
-		setFeedbacks(data);
-	};
+	const dispatch = useDispatch();
+	const { comments, isLoading, isError, message } = useSelector((state) => state.comment);
+
+	// const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/comment";
+	// const fetchFeedbacks = async () => {
+	// 	const { data } = await axios.get(rootAPI + "/all");
+	// 	setFeedbacks(data);
+	// };
 	useEffect(() => {
-		fetchFeedbacks();
-	}, []);
+		if (isError) {
+			console.log(message);
+		}
+		dispatch(getAllComment());
+		return () => {
+			dispatch(reset());
+		};
+	}, [isError, message, dispatch]);
+	if (isLoading) {
+		return (
+			<section className="daily-feedback">
+				<div className="container-fluid">
+					<div className="heading">
+						<h1>Newest feedbacks</h1>
+					</div>
+					<div className="row mt-4">
+						<MiniSpinner />
+					</div>
+				</div>
+			</section>
+		);
+	}
 	const responsive = {
 		desktop: {
 			breakpoint: { max: 3000, min: 1024 },
@@ -43,8 +70,8 @@ const DailyFeedback = () => {
 				</div>
 				<div className="row mt-4">
 					<Carousel responsive={responsive}>
-						{feedbacks.slice(0, 10).map((feedback) => (
-							<FeedbackCard feedback={feedback} key={feedback.id} />
+						{comments.slice(0, 10).map((comment) => (
+							<FeedbackCard comment={comment} key={comment.id} />
 						))}
 					</Carousel>
 				</div>

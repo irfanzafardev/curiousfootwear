@@ -4,7 +4,7 @@ section.edit-profile {
 
 section.edit-profile .container-fluid {
 	width: 100%;
-	padding-top: 100px;
+	padding-block: 100px;
 	padding-inline: 60px;
 }
 
@@ -22,6 +22,15 @@ section.edit-profile .heading h1 {
 	line-height: 24px;
 	letter-spacing: 0em;
 	text-align: left;
+}
+
+section.edit-profile .profile-image {
+	margin-bottom: 30px;
+}
+
+section.edit-profile .profile-image img {
+	width: 64px;
+	height: 64px;
 }
 
 section.edit-profile .input-group {
@@ -70,6 +79,30 @@ section.edit-profile .input-group label {
 
 section.edit-profile .input-group input:focus ~ label,
 section.edit-profile .input-group input:valid ~ label {
+	top: -20px;
+	left: 0;
+	color: #000;
+	font-size: 12px;
+}
+
+section.edit-profile form .input-group textarea {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 14px;
+	color: #000;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #eaeaea;
+	outline: none;
+	background: transparent;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 12px;
+	letter-spacing: 0rem;
+	color: #000;
+}
+
+section.edit-profile form .input-group textarea:focus ~ label,
+section.edit-profile form .input-group textarea:valid ~ label {
 	top: -20px;
 	left: 0;
 	color: #000;

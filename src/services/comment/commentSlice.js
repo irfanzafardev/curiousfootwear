@@ -28,6 +28,24 @@ export const createComment = createAsyncThunk(
   }
 );
 
+// Fetch all comment
+export const getAllComment = createAsyncThunk(
+  "comment/getAllComment",
+  async (thunkAPI) => {
+    try {
+      return await commentService.getAllComment();
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 // Fetch all comment by postId
 export const getAllCommentByPostId = createAsyncThunk(
   "comment/getAll",
@@ -79,6 +97,19 @@ export const commentSlice = createSlice({
         state.comments.push(action.payload);
       })
       .addCase(createComment.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      })
+      .addCase(getAllComment.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getAllComment.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.comments = action.payload;
+      })
+      .addCase(getAllComment.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;

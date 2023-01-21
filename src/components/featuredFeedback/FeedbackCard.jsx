@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./feedbackCard.css";
 
-const FeedbackCard = ({ feedback }) => {
+const FeedbackCard = ({ comment }) => {
 	const [post, setPost] = useState("");
 	const [user, setUser] = useState("");
 
@@ -12,8 +12,8 @@ const FeedbackCard = ({ feedback }) => {
 	useEffect(() => {
 		const fetchOwner = async () => {
 			try {
-				const postRes = await axios.get(rootAPI + `post/${feedback.postId}`);
-				const userRes = await axios.get(rootAPI + `user/profil/${feedback.userId}`);
+				const postRes = await axios.get(rootAPI + `post/${comment.postId}`);
+				const userRes = await axios.get(rootAPI + `user/profil/${comment.userId}`);
 				setPost(postRes.data);
 				setUser(userRes.data[0]);
 			} catch (error) {
@@ -22,7 +22,7 @@ const FeedbackCard = ({ feedback }) => {
 		};
 
 		fetchOwner();
-	}, [feedback.postId, feedback.userId]);
+	}, [comment.postId, comment.userId]);
 
 	const formatDate = (dateString) => {
 		const options = { year: "numeric", month: "long", day: "numeric" };
@@ -31,8 +31,8 @@ const FeedbackCard = ({ feedback }) => {
 	return (
 		<>
 			{post ? (
-				<div className="col-12 col-lg-3 feedback-card" key={feedback.id}>
-					<Link to={`post/${feedback.postId}`} style={{ textDecoration: "none" }}>
+				<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
+					<Link to={`post/${comment.postId}`} style={{ textDecoration: "none" }}>
 						<div
 							className="card"
 							style={{
@@ -49,16 +49,16 @@ const FeedbackCard = ({ feedback }) => {
 							<div className="card-body">
 								<div className="product-name">{post?.title}</div>
 								<div className="comment-wrapper">
-									<div className="comment-body">{feedback.body}</div>
+									<div className="comment-body">{comment.body}</div>
 									<div className="comment-info">
 										<div className="user-info">
 											<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
 											<div>
 												<div className="user-firstname">{user?.first_name}</div>
-												<div className="created-at">{formatDate(`${feedback.createdAt}`)}</div>
+												<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
 											</div>
 										</div>
-										<div className="like-info">{feedback.like.length} like</div>
+										<div className="like-info">{comment.like.length} like</div>
 									</div>
 								</div>
 							</div>
@@ -66,7 +66,7 @@ const FeedbackCard = ({ feedback }) => {
 					</Link>
 				</div>
 			) : (
-				<div className="col-12 col-lg-3 feedback-card" key={feedback.id}>
+				<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
 					<div className="card">
 						<div className="dark-layer"></div>
 						<div className="message">
@@ -75,16 +75,16 @@ const FeedbackCard = ({ feedback }) => {
 						<div className="card-body">
 							<div className="product-name">{post?.title}</div>
 							<div className="comment-wrapper">
-								<div className="comment-body">{feedback.body}</div>
+								<div className="comment-body">{comment.body}</div>
 								<div className="comment-info">
 									<div className="user-info">
 										<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
 										<div>
 											<div className="user-firstname">{user?.first_name}</div>
-											<div className="created-at">{formatDate(`${feedback.createdAt}`)}</div>
+											<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
 										</div>
 									</div>
-									<div className="like-info">{feedback.like.length} like</div>
+									<div className="like-info">{comment.like.length} like</div>
 								</div>
 							</div>
 						</div>

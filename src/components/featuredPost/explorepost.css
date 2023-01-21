@@ -46,6 +46,70 @@ section.explore-post .container-fluid .heading .icon {
 	padding: 0;
 }
 
+section.explore-post .nav-tabs {
+	margin-block: 20px;
+	background-color: transparent;
+	border: none;
+	gap: 20px;
+}
+
+section.explore-post .nav-tabs button.active {
+	width: auto;
+	padding-block: 4px;
+	padding-inline: 16px;
+	border-radius: 50px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+	line-height: 1.6;
+	color: #fff;
+	background-color: #000;
+}
+
+section.explore-post .nav-tabs button.active:hover {
+	width: auto;
+	padding-block: 4px;
+	padding-inline: 16px;
+	border-radius: 50px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+	line-height: 1.6;
+	color: #fff;
+	background-color: #000;
+}
+
+section.explore-post .nav-tabs button {
+	width: auto;
+	padding-block: 4px;
+	padding-inline: 16px;
+	border-radius: 50px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+	line-height: 1.6;
+	border: 1px solid #000;
+	color: #000;
+	background-color: #fff;
+}
+
+section.explore-post .nav-tabs button:hover {
+	width: auto;
+	padding-block: 4px;
+	padding-inline: 16px;
+	border-radius: 50px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+	line-height: 1.6;
+	color: #fff;
+	background-color: #000;
+}
+
 /* Card */
 
 section.explore-post .container-fluid .card {
