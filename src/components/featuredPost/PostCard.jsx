@@ -34,7 +34,7 @@ const PostCard = ({ post }) => {
 		fetchMostLikedComments(post.id);
 	}, [post.id]);
 	return (
-		<div className="col-12 col-lg-3">
+		<div className="col-12 col-lg-3" key={post.id}>
 			<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
 				<div className="card">
 					<div

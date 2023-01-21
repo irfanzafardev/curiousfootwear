@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../../services/auth/authSlice";
 import Spinner from "../../loading/Spinner";
+// import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./signinform.css";
 
 const SignInForm = () => {
@@ -28,7 +30,6 @@ const SignInForm = () => {
 		if (isSuccess || currentUser) {
 			navigate("/");
 			window.location.reload();
-			console.log("Sign in succeed");
 		}
 
 		// dispatch(reset());
@@ -50,7 +51,11 @@ const SignInForm = () => {
 		dispatch(login(userData));
 	};
 	if (isLoading) {
-		return <Spinner />;
+		return (
+			<>
+				<Spinner />
+			</>
+		);
 	}
 	return (
 		<>

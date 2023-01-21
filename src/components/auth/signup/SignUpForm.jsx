@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register, reset } from "../../../services/auth/authSlice";
+// import { ToastContainer, toast } from "react-toastify";
 import Spinner from "../../loading/Spinner";
 
 import "./signupform.css";
@@ -31,10 +32,7 @@ const SignUpForm = () => {
 		}
 
 		if (isSuccess) {
-			// window.location.reload().then(() => {
-			// 	navigate("/signin");
-			// });
-			console.log("regis sukses");
+			navigate("/signin");
 		}
 
 		dispatch(reset());
@@ -64,8 +62,6 @@ const SignUpForm = () => {
 			console.log(userData);
 
 			dispatch(register(userData));
-			navigate("/signin");
-			console.log("Registration succeed");
 		}
 	};
 
@@ -99,7 +95,12 @@ const SignUpForm = () => {
 	};
 
 	if (isLoading) {
-		return <Spinner />;
+		return (
+			<>
+				<Spinner />
+				{/* <ToastContainer /> */}
+			</>
+		);
 	}
 	return (
 		<>

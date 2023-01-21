@@ -138,7 +138,9 @@ const Navbar = () => {
 							<div className="modal-body">
 								<div className="modal-line">
 									<Link to={`/profile/me`} className="link">
-										<div className="modal-item">Hi, {user.first_name}</div>
+										<div className="modal-item" data-bs-dismiss="modal" aria-label="Close">
+											Hi, {user.first_name}
+										</div>
 									</Link>
 								</div>
 								<div className="modal-item">

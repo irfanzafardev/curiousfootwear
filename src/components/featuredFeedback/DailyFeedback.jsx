@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,16 +11,9 @@ import { getAllComment } from "../../services/comment/commentSlice";
 import { reset } from "../../services/post/postSlice";
 
 const DailyFeedback = () => {
-	// const [feedbacks, setFeedbacks] = useState([]);
-
 	const dispatch = useDispatch();
 	const { comments, isLoading, isError, message } = useSelector((state) => state.comment);
 
-	// const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/comment";
-	// const fetchFeedbacks = async () => {
-	// 	const { data } = await axios.get(rootAPI + "/all");
-	// 	setFeedbacks(data);
-	// };
 	useEffect(() => {
 		if (isError) {
 			console.log(message);
