@@ -83,7 +83,7 @@ const FeaturedPost = () => {
 										<Link to="/signin" className="link">
 											<span>sign in</span>{" "}
 										</Link>
-										to share your footwear.
+										to see your following posts.
 									</p>
 								</div>
 							)}

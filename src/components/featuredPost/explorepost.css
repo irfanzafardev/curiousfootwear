@@ -291,3 +291,7 @@ section.explore-post .container-fluid .explore img {
 	border-radius: 0;
 	object-fit: cover;
 }
+
+.message span {
+	color: blue;
+}
