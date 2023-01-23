@@ -142,7 +142,7 @@ const SinglePost = () => {
 										</div>
 									</div>
 									<div className="user-option">
-										{user ? (
+										{user && user.userId != post.userId ? (
 											<>
 												{currentUser.followedUsers?.includes(owner[0]?._id) ? (
 													<button className="btn btn-outline-dark" onClick={handleUnfollow}>
