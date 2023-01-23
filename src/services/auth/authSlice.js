@@ -81,6 +81,7 @@ export const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.currentUser = null
       })
+
   }
 })
 

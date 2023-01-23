@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../loading/Loading";
 import "./feedbackCard.css";
 
 const FeedbackCard = ({ comment }) => {
@@ -16,6 +17,7 @@ const FeedbackCard = ({ comment }) => {
 				const userRes = await axios.get(rootAPI + `user/profil/${comment.userId}`);
 				setPost(postRes.data);
 				setUser(userRes.data[0]);
+				// console.log(comment.userId);
 			} catch (error) {
 				console.log(error);
 			}
@@ -28,6 +30,36 @@ const FeedbackCard = ({ comment }) => {
 		const options = { year: "numeric", month: "long", day: "numeric" };
 		return new Date(dateString).toLocaleDateString(undefined, options);
 	};
+
+	if (post === null) {
+		return (
+			<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
+				<div className="card">
+					<div className="dark-layer"></div>
+					<div className="message">
+						<p>Post no longer exist</p>
+					</div>
+					<div className="card-body">
+						<div className="product-name">{post?.title}</div>
+						<div className="comment-wrapper">
+							<div className="comment-body">{comment.body}</div>
+							<div className="comment-info">
+								<div className="user-info">
+									<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
+									<div>
+										<div className="user-firstname">{user?.first_name}</div>
+										<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
+									</div>
+								</div>
+								<div className="like-info">{comment.like.length} like</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<>
 			{post ? (
@@ -66,30 +98,29 @@ const FeedbackCard = ({ comment }) => {
 					</Link>
 				</div>
 			) : (
-				<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
-					<div className="card">
-						<div className="dark-layer"></div>
-						<div className="message">
-							<p>Post no longer exist</p>
-						</div>
-						<div className="card-body">
-							<div className="product-name">{post?.title}</div>
-							<div className="comment-wrapper">
-								<div className="comment-body">{comment.body}</div>
-								<div className="comment-info">
-									<div className="user-info">
-										<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
-										<div>
-											<div className="user-firstname">{user?.first_name}</div>
-											<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
+				<>
+					<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
+						<div className="card">
+							<Loading />
+							<div className="card-body">
+								{/* <div className="product-name">{post?.title}</div>
+								<div className="comment-wrapper">
+									<div className="comment-body">{comment.body}</div>
+									<div className="comment-info">
+										<div className="user-info">
+											<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
+											<div>
+												<div className="user-firstname">{user?.first_name}</div>
+												<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
+											</div>
 										</div>
+										<div className="like-info">{comment.like.length} like</div>
 									</div>
-									<div className="like-info">{comment.like.length} like</div>
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</div>
-				</div>
+				</>
 			)}
 		</>
 	);

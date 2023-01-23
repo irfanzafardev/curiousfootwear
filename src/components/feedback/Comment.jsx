@@ -19,7 +19,7 @@ const Comment = ({ comment }) => {
 
 	const handleMouseEnter = async () => {
 		dispatch(getCommentById(comment.id));
-		console.log(comment.likeCount);
+		// console.log(comment.likeCount);
 	};
 
 	// Like a comment

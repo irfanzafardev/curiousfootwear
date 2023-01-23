@@ -5,7 +5,7 @@ import "./postcard.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 
-const PostCard = ({ post }) => {
+const FollowingPostCard = ({ followingPost }) => {
 	const [user, setUer] = useState("");
 	const dispatch = useDispatch();
 
@@ -14,16 +14,16 @@ const PostCard = ({ post }) => {
 	useEffect(() => {
 		const fetchOwner = async () => {
 			try {
-				const userRes = await axios.get(rootAPI + `user/profil/${post.userId}`);
+				const userRes = await axios.get(rootAPI + `user/profil/${followingPost.userId}`);
 				setUer(userRes.data[0]);
 				// console.log(post.userId);
 			} catch (error) {
-				console.log(error);
+				console.log(error.mesage);
 			}
 		};
 
 		fetchOwner();
-	}, [post.userId, dispatch]);
+	}, [followingPost?.userId, dispatch]);
 
 	const [mostLikedComments, setMostLikedComments] = useState([]);
 
@@ -32,18 +32,18 @@ const PostCard = ({ post }) => {
 			const commentResp = await axios.get(rootAPI + `comment/getCommentsByMostLiked/${postId}`);
 			setMostLikedComments(commentResp.data);
 		};
-		fetchMostLikedComments(post.id);
-	}, [post.id]);
+		fetchMostLikedComments(followingPost.id);
+	}, [followingPost?.id]);
 	return (
-		<div className="col-12 col-lg-3" key={post.id}>
-			<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
+		<div className="col-12 col-lg-3" key={followingPost._id}>
+			<Link to={`post/${followingPost?._id}`} style={{ textDecoration: "none" }}>
 				<div className="card">
 					<div
 						className="card-image"
 						style={{
 							width: "100%",
 							height: "216px",
-							background: `url(${post.image})`,
+							background: `url(${followingPost.image})`,
 							backgroundSize: "cover",
 							objectFit: "cover",
 							borderRadius: "10px",
@@ -62,7 +62,7 @@ const PostCard = ({ post }) => {
 							<div className="price-detail">
 								<div>
 									<div className="label">Initial price</div>
-									<div className="value">IDR{post.price}</div>
+									<div className="value">IDR{followingPost.price}</div>
 								</div>
 								<div>
 									<div className="label">Most suggested price</div>
@@ -72,15 +72,15 @@ const PostCard = ({ post }) => {
 						</div>
 					</div>
 					<div className="card-body">
-						<h2 className="post-title">{post.title}</h2>
+						<h2 className="post-title">{followingPost.title}</h2>
 						<div className="price row">
 							<div className="col-8">
-								<p className="post-category">{post.category}</p>
+								<p className="post-category">{followingPost.category}</p>
 							</div>
 							<div className="col-4">
 								<div className="post-view">
 									<AiFillEye />
-									<span>{post?.view}</span>
+									<span>{followingPost?.view}</span>
 								</div>
 							</div>
 						</div>
@@ -91,4 +91,4 @@ const PostCard = ({ post }) => {
 	);
 };
 
-export default PostCard;
+export default FollowingPostCard;

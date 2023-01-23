@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Comments from "../feedback/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 
-import { AiOutlineHeart, AiFillHeart, AiOutlineMessage, AiOutlinePlus, AiFillInfoCircle } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineMessage, AiOutlinePlus, AiFillInfoCircle, AiOutlineCheck } from "react-icons/ai";
 import { RiShareForwardLine } from "react-icons/ri";
 import { FaRegComment } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
@@ -13,21 +13,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCurrentPost, likePost, unlikePost, deletePost, viewPost } from "../../services/post/postSlice";
 import "./singlepost.css";
 import SuggestedPrice from "./SuggestedPrice";
+import { followUser, getCurrentUser, unfollowUser } from "../../services/user/userSlice";
 
 const SinglePost = () => {
+	const { user } = useSelector((state) => state.auth);
+	const { currentUser } = useSelector((state) => state.user);
+	const { posts } = useSelector((state) => state.post);
+	const { comments } = useSelector((state) => state.comment);
 	const path = useLocation().pathname.split("/")[2];
 	const [post, setPost] = useState("");
 	const [owner, setOwner] = useState("");
+	// console.log(owner[0]?._id);
+	// // console.log(user.followedUsers?.includes(owner[0]._id));
+	// console.log(user);
+
 	const [open, setOpen] = useState(false);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { user } = useSelector((state) => state.auth);
-	const { posts } = useSelector((state) => state.post);
-	const { comments } = useSelector((state) => state.comment);
+
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
 	useEffect(() => {
+		if (user) {
+			dispatch(getCurrentUser(user?.userId));
+		}
 		const fetchOwner = async () => {
 			try {
 				const postRes = await axios.get(rootAPI + "post/" + path);
@@ -42,7 +52,7 @@ const SinglePost = () => {
 		};
 
 		fetchOwner();
-	}, [path, dispatch]);
+	}, [path, dispatch, user, user?.userId]);
 
 	// Format date
 	const formatDate = (dateString) => {
@@ -61,6 +71,17 @@ const SinglePost = () => {
 	// Unlike post
 	const handleUnlike = () => {
 		dispatch(unlikePost(post._id));
+	};
+
+	// Follow/unfollow user
+	const handleFollow = async () => {
+		dispatch(followUser(owner[0]._id));
+		// alert(owner[0].userId);
+	};
+
+	const handleUnfollow = async () => {
+		dispatch(unfollowUser(owner[0]._id));
+		// alert(owner[0].userId);
 	};
 
 	// Delete post
@@ -122,10 +143,19 @@ const SinglePost = () => {
 									</div>
 									<div className="user-option">
 										{user ? (
-											<button className="btn btn-dark" disabled>
-												<AiOutlinePlus />
-												Follow
-											</button>
+											<>
+												{currentUser.followedUsers?.includes(owner[0]?._id) ? (
+													<button className="btn btn-outline-dark" onClick={handleUnfollow}>
+														<AiOutlineCheck />
+														Followed
+													</button>
+												) : (
+													<button className="btn btn-dark" onClick={handleFollow}>
+														<AiOutlinePlus />
+														Follow
+													</button>
+												)}
+											</>
 										) : (
 											""
 										)}
@@ -238,10 +268,10 @@ const SinglePost = () => {
 													</div>
 												</div>
 												<div className="product-option">
-													<button className="btn btn-outline-dark" disabled>
+													<a className="btn btn-outline-dark" href={`https://api.whatsapp.com/send?phone=${owner[0].phone_number}`} target="_blank" rel="noreferrer">
 														<AiOutlineMessage className="me-1" />
 														Contact owner
-													</button>
+													</a>
 													<button className="btn btn-dark" onClick={() => setOpen(true)}>
 														Give Feedback
 													</button>

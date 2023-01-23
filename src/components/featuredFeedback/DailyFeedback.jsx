@@ -9,12 +9,17 @@ import { useDispatch, useSelector } from "react-redux";
 import MiniSpinner from "../loading/MiniSpinner";
 import { getAllComment } from "../../services/comment/commentSlice";
 import { reset } from "../../services/post/postSlice";
+import { getCurrentUser } from "../../services/user/userSlice";
 
 const DailyFeedback = () => {
+	const { user } = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 	const { comments, isLoading, isError, message } = useSelector((state) => state.comment);
 
 	useEffect(() => {
+		if (user) {
+			dispatch(getCurrentUser(user?.userId));
+		}
 		if (isError) {
 			console.log(message);
 		}
@@ -22,7 +27,7 @@ const DailyFeedback = () => {
 		return () => {
 			dispatch(reset());
 		};
-	}, [isError, message, dispatch]);
+	}, [isError, message, dispatch, user, user?.userId]);
 	if (isLoading) {
 		return (
 			<section className="daily-feedback">
@@ -62,7 +67,7 @@ const DailyFeedback = () => {
 				</div>
 				<div className="row mt-4">
 					<Carousel responsive={responsive}>
-						{comments.slice(0, 10).map((comment) => (
+						{comments.slice(0, 6).map((comment) => (
 							<FeedbackCard comment={comment} key={comment.id} />
 						))}
 					</Carousel>

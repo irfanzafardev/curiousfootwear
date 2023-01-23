@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PostCard from "./PostCard";
 import MiniSpinner from "../loading/MiniSpinner";
 import Null from "../loading/Null";
@@ -7,12 +7,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllPost, reset } from "../../services/post/postSlice";
 
 import "./explorepost.css";
+import FollowingPostCard from "./FollowingPostCard";
+import axios from "axios";
 
 const FeaturedPost = () => {
+	const { currentUser } = useSelector((state) => state.user);
 	const dispatch = useDispatch();
 	const { posts, isLoading, isError, message } = useSelector((state) => state.post);
+	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
+	const [followingPosts, setFollowingPosts] = useState("");
 
 	useEffect(() => {
+		if (currentUser) {
+			const fetchFollowingPost = async () => {
+				try {
+					const postRes = await axios.get(rootAPI + `post/following/${currentUser._id}`);
+					setFollowingPosts(postRes.data);
+				} catch (error) {
+					console.log(error);
+				}
+			};
+			fetchFollowingPost();
+		}
 		if (isError) {
 			console.log(message);
 		}
@@ -20,8 +36,7 @@ const FeaturedPost = () => {
 		return () => {
 			dispatch(reset());
 		};
-		// fetchPostsById();
-	}, [isError, message, dispatch]);
+	}, [isError, message, dispatch, currentUser, currentUser._id]);
 
 	if (isLoading) {
 		return (
@@ -59,7 +74,8 @@ const FeaturedPost = () => {
 						</div>
 						<div className="tab-pane fade p-3" id="nav-bookmark" role="tabpanel" aria-labelledby="nav-bookmark-tab">
 							<div className="message">
-								<p>To be developed</p>
+								{/* <p>To be developed</p> */}
+								<div className="row">{followingPosts.length > 0 ? followingPosts.map((followingPost) => <FollowingPostCard key={followingPost._id} followingPost={followingPost} />) : <Null />}</div>
 							</div>
 						</div>
 					</div>
