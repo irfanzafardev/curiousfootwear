@@ -20,7 +20,6 @@ const ProfilePagePostCard = ({ post }) => {
 			try {
 				const userRes = await axios.get(rootAPI + `user/profil/${post.userId}`);
 				setUer(userRes.data[0]);
-				console.log(post._id);
 			} catch (error) {
 				console.log(error);
 			}

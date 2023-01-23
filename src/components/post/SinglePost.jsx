@@ -142,7 +142,7 @@ const SinglePost = () => {
 										</div>
 									</div>
 									<div className="user-option">
-										{user && user.userId != post.userId ? (
+										{user && user.userId.toString() !== post.userId ? (
 											<>
 												{currentUser.followedUsers?.includes(owner[0]?._id) ? (
 													<button className="btn btn-outline-dark" onClick={handleUnfollow}>
@@ -290,11 +290,20 @@ const SinglePost = () => {
 														</div>
 													</div>
 													<div className="user-option">
-														{user ? (
-															<button className="btn btn-dark" disabled>
-																<AiOutlinePlus />
-																Follow
-															</button>
+														{user && user.userId.toString() !== post.userId ? (
+															<>
+																{currentUser.followedUsers?.includes(owner[0]?._id) ? (
+																	<button className="btn btn-outline-dark" onClick={handleUnfollow}>
+																		<AiOutlineCheck />
+																		Followed
+																	</button>
+																) : (
+																	<button className="btn btn-dark" onClick={handleFollow}>
+																		<AiOutlinePlus />
+																		Follow
+																	</button>
+																)}
+															</>
 														) : (
 															""
 														)}

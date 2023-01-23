@@ -8,7 +8,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import app from "../../firebase";
 
 import "./createpostform.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreatePostForm = ({ setOpen }) => {
 	const { user } = useSelector((state) => state.auth);
@@ -20,7 +20,7 @@ const CreatePostForm = ({ setOpen }) => {
 	const [imgPerc, setImgPerc] = useState(0);
 
 	const dispatch = useDispatch();
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const uploadFile = (file, urlType) => {
 		const storage = getStorage(app);
@@ -69,8 +69,8 @@ const CreatePostForm = ({ setOpen }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(createPost(inputs)).then(() => {
-			console.log(inputs);
 			setOpen(false);
+			navigate("/profile/me");
 			window.location.reload();
 		});
 	};
@@ -133,16 +133,17 @@ const CreatePostForm = ({ setOpen }) => {
 								</div>
 								<div className="col-6">
 									<div className="input-group">
-										<select className="form-select" name="category" onChange={handleChange} required>
-											<option>
-												Select Category <span className="text-danger">*</span>
-											</option>
+										<select className="form-select mt-2" name="category" onChange={handleChange} required>
+											<option>Select Category</option>
 											{categories.map((item) => (
 												<option key={item.categoryId} value={item.name}>
 													{item.name}
 												</option>
 											))}
 										</select>
+										<label>
+											Category <span className="text-danger">*</span>
+										</label>
 									</div>
 								</div>
 							</div>
@@ -164,11 +165,6 @@ const CreatePostForm = ({ setOpen }) => {
 									</div>
 								</div>
 							</div>
-							{/* <div className="input-group">
-						<input type="text" name="condition" onChange={handleChange}></input>
-						<label>Product condition</label>
-					</div> */}
-
 							<div className="input-group">
 								<textarea type="text" name="description" onChange={handleChange}></textarea>
 								<label>

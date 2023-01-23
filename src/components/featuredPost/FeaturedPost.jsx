@@ -9,6 +9,7 @@ import { getAllPost, reset } from "../../services/post/postSlice";
 import "./explorepost.css";
 import FollowingPostCard from "./FollowingPostCard";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const FeaturedPost = () => {
 	const { currentUser } = useSelector((state) => state.user);
@@ -72,11 +73,20 @@ const FeaturedPost = () => {
 						<div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 							<div className="row">{posts.length > 0 ? posts.map((post) => <PostCard key={post.id} post={post} />) : <Null />}</div>
 						</div>
-						<div className="tab-pane fade p-3" id="nav-bookmark" role="tabpanel" aria-labelledby="nav-bookmark-tab">
-							<div className="message">
-								{/* <p>To be developed</p> */}
+						<div className="tab-pane fade" id="nav-bookmark" role="tabpanel" aria-labelledby="nav-bookmark-tab">
+							{currentUser ? (
 								<div className="row">{followingPosts.length > 0 ? followingPosts.map((followingPost) => <FollowingPostCard key={followingPost._id} followingPost={followingPost} />) : <Null />}</div>
-							</div>
+							) : (
+								<div className="message">
+									<p>
+										Please{" "}
+										<Link to="/signin" className="link">
+											<span>sign in</span>{" "}
+										</Link>
+										to share your footwear.
+									</p>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

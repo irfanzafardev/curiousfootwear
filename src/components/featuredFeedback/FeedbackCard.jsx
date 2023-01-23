@@ -33,25 +33,27 @@ const FeedbackCard = ({ comment }) => {
 
 	if (post === null) {
 		return (
-			<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
-				<div className="card">
-					<div className="dark-layer"></div>
-					<div className="message">
-						<p>Post no longer exist</p>
-					</div>
-					<div className="card-body">
-						<div className="product-name">{post?.title}</div>
-						<div className="comment-wrapper">
-							<div className="comment-body">{comment.body}</div>
-							<div className="comment-info">
-								<div className="user-info">
-									<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
-									<div>
-										<div className="user-firstname">{user?.first_name}</div>
-										<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
+			<div className="feedback-card-wrapper">
+				<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
+					<div className="card">
+						<div className="dark-layer"></div>
+						<div className="message">
+							<p>Post no longer exist</p>
+						</div>
+						<div className="card-body">
+							<div className="product-name">{post?.title}</div>
+							<div className="comment-wrapper">
+								<div className="comment-body">{comment.body}</div>
+								<div className="comment-info">
+									<div className="user-info">
+										<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
+										<div>
+											<div className="user-firstname">{user?.first_name}</div>
+											<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
+										</div>
 									</div>
+									<div className="like-info">{comment.like.length} like</div>
 								</div>
-								<div className="like-info">{comment.like.length} like</div>
 							</div>
 						</div>
 					</div>
@@ -63,47 +65,49 @@ const FeedbackCard = ({ comment }) => {
 	return (
 		<>
 			{post ? (
-				<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
-					<Link to={`post/${comment.postId}`} style={{ textDecoration: "none" }}>
-						<div
-							className="card"
-							style={{
-								width: "320px",
-								height: "146px",
-								// background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.pexels.com/photos/1070360/pexels-photo-1070360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")`,
-								background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${post?.image})`,
-								backgroundSize: "cover",
-								backgroundRepeat: "no-repeat",
-								backgroundPosition: "center center",
-								borderRadius: "12px",
-							}}
-						>
-							<div className="card-body">
-								<div className="product-name">{post?.title}</div>
-								<div className="comment-wrapper">
-									<div className="comment-body">{comment.body}</div>
-									<div className="comment-info">
-										<div className="user-info">
-											<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
-											<div>
-												<div className="user-firstname">{user?.first_name}</div>
-												<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
+				<div className="feedback-card-wrapper">
+					<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
+						<Link to={`post/${comment.postId}`} style={{ textDecoration: "none" }}>
+							<div
+								className="card"
+								style={{
+									width: "320px",
+									height: "146px",
+									// background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.pexels.com/photos/1070360/pexels-photo-1070360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")`,
+									background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${post?.image})`,
+									backgroundRepeat: "no-repeat",
+									backgroundPosition: "center center",
+									borderRadius: "12px",
+								}}
+							>
+								<div className="card-body">
+									<div className="product-name">{post?.title}</div>
+									<div className="comment-wrapper">
+										<div className="comment-body">{comment.body}</div>
+										<div className="comment-info">
+											<div className="user-info">
+												<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
+												<div>
+													<div className="user-firstname">{user?.first_name}</div>
+													<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
+												</div>
 											</div>
+											<div className="like-info">{comment.like.length} like</div>
 										</div>
-										<div className="like-info">{comment.like.length} like</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</Link>
+						</Link>
+					</div>
 				</div>
 			) : (
 				<>
-					<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
-						<div className="card">
-							<Loading />
-							<div className="card-body">
-								{/* <div className="product-name">{post?.title}</div>
+					<div className="feedback-card-wrapper">
+						<div className="col-12 col-lg-3 feedback-card" key={comment.id}>
+							<div className="card">
+								<Loading />
+								<div className="card-body">
+									{/* <div className="product-name">{post?.title}</div>
 								<div className="comment-wrapper">
 									<div className="comment-body">{comment.body}</div>
 									<div className="comment-info">
@@ -117,6 +121,7 @@ const FeedbackCard = ({ comment }) => {
 										<div className="like-info">{comment.like.length} like</div>
 									</div>
 								</div> */}
+								</div>
 							</div>
 						</div>
 					</div>
