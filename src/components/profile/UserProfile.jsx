@@ -11,15 +11,17 @@ const UserProfile = () => {
 	const { user } = useSelector((state) => state.auth);
 	const [currentUser, setCurrentUser] = useState([]);
 	const [posts, setPosts] = useState([]);
-
+	const [statistics, setStatistics] = useState([]);
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api";
 
 	useEffect(() => {
 		const fetchCurrentUser = async () => {
 			const profileRes = await axios.get(rootAPI + "/user/profil/" + user.userId);
 			const postsRes = await axios.get(rootAPI + "/post/user/" + user.userId);
+			const statisticRes = await axios.get(rootAPI + "/user/follower/" + profileRes.data[0]._id);
 			setCurrentUser(profileRes.data);
 			setPosts(postsRes.data);
+			setStatistics(statisticRes.data);
 		};
 		fetchCurrentUser();
 	}, [user.userId]);
@@ -29,17 +31,23 @@ const UserProfile = () => {
 				<header>
 					<div className="profile">
 						<div className="profile-image">
-							<div className="user-image">{currentUser[0]?.image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+							<div className="user-image">{currentUser[0]?.image ? <img src={currentUser[0]?.image} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
 						</div>
 						<div className="profile-details">
 							<div className="user-fullname">
 								{currentUser[0]?.first_name} {currentUser[0]?.last_name}
 							</div>
 							<div className="user-username">@{currentUser[0]?.username}</div>
-							<div className="user-statistic d-none">
-								<div className="post-length">Post</div>
-								<div className="follower-length">Follower</div>
-								<div className="following-length">Following</div>
+							<div className="user-statistic">
+								<div className="post-length">
+									<span>{posts.length}</span> Post
+								</div>
+								<div className="follower-length">
+									<span>{statistics[0]?.follower}</span> Follower
+								</div>
+								<div className="following-length">
+									<span>{statistics[0]?.following}</span> Following
+								</div>
 							</div>
 							<Link to="/profile/edit" className="link">
 								<button className="btn btn-dark">Edit profile</button>

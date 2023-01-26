@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPost, reset } from "../../services/post/postSlice";
+import axios from "axios";
+
 import PostCard from "./PostCard";
 import MiniSpinner from "../loading/MiniSpinner";
 import Null from "../loading/Null";
 // import CategorySlider from "../category/CategorySlider";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllPost, reset } from "../../services/post/postSlice";
-
-import "./explorepost.css";
+// import InfiniteScroll from "react-infinite-scroll-component";
 import FollowingPostCard from "./FollowingPostCard";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import "./explorepost.css";
 
 const FeaturedPost = () => {
 	const { currentUser } = useSelector((state) => state.user);
@@ -17,6 +18,19 @@ const FeaturedPost = () => {
 	const { posts, isLoading, isError, message } = useSelector((state) => state.post);
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 	const [followingPosts, setFollowingPosts] = useState("");
+	// const [dataSource, setDataSource] = useState(Array.from({ length: 20 }));
+	// const [hasMore, setHasMore] = useState(true);
+
+	// const fetchMoreData = () => {
+	// 	//Api call
+	// 	setTimeout(() => {
+	// 		if (dataSource.length < 200) {
+	// 			setDataSource(dataSource.concat(Array.from({ length: 20 })));
+	// 		} else {
+	// 			setHasMore(false);
+	// 		}
+	// 	}, 3000);
+	// };
 
 	useEffect(() => {
 		if (currentUser) {
@@ -60,7 +74,16 @@ const FeaturedPost = () => {
 					<div className="heading">
 						<h1>Featured posts</h1>
 					</div>
-					<div className="category-slider">{/* <CategorySlider /> */}</div>
+					{/* <InfiniteScroll dataLength={dataSource.length} next={fetchMoreData} hasMore={hasMore} loader={<p className="loading-infinite">Loading...</p>} endMessage={<p>No more data to load</p>}>
+						{dataSource.map((item, index) => {
+							return (
+								<div key={index} className="wraper">
+									<p>data : #{index + 1}</p>
+								</div>
+							);
+						})}
+					</InfiniteScroll> */}
+					{/* <div className="row">{posts.length > 0 ? posts.map((post) => <PostCard key={post.id} post={post} />) : <Null />}</div> */}
 					<div className="nav nav-tabs" id="nav-tab" role="tablist">
 						<button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
 							All

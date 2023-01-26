@@ -70,12 +70,12 @@ const Navbar = () => {
 								</div>
 								<div className="item">
 									<div className="user" onClick={toggleClass}>
-										<div className="user-profile">{user.image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+										<div className="user-profile">{user.image ? <img src={user.image} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
 										Hi, {user.first_name}
 									</div>
 									<div className={isActive ? "dropdown d-block" : "dropdown d-none"}>
 										<div className="dropdown-item">
-											<div className="profile-image">{user.image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+											<div className="profile-image">{user.image ? <img src={user.image} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
 											<div className="user-name">
 												{user.first_name} {user.last_name}
 											</div>

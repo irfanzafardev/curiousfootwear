@@ -60,6 +60,10 @@ section.user-profile .profile .profile-details .user-statistic {
 	text-align: left;
 }
 
+section.user-profile .profile .profile-details .user-statistic span {
+	font-weight: 700;
+}
+
 section.user-profile .profile .profile-details button {
 	width: auto;
 	margin: 10px 0;

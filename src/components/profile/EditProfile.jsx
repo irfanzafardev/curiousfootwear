@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import app from "../../firebase";
 import "./editProfile.css";
+// import { editProfile } from "../../services/user/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
 	const { user } = useSelector((state) => state.auth);
@@ -78,9 +80,20 @@ const EditProfile = () => {
 		});
 	};
 
+	// const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(inputs);
+		const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/user/profil/edit/";
+		const editProfile = async () => {
+			await axios.put(rootAPI + user.userId, inputs);
+		};
+		editProfile().then(() => {
+			navigate("/profile/me");
+			window.location.reload();
+		});
+		// dispatch(editProfile(user.userId, inputs));
 	};
 	return (
 		<section className="edit-profile">
@@ -89,7 +102,7 @@ const EditProfile = () => {
 					<h1>Edit My Profile</h1>
 				</div>
 				<form onSubmit={handleSubmit}>
-					<div className="profile-image">{profileImg.image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+					<div className="profile-image">{profileImg ? <img src={profileImg} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
 					<div className="input-group">
 						{imgPerc ? <div className="upload-precentage">Uploading: {imgPerc} %</div> : ""}
 						<input type="file" className="upload-image" id="fileInput" accept="image/*" onChange={(e) => setImg(e.target.files[0])} />

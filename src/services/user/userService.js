@@ -1,6 +1,7 @@
 import axios from "axios"
 
 const USER_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/"
+const EDIT_USER_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/profil/edit/"
 
 // Get current user
 const getCurrentUser = async (userId) => {
@@ -43,10 +44,18 @@ const unfollowUser = async (userId, token) => {
   // return response.data
 }
 
+// Create new post
+const editProfile = async (userId, profileData, token) => {
+  const response = await axios.put(EDIT_USER_BASE_URL + userId, profileData)
+
+  return response.data
+}
+
 const userService = {
   getCurrentUser,
   followUser,
-  unfollowUser
+  unfollowUser,
+  editProfile
 }
 
 export default userService

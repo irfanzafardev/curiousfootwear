@@ -65,6 +65,25 @@ export const unfollowUser = createAsyncThunk(
   }
 )
 
+// edit user profile
+export const editProfile = createAsyncThunk(
+  'user/edit',
+  async (profileData, thunkAPI) => {
+    try {
+      return await userService.editProfile(profileData)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+
 
 export const userSlice = createSlice({
   name: 'user',
@@ -106,6 +125,19 @@ export const userSlice = createSlice({
           ),
           1
         );
+      })
+      .addCase(editProfile.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(editProfile.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.currentUser = action.payload
+      })
+      .addCase(editProfile.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
       })
   }
 })

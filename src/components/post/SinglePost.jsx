@@ -131,7 +131,7 @@ const SinglePost = () => {
 								</div>
 								<div className="product-owner">
 									<div className="user-profile">
-										<div className="user-image">{owner[0].image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+										<div className="user-image">{owner[0].image ? <img src={owner[0].image} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
 										<div className="user-info">
 											<div>
 												<div className="username">
@@ -278,7 +278,7 @@ const SinglePost = () => {
 												</div>
 												<div className="product-owner">
 													<div className="user-profile">
-														<div className="user-image">{owner[0].image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+														<div className="user-image">{owner[0].image ? <img src={owner[0].image} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
 														<div className="user-info">
 															<div>
 																<div className="username">
