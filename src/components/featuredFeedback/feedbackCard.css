@@ -149,6 +149,7 @@
 	margin-right: 6px;
 	width: 34px;
 	height: 34px;
+	border-radius: 100%;
 }
 
 .feedback-card .card-body .comment-wrapper .comment-info .user-info .user-firstname {

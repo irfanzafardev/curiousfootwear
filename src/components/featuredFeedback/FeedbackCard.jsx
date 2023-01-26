@@ -86,7 +86,7 @@ const FeedbackCard = ({ comment }) => {
 										<div className="comment-body">{comment.body}</div>
 										<div className="comment-info">
 											<div className="user-info">
-												<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="profile" />
+												{user.image ? <img src={user.image} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}
 												<div>
 													<div className="user-firstname">{user?.first_name}</div>
 													<div className="created-at">{formatDate(`${comment.createdAt}`)}</div>
